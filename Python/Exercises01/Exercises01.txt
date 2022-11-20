@@ -1,0 +1,30 @@
+Introducción a la programación / Línea tecnología - FIT
+Ejercicios Python 1
+1) Debe ingresar, se pide realizar un programa que intercambie los valores de ambas
+variables y muestre cuánto valen al final las dos variables (recuerda la asignación).
+2) Desarrolle un programa que lea dos números y despliegue por pantalla el valor de su
+suma, resta, producto y división.
+3) Desarrolle un programa que lea dos números y nos diga cuál de ellos es mayor o bien
+si son iguales.
+4) Algoritmo que lea tres números distintos y nos diga cuál de ellos es el mayor.
+5) Realizar un algoritmo que lea un número por teclado. En caso de que ese número sea
+0 o menor que 0, se saldrá del programa imprimiendo antes un mensaje de error. Si
+es mayor que 0, se deberá calcular su cuadrado y la raíz cuadrada del mismo,
+visualizando el número que ha tecleado el usuario y su resultado (“Del número X, su
+potencia es X y su raíz X”).
+6) Desarrolle un programa que solicite el ingreso de una letra y determine si es una
+vocal o no.
+7) Desarrolle un programa que determine si un número es primo o no. Los números
+primos son aquellos que al dividirlos por 2 su resto no es exacto, a excepción del
+número 2.
+8) Desarrolle un programa que calcule “qué nota necesito para aprobar” en la tercera
+solemne considerando las siguientes ponderaciones. Nota 1: 25%, Nota 2: 25%, Nota
+3: 30%, Controles: 20%. El programa deberá solicitar nota 1, nota 2 y la nota de
+controles. Considere que la nota final de aprobación es de un 4.0
+9) Crear un programa que solicite por pantalla la cantidad de hombres y el total de
+personas de un salón de clase y calcule el porcentaje de mujeres y hombres que hay.
+10) Elaborar un algoritmo que solicite dos números enteros y un operador aritmético y
+luego debe mostrar el resultado de la operación correspondiente
+11) Proponer 3 ejercicios donde se pueda aplicar la estructura condicional (if - elif - else),
+estos deben ser distintos a los vistos en clases y los puntos anteriores.
+Incluya enunciado y posibles soluciones.

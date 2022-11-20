@@ -1,0 +1,25 @@
+Ejercicios Python 2
+Intentar resolver cada ejercicio con WHILE y luego con FOR.
+1) Hacer un programa que imprima los números del 0 al 100, en orden creciente.
+2) Hacer un programa que imprima los números del 100 al 0, en orden decreciente.
+3) Hacer un programa que imprima los números pares entre 0 y 100.
+4) Hacer un programa que imprima la suma de los 100 primeros números, utilice el
+ciclo while.
+5) Hacer un programa que imprima los números impares hasta el 100 y que imprima
+cuantos impares hay. Utilice el ciclo while.
+6) Hacer un programa que muestre la tabla de multiplicar del 1 al 12 de cualquier
+número ingresado por pantalla. Puede utilizar el ciclo while o for.
+7) Hacer un programa que recorra los elementos de las siguientes lista:
+nombres = ['Juan', 'Pedro', 'Ramiro', 'Andrea', 'Carlos', 'Antonio']
+edad = [22,24,18,15,31,29]
+Luego hacer que el programa despliegue el nombre y la edad de la siguiente forma.
+Nombre: Juan - Edad: 22
+Nombre: Pedro - Edad: 24
+8) Escriba una función que tome una lista de números y muestre por pantalla la suma
+acumulada, es decir el primer elemento es el mismo, el segundo elemento es la
+suma del primero con el segundo, el tercer elemento es la suma del resultado
+anterior con el siguiente elemento y así sucesivamente. Por ejemplo, la suma
+acumulada de [1,2,3,4] es 1, 3, 6,10.
+9) Proponer 3 ejercicios donde se pueda aplicar la estructura condicional (if - elif -
+else-for-while), estos deben ser distintos a los vistos en clases y los puntos anteriores.
+Incluya enunciado y posibles soluciones.
