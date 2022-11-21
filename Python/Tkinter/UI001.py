@@ -47,7 +47,7 @@ GridColorDark01="#851722"
 GridColorDark02="#0f7368"
 
 for i in range (10):
-	root.columnconfigure(i,minsize=100,weight=1)
+	root.columnconfigure(i,minsize=10,weight=1)
 	root.rowconfigure(i,minsize=10,weight=1)
 	for j in range (10):
 		Check=0
@@ -74,8 +74,5 @@ for i in range (10):
 				MainGrid[i][j]	=MyLib.Label(bg=GridColor01, fg=GridColor01,width=MainGridWidth,height=MainGridHeight)
 			else:
 				MainGrid[i][j]	=MyLib.Label(bg=GridColor02, fg=GridColor02,width=MainGridWidth,height=MainGridHeight)
-
-		
 		MainGrid[i][j].grid(row=i,column=j)
-
 root.mainloop()
