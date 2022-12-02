@@ -1,0 +1,4 @@
+# ignore ALL .pdf files
+*.pdf
+*.jpg
+*.png
