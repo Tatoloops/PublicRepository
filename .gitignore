@@ -1,7 +1,8 @@
 # ignore ALL .pdf files
 *.pdf
-*.jpg
-*.png
-*.txt
-*.class
-*.jar
+
+
+
+
+/Java projects/SocialCompany/target/
+/Java projects/LearningPacks/target/
