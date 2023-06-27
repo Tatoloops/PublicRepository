@@ -3,7 +3,6 @@ package tatoloops.learningpacks.view;
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
-import javax.swing.JTextArea;
 
 public class ToFrame {
     public static void ToFrame(JLayeredPane pane,MatrixCell[][] matrix){
@@ -11,9 +10,9 @@ public class ToFrame {
         int heightInCells=MatrixCell.getHeightInCells();
         int width=MatrixCell.getWidthInCells();
         
-        int labelWidth=128;
-        int labelHeight=32;
-        int spaceBetweenCells=16;
+        int labelWidth=256;
+        int labelHeight=16;
+        int spaceBetweenCells=8;
         
         int cellHeight=labelHeight*MatrixCell.getMaxLabelsPerCell();
         
@@ -41,6 +40,7 @@ public class ToFrame {
                     int boxLeft=i*(labelWidth+spaceBetweenCells)+spaceBetweenCells;
                     //System.out.println("boxTop: "+boxTop);
                     //System.out.println("boxLeft: "+boxLeft);
+                    System.out.println("j: "+j + "  i: "+i);
                     myLabel[labelRow][i] = new JLabel(matrix[j][i].getLine(tempA));
                     //System.out.println("a");
                     myLabel[labelRow][i].setBounds(boxLeft,boxTop, labelWidth, labelHeight);

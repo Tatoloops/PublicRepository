@@ -6,7 +6,16 @@ class Cuenta {
     
     private String owner;
     //private String ClientId;
-
+    Cuenta(){
+        
+    }
+    
+    Cuenta(int id,int money,String owner){
+        this.id = id;
+        this.money=money;
+        this.owner=owner;
+    }
+    
     public String getOwner() {
         return owner;
     }
@@ -19,13 +28,10 @@ class Cuenta {
         return money;
     }
 
-    public void setOwner(String owner) {
-        this.owner = owner;
-    }
+    //public void setOwner(String owner) {
+    //    this.owner = owner;
+    //}
     
 
-    Cuenta(int id,int money){
-        this.id = id;
-        this.money=money;
-    }
+    
 }
