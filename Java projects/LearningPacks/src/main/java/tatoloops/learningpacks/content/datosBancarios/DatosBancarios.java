@@ -1,14 +1,11 @@
 package tatoloops.learningpacks.content.datosBancarios;
 
-import java.util.ArrayList;
 import java.util.Scanner;
-import javax.swing.JLayeredPane;
 import tatoloops.learningpacks.view.MatrixCell;
 import tatoloops.learningpacks.view.ToFrame;
 
 public class DatosBancarios {
     
-
     public static void main (){
         Scanner myScanner = new Scanner(System.in);
         System.out.print("Numero de clientes a ingresar: ");
@@ -45,7 +42,7 @@ public class DatosBancarios {
             
         }
         
-        System.out.println("total cuentas: "+ totalCuentas);
+        //System.out.println("total cuentas: "+ totalCuentas);
         // Preparando los datos para impresion
         Cuenta[] cuentaList = new Cuenta[totalCuentas];
         int totalCount=0;
@@ -65,34 +62,16 @@ public class DatosBancarios {
 
         }
      
-        ToView(clienteList,cuentaList);
+        PackToFrame(clienteList,cuentaList);
     }
-    /*
-    public static void mainLegacy (JLayeredPane pane){
-        Cuenta[] cuentaList = new Cuenta[4];
-        Cliente[] clienteList = new Cliente[2];
-        
-        cuentaList[0] = new Cuenta(100,5000000);
-        cuentaList[1] = new Cuenta(102,400000);
-        cuentaList[2] = new Cuenta(301,120);
-        cuentaList[3] = new Cuenta(400,650345);
-        
-        clienteList[0] = new Cliente("Juan",3);
-        clienteList[1] = new Cliente("Marcela",1);
-        
-        for (int i =0; i<2;i++){
-            for(int j=0;j< clienteList[i].getNumCuentas();j++){
-                System.out.println("i="+i);
-                clienteList[i].myCuenta.add(cuentaList[j]);
-                clienteList[i].myCuenta.get(j).setOwner(clienteList[i].getName());
-            }
-        }
-        ToView(clienteList,cuentaList);
-    }
-    */
-    private static void ToView(Cliente[] clienteList,Cuenta[] cuentaList){
-        JLayeredPane pane = new JLayeredPane();
-        
+    
+    /**
+     *
+     * @param clienteList Array of clients
+     * @param cuentaList Array of bank accounts
+     */
+    //@Override
+    public static void PackToFrame(Cliente[] clienteList,Cuenta[] cuentaList){
         //get dimensions
         int widthInCells=2;
         int heightInCells=0;
@@ -100,10 +79,6 @@ public class DatosBancarios {
             heightInCells++;
         }
 
-        
-        System.out.println("height= "+heightInCells);
-        //create arrays with dimensions
-        
         MatrixCell[][] matrix = new MatrixCell [heightInCells][widthInCells];
         
         MatrixCell.setHeightInCells(heightInCells);
@@ -117,7 +92,7 @@ public class DatosBancarios {
         //write data
         
         int row=0;
-        for (int i=0; i<clienteList.length;i++){
+        for(int i=0; i<clienteList.length;i++){
             for(int j=0;j< clienteList[i].getNumCuentas();j++){
                 
                 //System.out.println("i"+i +"j: "+j);
@@ -138,16 +113,14 @@ public class DatosBancarios {
                     matrix[row][0].addLine("");
                 }
                 
-                matrix[row][1].addLine("cuenta: "+ cuentaList[j].getId());
-                matrix[row][1].addLine("Monto: "+ cuentaList[j].getMoney());
-                matrix[row][1].addLine("duenio: "+ cuentaList[j].getOwner());
+                matrix[row][1].addLine("cuenta: "+ cuentaList[row].getId());
+                matrix[row][1].addLine("Monto: "+ cuentaList[row].getMoney());
+                matrix[row][1].addLine("duenio: "+ cuentaList[row].getOwner());
                 
                 row++;
             }
         }
-        System.out.println("ToFrame");
-        ToFrame.ToFrame(pane,matrix);
-        
-        
+        //System.out.println("ToFrame");
+        ToFrame.ToFrame("Datos Bancarios",matrix);
     }
 }

@@ -27,11 +27,5 @@ class Cuenta {
     public int getMoney() {
         return money;
     }
-
-    //public void setOwner(String owner) {
-    //    this.owner = owner;
-    //}
-    
-
     
 }

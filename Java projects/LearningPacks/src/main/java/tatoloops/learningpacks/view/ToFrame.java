@@ -5,7 +5,8 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 
 public class ToFrame {
-    public static void ToFrame(JLayeredPane pane,MatrixCell[][] matrix){
+    public static void ToFrame(String title,MatrixCell[][] matrix){
+        JLayeredPane pane=new JLayeredPane();
         int heightInLabels=MatrixCell.getHeightInLabels();
         int heightInCells=MatrixCell.getHeightInCells();
         int width=MatrixCell.getWidthInCells();
@@ -40,7 +41,7 @@ public class ToFrame {
                     int boxLeft=i*(labelWidth+spaceBetweenCells)+spaceBetweenCells;
                     //System.out.println("boxTop: "+boxTop);
                     //System.out.println("boxLeft: "+boxLeft);
-                    System.out.println("j: "+j + "  i: "+i);
+                    //System.out.println("j: "+j + "  i: "+i);
                     myLabel[labelRow][i] = new JLabel(matrix[j][i].getLine(tempA));
                     //System.out.println("a");
                     myLabel[labelRow][i].setBounds(boxLeft,boxTop, labelWidth, labelHeight);
@@ -66,7 +67,7 @@ public class ToFrame {
         //System.out.println("frameHeight: "+ frameHeight);
         
         
-        Frame myFrame= new Frame("modelado02", pane,frameWidth,frameHeight);
+        Frame myFrame= new Frame(title, pane,frameWidth,frameHeight);
         
     }
 }

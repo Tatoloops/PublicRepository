@@ -1,5 +1,8 @@
 package tatoloops.learningpacks.view;
 
+//  Tomas Castillo
+//  Javier Leon
+
 class FrameInformation {
     private static final int FRAME_WIDTH=256;
     private static final int FRAME_HEIGHT=256;

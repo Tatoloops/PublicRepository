@@ -4,7 +4,6 @@ import java.util.ArrayList;
 
 class Cliente {
     
-    
     private String name;
     private String rut;
     private int numCuentas;
