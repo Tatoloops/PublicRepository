@@ -1,0 +1,19 @@
+1.	Generar e imprimir los "n" primeros números pares.
+2.	Generar e imprimir los "n" primeros números impares.
+3.	Imprimir la sumatoria de los "N" primeros múltiplos de 3, con "N" ingresado desde teclado.
+4.	Ingresar una cantidad "N" de números y permita además imprimir la cantidad total de números múltiplos de 10.
+5.	Ingresar una cantidad "M" determinada de caracteres (alfanuméricos) y que imprima la cantidad total de vocales que fueron ingresadas.
+6.	Ingresar una cantidad "N" de caracteres alfanuméricos y que cuente e imprima la cantidad total de consonantes.
+7.	Escribir un programa para determinar cuantas cifras tiene un entero n.
+8 -	Escribir un programa que lea un número entero de 5 cifras y que invierta su orden, como lo muestra el ejemplo. 12345 transformado a 54321.
+9 -	Realice un programa que permita sumar los digitos de un número entero iongresado por teclado. Ejemplo: Si el número ingresado es  5634 el algoritmo debería sumar 5+6+3+4.
+10-	Escribir un algoritmo que determine si un número entero “n” es o no primo. 
+11-	Las potencias de 2 son 1, 2, 4, 8, 16, 32, 64, etc. Para obtener la siguiente potencia de 2, se multiplica la anterior por 2. Usando ciclos, escriba el algoritmo para imprimir la primera potencia de 2 mayor que mil.
+12-	Calcular el factorial de un número ingresado por teclado.
+13-	Generar la siguiente sumatoria:
+S = 1 + 2 + 3 + . . . + N			y finalmente imprima S.
+14-	Generar la siguiente sumatoria :
+S = 1^n + 2^n + 3^n + 4^n + . . . + n^n	y finalmente imprima S.
+15-	Generar las sumatorias :
+S = n*1 + n*2 + n*3 + n*4 + ....... + n*n
+16-	Generar la serie  E= 1 - (x^2)/3! + (x^3)/4! - (x^4)/5! + .... +- (x^n)/(n+1)!  y finalmente imprima E.
