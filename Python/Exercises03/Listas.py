@@ -90,7 +90,7 @@ class ListaLigadaImprimir:
             print("lista vacia")
 
 
-def main():
+if __name__ == "__main__":
     lista=ListaLigada()
     lista.inicio(15)
     lista.inicio(2)
@@ -116,5 +116,3 @@ def main():
     ListaLigadaImprimir.posicion(lista,3)
     ListaLigadaImprimir.posicion(lista,13)
     
-    
-main()
