@@ -13,9 +13,8 @@ class ListaLigada:
         nuevo_nodo=Node(info)
         if self.head:
             nuevo_nodo.next=self.head
-            self.head=nuevo_nodo
-        else:
-            self.head=nuevo_nodo
+        self.head=nuevo_nodo
+
             
     def fin(self,info):
         nuevo_nodo=Node(info)
