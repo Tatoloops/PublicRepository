@@ -1,0 +1,40 @@
+19
+L1
+M1
+A1
+C2
+L2
+C1
+T1
+L3
+F
+M2
+N
+P
+H
+O
+E2
+E1
+G
+T2
+A2
+19
+L1 M1
+M1 A1
+A1 C2
+A1 L2
+L2 C1
+C1 T1
+T1 L3
+L3 F
+F M2
+M2 N
+N A1
+M2 P
+P H
+H O
+O E2
+P E1
+E1 G
+G T2
+T2 A2
