@@ -1,11 +1,8 @@
 #networkx to make graphs
 import networkx as nx
-
+import matplotlib.pyplot as plt
 #import files and extract the information as pokemon trainer request
-import documentReader.py as dc
-
-def construirRegion(region,request):
-	region.add_weighted_edges_from(request.getRoutes())
+#from IO import readRequest as rq
 
 # def construirDiccionario():
 # 	diccionario={
@@ -31,17 +28,35 @@ def construirRegion(region,request):
 # 	}
 # 	return diccionario
 
-def buscarRecorrido(grafo,puntoInicio,puntoFinal):
-	recorrido = nx.shortest_path(grafo,puntoInicio,puntoFinal,"trainers")
-	entrenadores = nx.shortest_path_length(miGrafo,puntoInicio,puntoFinal,"trainers")
+#Construir region
+def buildRegion(routes):
+	region = nx.Graph()
+
+	region.add_weighted_edges_from(routes)
+	return region
+
 
 #dibujar mapa
-def makeGraph(G):
+def drawRegion(region):
+	# fig, ax = plt.subplots()
+	# pos = nx.kamada_kawai_layout(region)
+	# nx.draw_kamada_kawai(region,with_labels=True, node_color='#ff87ab',node_size=500,ax=ax)
+	# plt.show
 	fig, ax = plt.subplots()
+	pos = nx.kamada_kawai_layout(region,weight='trainers')
+	nx.draw(region, pos, with_labels=True, node_color='#fe6a86', node_size=500, ax=ax)
+	#nx.draw_networkx_nodes(region, pos, nodelist=recorrido, node_color='#ffdd13', node_size=500, ax=ax)
+	plt.show()
 
-	nx.draw_kamada_kawai(G,with_labels=True, node_color='#ff87ab',node_size=500,ax=ax)
 
 
+#if __name__ == "__main__":
 
-if __name__ == "__main__":
-	request = dc.Request("Bianca")
+	#1. Get trainers's request:
+	#request = dc.Request("Bianca","Teselia")
+
+	#2. Build Region:
+	#region=buildRegion({insert array with edges})
+
+	#3. Visualize Region:
+	#drawRegion(region)

@@ -1,41 +1,61 @@
-#file must read .txt files and extract their information
-
 class Request:
+	#Request class holds all the information extracted from the request files.
 
 	#Builder
-	def __init__(self,_regionName="Teselia",_trainerName="Bianca"):
+	def __init__(self,_trainerName="trainer",_regionName="region"):
 		#map information
-		self.regionName =_regionName
-		self.cities = []
-		self.routes = []
+		self.__regionName =_regionName
+		self.__cities = []
+		self.__routes = []
 
 		#trainer information
-		self.trainerName =_trainerName
-		self.travels = []
+		self.__trainerName =_trainerName
+		self.__travels = []
+
+	#Basic Getters
+	def getTrainer(self):
+		return self.__trainerName
+	def getRegion(self):
+		return self.__regionName
 
 	#cities information
 	def addCities(self,_city):
-		self.cities.append(_city)
+		self.__cities.append(_city)
 	def getCities(self):
-		return self.cities
+		return self.__cities
 
 	#routes information
 	def addRoutes(self,_route):
-		self.routes.append(_route)
+		self.__routes.append(_route)
 	def getRoutes(self):
-		return self.routes
+		return self.__routes
 
 	#travels information
 	def addTravels(self,_travelPoint):
-		self.travels.append(_travelPoint)
+		self.__travels.append(_travelPoint)
 	def getTravels(self):
-		return self.travels
+		return self.__travels
+
+	#printing function
+	def toString(self):
+		print("\n-- Cities --")
+		for i in range(len(self.getCities())):
+			print (self.getCities()[i],end=" ")
+		print()
+		
+		print("\n-- Routes --")
+		for i in range(len(self.getRoutes())):
+			print(self.getRoutes()[i])
+
+		print("\n-- Travels --")
+		for i in range(len(self.getTravels())):
+			print(self.getTravels()[i], end=" ")
+		print()
 
 
-
-def readRequest(filename):
+def readRequest(filename,_trainer="trainer",_region="region"):
 	#Open the request from a pokemon trainer and stores it in an instance of "Requested" class.
-	aventura = Request()
+	aventura = Request(_trainer,_region)
 	with open(filename, 'r') as file:
 
 		#cities
@@ -61,20 +81,9 @@ def readRequest(filename):
 
 	return aventura
 
+
+
 if __name__ == "__main__":
-	filename = '../mapRequests/Bianca.txt'
+	filename = '../Requests/Bianca.txt'
 	request = readRequest(filename)
-
-	print("\n-- Cities --")
-	for i in range(len(request.getCities())):
-		print (request.getCities()[i],end=" ")
-	print()
-	
-	print("\n-- Routes --")
-	for i in range(len(request.getRoutes())):
-		print(request.getRoutes()[i])
-
-	print("\n-- Travels --")
-	for i in range(len(request.getTravels())):
-		print(request.getTravels()[i], end=" ")
-	print()
+	request.toString()
