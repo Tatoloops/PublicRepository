@@ -1,7 +1,9 @@
 # ignore ALL .pdf files
 *.pdf
 *.pyc
-
+*.zip
+*.rar
+*.7z
 
 
 /Java projects/SocialCompany/target/
