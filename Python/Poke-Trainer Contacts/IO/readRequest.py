@@ -97,27 +97,33 @@ def buildNetwork(contacts):
 	network.add_node("You")
 
 	# -- add edges --
-	#print("edges")
+	
 	for i in range(len(contacts)):
-		#print(i)
-		#Only contact list can contact this user
-		for j in range(len(contacts[i].getContacts())):
-			#print(contacts[i].getContacts())
-			#print(contacts[i].getContacts()[j])
-			#print(f"{contacts[i].getContacts()[j]} -> {contacts[i].getName()}")
-			network.add_edge(contacts[i].getContacts()[j],contacts[i].getName())
-
-			#print(f"{contacts[i].getContacts()[j]} -> {contacts[i].getName()}")
-		
-		#Anyone can contact non-reserved users
-		#print(contacts[i].getReserved())
-		if contacts[i].getReserved()==False:
+		#You can contact anyone:
+		network.add_edge("You",contacts[i].getName())
+		#print(f"*{contacts[i].getName()}")
+		#check all ocntacts of current user
+		for w in range(len(contacts[i].getContacts())):
+			#print(f"  ->{contacts[i].getContacts()[w]}")
 			for j in range(len(contacts)):
-				#print(f"{contacts[j].getName()} -> {contacts[i].getName()}")
-				if j!=i:
-					network.add_edge(contacts[j].getName(),contacts[i].getName())
-			#you can contact users that are not reserved
-			network.add_edge("You",contacts[i].getName())
+				if contacts[i].getContacts()[w]== contacts[j].getName():
+					#print(f"   encontrado: {contacts[i].getContacts()[w]}=={contacts[j].getName()}")
+					#check if not reserved
+					#print(f"    {contacts[j].getReserved()}")
+					if contacts[j].getReserved()==False:
+						#print(f"    {contacts[i].getName()} -> {contacts[j].getName()}")
+						network.add_edge(contacts[i].getName(),contacts[j].getName())
+
+					#incase reserved then ...
+					else:
+						mutualContact=0
+						for k in range(len(contacts[j].getContacts())):
+							
+							if contacts[j].getContacts()[k]==contacts[i].getName():
+								mutualContact=1
+						if mutualContact ==1:
+							#print(f"    {contacts[i].getName()} -> {contacts[j].getName()}")
+							network.add_edge(contacts[i].getName(),contacts[j].getName())
 
 	return network
 
@@ -141,7 +147,7 @@ def drawNetwork(graph):
 	fig, ax = plt.subplots()
 	pos = nx.kamada_kawai_layout(graph)
 	nx.draw(graph, pos, with_labels=True, node_color='#fe6f6a', node_size=2000, ax=ax)
-	nx.draw_networkx_nodes(graph, pos, nodelist=recorrido, node_color='#ffdd13', node_size=500, ax=ax)
+	#nx.draw_networkx_nodes(graph, pos, nodelist=recorrido, node_color='#ffdd13', node_size=500, ax=ax)
 	plt.show()
 
 

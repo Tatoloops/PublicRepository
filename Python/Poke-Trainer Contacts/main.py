@@ -1,5 +1,7 @@
 from Core import connected as it
 from IO import readRequest as rq
+
+
 if __name__ == "__main__":
 
 	#1. Request your itinerary
@@ -14,6 +16,6 @@ if __name__ == "__main__":
 	directContacts = it.directlyConnected(network,"You")
 
 	#4. show results
-	print(directContacts)
+	print(f"si quieres transmitir tu mensaje a todos los entrenadores contactar con:\n{directContacts}")
 
 	rq.drawNetwork(network)
