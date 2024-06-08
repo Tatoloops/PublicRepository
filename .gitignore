@@ -1,6 +1,6 @@
 # ignore ALL .pdf files
 *.pdf
-
+*.pyc
 
 
 
