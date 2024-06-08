@@ -114,7 +114,8 @@ def buildNetwork(contacts):
 		if contacts[i].getReserved()==False:
 			for j in range(len(contacts)):
 				#print(f"{contacts[j].getName()} -> {contacts[i].getName()}")
-				network.add_edge(contacts[j].getName(),contacts[i].getName())
+				if j!=i:
+					network.add_edge(contacts[j].getName(),contacts[i].getName())
 			#you can contact users that are not reserved
 			network.add_edge("You",contacts[i].getName())
 
@@ -139,8 +140,8 @@ def drawNetwork(graph):
 	# plt.show
 	fig, ax = plt.subplots()
 	pos = nx.kamada_kawai_layout(graph)
-	nx.draw(graph, pos, with_labels=True, node_color='#fe6a86', node_size=2000, ax=ax)
-	#nx.draw_networkx_nodes(graph, pos, nodelist=recorrido, node_color='#ffdd13', node_size=500, ax=ax)
+	nx.draw(graph, pos, with_labels=True, node_color='#fe6f6a', node_size=2000, ax=ax)
+	nx.draw_networkx_nodes(graph, pos, nodelist=recorrido, node_color='#ffdd13', node_size=500, ax=ax)
 	plt.show()
 
 
