@@ -27,7 +27,7 @@ class Itinerary:
 		self.__totalTrainers+=amount
 
 	def toString(self):
-		print("\0\0--- Itinerario a recorrer ---")
+		print("\n\n--- Itinerario a recorrer ---")
 		for i in range(len(self.__mainPoints)-1):
 			#print(f" ~Desde {self.__mainPoints[i]} hasta {self.__mainPoints[i+1]}: ")
 			#print("recorreras los puntos:")
