@@ -27,25 +27,41 @@ class Itinerary:
 		self.__totalTrainers+=amount
 
 	def toString(self):
-		print("--- Itinerario a recorrer ---")
+		print("\0\0--- Itinerario a recorrer ---")
 		for i in range(len(self.__mainPoints)-1):
-			print(f"Desde {self.__mainPoints[i]} hasta {self.__mainPoints[i+1]}: ")
-			print("recorreras los puntos:")
+			#print(f" ~Desde {self.__mainPoints[i]} hasta {self.__mainPoints[i+1]}: ")
+			#print("recorreras los puntos:")
+			print("   --",end="")
 			for j in range(len(self.__passPoints[i])):
-				print(f"{self.__passPoints[i][j]} -> ",end ="")
-			print(f"enfrentando a un total de {self.__trainers[i]} entrenadores")
-		print(f"Finalmente llegas a tu destino enfrentando a {self.__totalTrainers}.")
+				print(f"{self.__passPoints[i][j]}",end ="")
+				if j != len(self.__passPoints[i])-1:
+					print(f" -> ",end ="")
+
+			print(f" ||      vs {self.__trainers[i]} trainers")
+			#print()
+		print(f"Finalmente llegas a tu destino enfrentando a {self.__totalTrainers} trainers.")
 
 def buscarItinerario(region,_mainPoints):
 	itinerary = Itinerary(_mainPoints)
 
 	#Loop all destinations and extract both: n of trainers and routes to follow
 	for i in range(len(itinerary.getMainPoints())-1):
+		#calculate shortest path
 		strPoint=itinerary.getMainPoints()[i]
 		endPoint=itinerary.getMainPoints()[i+1]
-		itinerary.addPassPoints(nx.shortest_path(region,strPoint,endPoint,weight='trainers'))
-		itinerary.addTrainers(nx.shortest_path_length(region,strPoint,endPoint,weight='trainers'))
-		itinerary.addTotalTrainers(itinerary.getTrainers(i))
+		shortest_path = nx.shortest_path(region, strPoint, endPoint, weight='trainers')
+
+		trainers_on_path = 0 
+		
+		for i in range(len(shortest_path) - 1):
+			#print(region[shortest_path[i]][shortest_path[i+1]])
+
+			current_edge_trainers = region[shortest_path[i]][shortest_path[i+1]]['trainers']
+			trainers_on_path += current_edge_trainers
+
+		itinerary.addPassPoints(shortest_path)
+		itinerary.addTrainers(trainers_on_path)
+		itinerary.addTotalTrainers(trainers_on_path)
 	return itinerary
 
 #if __name__ == "__main__":

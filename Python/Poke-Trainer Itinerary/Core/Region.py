@@ -30,9 +30,12 @@ import matplotlib.pyplot as plt
 
 #Construir region
 def buildRegion(routes):
-	region = nx.Graph()
+	region = nx.Graph(weight_name='custom_weight')
 
-	region.add_weighted_edges_from(routes)
+	region.add_edges_from(routes)
+	# print(region)
+	# for edge in region.edges(data=True):
+	# 	print(edge)
 	return region
 
 
