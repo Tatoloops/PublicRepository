@@ -1,4 +1,4 @@
-![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20Itinerary/Assets/Poke-Compass64.png)![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20Itinerary/Assets/PokeLogo.png)![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20Itinerary/Assets/Poke-Compass64.png)
+![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20Itinerary/Assets/Poke-Compass64.png)![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20Itinerary/Assets/PokeLogo64.png)![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20Itinerary/Assets/Poke-Compass64.png)
 
 ## Why would you want to use Poke-Trainer Itinerary
 * If you are a pokemon trainer, you might want to try the Poke-Trainer Itinerary
