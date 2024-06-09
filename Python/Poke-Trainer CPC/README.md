@@ -1,4 +1,4 @@
-![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20Itinerary/Assets/Poke-Compass64.png)   ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Logo64.png)   ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20Itinerary/Assets/Poke-Compass64.png)
+![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-B64.png)   ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Logo64.png)   ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-B64.png)
 
 
 ## Why would you want to use Poke-Trainer CPC ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Trainer64.png)
