@@ -11,7 +11,7 @@
 * Put your request.txt file in the "Requests" folder, copy the format of "Joey.txt" file
 * Once the program asks you to write the name of your file, give it the name of your .txt file, it will inmediately calculate the best CPC placement in your region
 
-![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Center.png)
+![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Center.jpeg)
 ## Meet our staff of nurses
 
 ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-B128.png)![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-C128.png)![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-D128.png)![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-E128.png)
