@@ -1,4 +1,4 @@
-![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-B64.png)   ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Logo64.png)   ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-B64.png)
+![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-B64.png)   ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Logo64.png)   ![Image Alt Text]()
 
 
 ## Why would you want to use Poke-Trainer CPC ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Trainer64.png)
@@ -12,7 +12,9 @@
 * Once the program asks you to write the name of your file, give it the name of your .txt file, it will inmediately calculate the best CPC placement in your region
 
 ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Center.png)
+## Meet our staff of nurses
 
-* Donations accepted through Joey's paypal account
+![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-B128.png) ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-C128.png) ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-D128.png)
+
 
 
