@@ -14,7 +14,7 @@
 ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Center.png)
 ## Meet our staff of nurses
 
-![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-B128.png) ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-C128.png) ![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-D128.png)
+![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-B128.png)![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-C128.png)![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-D128.png)![Image Alt Text](https://github.com/Tatoloops/PublicRepository/blob/master/Python/Poke-Trainer%20CPC/Assets/Poke-Nurse-E128.png)
 
 
 
