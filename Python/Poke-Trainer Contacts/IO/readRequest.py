@@ -1,5 +1,3 @@
-import networkx as nx
-import matplotlib.pyplot as plt
 
 class Contact:
 	#Contact class holds all the information from 1 line of request file
@@ -42,6 +40,7 @@ class Contact:
 		for i in range(len(self.getContacts())):
 			print (self.getContacts()[i],end=" ")
 		print()
+
 
 def readRequest(filename):
 	#Open the request from a pokemon trainer and stores it in an instance of "Requested" class.
@@ -87,20 +86,29 @@ def readRequest(filename):
 
 	return circle
 
-def buildNetwork(contacts):
-	#create directed graph
-	network = nx.DiGraph()
 
+def extractNodes(contacts):
+	nodes=[]
 	# -- add nodes -- 
 	for i in range(len(contacts)):
-		network.add_node(contacts[i].getName())
-	network.add_node("You")
+		nodes.append(contacts[i].getName())
+	nodes.append("You")
+
+	return nodes
+
+
+def extractEdges(contacts):
+	#create directed graph
+	#network = nx.DiGraph()
+
+	edgeList=[]
 
 	# -- add edges --
 	
 	for i in range(len(contacts)):
 		#You can contact anyone:
-		network.add_edge("You",contacts[i].getName())
+		edgeList.append(("You",contacts[i].getName()))
+		#network.add_edge("You",contacts[i].getName())
 		#print(f"*{contacts[i].getName()}")
 		#check all ocntacts of current user
 		for w in range(len(contacts[i].getContacts())):
@@ -112,7 +120,8 @@ def buildNetwork(contacts):
 					#print(f"    {contacts[j].getReserved()}")
 					if contacts[j].getReserved()==False:
 						#print(f"    {contacts[i].getName()} -> {contacts[j].getName()}")
-						network.add_edge(contacts[i].getName(),contacts[j].getName())
+						edgeList.append((contacts[i].getName(),contacts[j].getName()))
+						#network.add_edge(contacts[i].getName(),contacts[j].getName())
 
 					#incase reserved then ...
 					else:
@@ -123,36 +132,30 @@ def buildNetwork(contacts):
 								mutualContact=1
 						if mutualContact ==1:
 							#print(f"    {contacts[i].getName()} -> {contacts[j].getName()}")
-							network.add_edge(contacts[i].getName(),contacts[j].getName())
+							edgeList.append((contacts[i].getName(),contacts[j].getName()))
+							#network.add_edge(contacts[i].getName(),contacts[j].getName())
 
-	return network
+	return edgeList
 
+def extractNodesEdges(filename):
+	contacts= readRequest(filename)
+	nodes = extractNodes(contacts)
+	edges = extractEdges(contacts)
+	return nodes, edges
 
-def importNetwork(filename):
-	contacts = readRequest(filename)
+# def importNetworkData(filename):
+# 	contacts = readRequest(filename)
 
-	#debug print contacts
-	#for i in range(len(contacts)):
-	#	contacts[i].toString()
+# 	#debug print contacts
+# 	#for i in range(len(contacts)):
+# 	#	contacts[i].toString()
 
-	network = buildNetwork(contacts)
+# 	network = buildNetwork(contacts)
 	
-	return network
+# 	return network
 
-def drawNetwork(graph):
-	# fig, ax = plt.subplots()
-	# pos = nx.kamada_kawai_layout(graph)
-	# nx.draw_kamada_kawai(graph,with_labels=True, node_color='#ff87ab',node_size=500,ax=ax)
-	# plt.show
-	fig, ax = plt.subplots()
-	pos = nx.kamada_kawai_layout(graph)
-	nx.draw(graph, pos, with_labels=True, node_color='#fe6f6a', node_size=2000, ax=ax)
-	#nx.draw_networkx_nodes(graph, pos, nodelist=recorrido, node_color='#ffdd13', node_size=500, ax=ax)
-	plt.show()
+
 
 
 if __name__ == "__main__":
 	filename = '../Requests/Encina.txt'
-	network = importNetwork(filename)
-
-	drawNetwork(network)

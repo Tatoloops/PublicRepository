@@ -1,6 +1,4 @@
 import networkx as nx
-#from itertools import combinations
-
 
 def findNeighbours(graph, puntoZero):
 	# Get all nodes in the graph

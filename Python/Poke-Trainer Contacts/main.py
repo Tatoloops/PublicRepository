@@ -1,4 +1,5 @@
 from Core import connected as it
+from Core import Region as rn
 from IO import readRequest as rq
 
 
@@ -10,12 +11,18 @@ if __name__ == "__main__":
 	filenamePath +=filename
 	#filenamePath +=".txt"
 
-	network = rq.importNetwork(filenamePath)
+	#extract network information
+	nodes=[]
+	edges=[]
+	nodes,edges=rq.extractNodesEdges(filenamePath)
 
-	#3. Find shortest path and trainers to fight
+	#print(nodes)
+	#3. Build network
+	network= rn.buildNetwork(nodes,edges)
+
+	#4. Find who you must send the message to
 	directContacts = it.directlyConnected(network,"You")
 
-	#4. show results
+	#5. show results
 	print(f"si quieres transmitir tu mensaje a todos los entrenadores contactar con:\n{directContacts}")
-
-	rq.drawNetwork(network)
+	rn.drawNetwork(network,directContacts)
