@@ -1,7 +1,6 @@
-#networkx to make graphs
+
 import networkx as nx
 import matplotlib.pyplot as plt
-#import files and extract the information as pokemon trainer request
 
 # def construirDiccionario():
 # 	diccionario={
@@ -29,7 +28,7 @@ import matplotlib.pyplot as plt
 
 #Construir region
 def buildRegion(routes):
-	region = nx.Graph(weight_name='custom_weight')
+	region = nx.Graph()
 
 	region.add_edges_from(routes)
 	# print(region)
@@ -40,14 +39,10 @@ def buildRegion(routes):
 
 #dibujar mapa
 def drawRegion(region):
-	# fig, ax = plt.subplots()
-	# pos = nx.kamada_kawai_layout(region)
-	# nx.draw_kamada_kawai(region,with_labels=True, node_color='#ff87ab',node_size=500,ax=ax)
-	# plt.show
+
 	fig, ax = plt.subplots()
-	pos = nx.kamada_kawai_layout(region,weight='trainers')
+	pos = nx.kamada_kawai_layout(region)
 	nx.draw(region, pos, with_labels=True, node_color='#fe6a86', node_size=500, ax=ax)
-	#nx.draw_networkx_nodes(region, pos, nodelist=recorrido, node_color='#ffdd13', node_size=500, ax=ax)
 	plt.show()
 
 def drawRegion_Edges(region,edgeAttribute):

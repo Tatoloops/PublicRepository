@@ -11,9 +11,7 @@ def initializeSpecialAttributes(graph):
 		graph.edges[e]['hasCPC'] = False
 
 def showCpcPlacement(node1,node2):
-	name1 = node1.get('name', None)
-	name2 = node2.get('name', None)
-	print(f"CPC installed in route between : {name1} <---> {name2}")
+	print(f"CPC installed in route between : {node1} <---> {node2}")
 
 def instalarCpc(grafo):
 	# initialize
@@ -50,7 +48,7 @@ def instalarCpc(grafo):
 
 							# Modificar 'hasCPC' value on the edge
 							grafo.edges[(n, neighbor)]['hasCPC'] = True
-							#showCpcPlacement(grafo.nodes[n],grafo.nodes[neighbor])
+							showCpcPlacement(n,neighbor)
 							#for attribute, value in grafo.nodes[n].items():
 							#	print(attribute, ":", value)
 							break  # No need to check other neighbors if CPC is installed
@@ -63,6 +61,6 @@ def instalarCpc(grafo):
 
 						# Modificar 'hasCPC' value on the edge
 						grafo.edges[(n, neighbor)]['hasCPC'] = True
-						#showCpcPlacement(grafo.nodes[n],grafo.nodes[neighbor])
+						showCpcPlacement(n,neighbor)
 						break
 	return edgeList

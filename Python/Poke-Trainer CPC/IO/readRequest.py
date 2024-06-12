@@ -59,7 +59,7 @@ def readRequest(filename,_region="region"):
 			aventura.addRoutes(route)
 
 
-	return aventura
+	return aventura.getRoutes()
 
 
 if __name__ == "__main__":
