@@ -2,7 +2,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 #import files and extract the information as pokemon trainer request
-#from IO import readRequest as rq
 
 # def construirDiccionario():
 # 	diccionario={
@@ -50,6 +49,26 @@ def drawRegion(region):
 	nx.draw(region, pos, with_labels=True, node_color='#fe6a86', node_size=500, ax=ax)
 	#nx.draw_networkx_nodes(region, pos, nodelist=recorrido, node_color='#ffdd13', node_size=500, ax=ax)
 	plt.show()
+
+def drawRegion_Edges(region,edgeAttribute):
+    fig, ax = plt.subplots()
+    pos = nx.kamada_kawai_layout(region)
+
+    # Draw all nodes
+    nx.draw_networkx_nodes(region, pos, node_color='#fe6a86', node_size=500, ax=ax)
+    nx.draw_networkx_labels(region, pos, ax=ax)
+
+    # Separate edges based on the 'hasCPC' attribute
+    edges_with_cpc = [(u, v) for u, v, d in region.edges(data=True) if d.get(edgeAttribute, False)]
+    edges_without_cpc = [(u, v) for u, v, d in region.edges(data=True) if not d.get(edgeAttribute, False)]
+
+    # Draw edges without 'hasCPC' attribute
+    nx.draw_networkx_edges(region, pos, edgelist=edges_without_cpc, ax=ax, edge_color='black')
+
+    # Draw edges with 'hasCPC' attribute
+    nx.draw_networkx_edges(region, pos, edgelist=edges_with_cpc, ax=ax, edge_color='red', width=2.0)
+
+    plt.show()
 
 
 
