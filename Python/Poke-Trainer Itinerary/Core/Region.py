@@ -42,11 +42,11 @@ def buildRegion(routes):
 #dibujar mapa
 def drawRegion(region):
 	# fig, ax = plt.subplots()
-	# pos = nx.kamada_kawai_layout(region)
+	pos = nx.kamada_kawai_layout(region)
 	# nx.draw_kamada_kawai(region,with_labels=True, node_color='#ff87ab',node_size=500,ax=ax)
 	# plt.show
 	fig, ax = plt.subplots()
-	pos = nx.kamada_kawai_layout(region,weight='trainers')
+	# pos = nx.kamada_kawai_layout(region,weight='trainers')
 	nx.draw(region, pos, with_labels=True, node_color='#fe6a86', node_size=500, ax=ax)
 	#nx.draw_networkx_nodes(region, pos, nodelist=recorrido, node_color='#ffdd13', node_size=500, ax=ax)
 	plt.show()

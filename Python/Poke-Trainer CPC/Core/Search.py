@@ -31,7 +31,7 @@ def instalarCpc(grafo):
 			priority+=1
 
 		noMoreCpcs=True
-		noMoreCurrentCpcs=True
+		noMoreCurrentCpcs=False
 		#vuelve a analizar todos los nodos
 		for n in grafo.nodes:
 			

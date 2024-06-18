@@ -18,7 +18,7 @@ if __name__ == "__main__":
 	#3. Make Region
 	region = rn.buildRegion(request.getRoutes())
 	#	Print Region (Debug)
-	request.toString()
+	#request.toString()
 	#rn.drawRegion(region)
 
 	#3. Find shortest path and trainers to fight

@@ -1,0 +1,57 @@
+19
+Paleta
+Verde
+BosqueVerde
+Plateada
+MonteLuna
+Celeste
+CasaBill
+CuevaCeleste
+TunelRoca
+CentralEnergia
+Lavanda
+Azafran
+Azulona
+Carmin
+Fucsia
+Espuma
+Canela
+Victoria
+Añil
+25
+Paleta Verde 7
+Verde Victoria 26
+Verde BosqueVerde 14
+BosqueVerde Plateada 27
+Plateada MonteLuna 30 
+MonteLuna Celeste 30
+Celeste CasaBill 8
+Celeste CuevaCeleste 5
+Celeste TunelRoca 9
+TunelRoca Lavanda 11
+TunelRoca CentralEnergia 2
+Lavanda Azafran 15
+Celeste Azafran 11
+Azulona Azafran 19
+Azafran Carmin 12
+Celeste Carmin 30
+Lavanda Azulona 30
+Carmin BosqueVerde 5
+Carmin Fucsia 20
+Lavanda Fucsia 28
+Azulona Fucsia 29
+Fucsia Espuma 10
+Espuma Canela 12
+Canela Paleta 20
+Victoria Añil 5
+10
+Paleta
+Plateada
+Celeste
+Carmin
+Azafran
+Azulona
+Fucsia
+Canela
+Verde
+Añil
