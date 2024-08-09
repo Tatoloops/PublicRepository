@@ -6,6 +6,8 @@
 *.7z
 *.class
 
-/Java projects/SocialCompany/target/
-/Java projects/LearningPacks/target/
-/School/ProgramacionAvanzada/ProjectoKol/target/
+#ignore all generated artifacts
+*/target/
+*/build/
+*/bin/
+
