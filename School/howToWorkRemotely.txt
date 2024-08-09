@@ -1,0 +1,5 @@
+1. Download compilers && set up PATH
+2. Download git & other programs (sublime text, sublime merge, cmake, ... )
+3. Download git token (from cloud/gmail) and configure the console according to "gitRemote.txt"
+4. Clone your repository and make changes as you wish
+5. Remove your git token from console.
