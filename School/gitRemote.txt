@@ -1,0 +1,13 @@
+working on git using temporary token:
+
+export GITHUB_PAT=github_pat.......
+
+git clone https://tatoloops:${GITHUB_PAT}@github.com/tatoloops/PublicRepository.git
+git clone https://tatoloops:${GITHUB_PAT}@github.com/tatoloops/Puzzlemaker.git
+
+git remote set-url origin https://tatoloops:${GITHUB_PAT}@github.com/tatoloops/PublicRepository.git
+git remote set-url origin https://tatoloops:${GITHUB_PAT}@github.com/tatoloops/PuzzleMaker.git
+
+
+git commit -m "Your commit message"
+git push
