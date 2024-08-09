@@ -6,10 +6,10 @@ package com.tatoloops.projectokol;
  * @author Tatoloops
  */
 public class TiranosaurioRex {
-    String name;
-    int edad;
-    int height;
-    int weight;
+    private String name;
+    private int edad;
+    private int height;
+    private int weight;
     
     //datos de pelea
 //    int hp;
