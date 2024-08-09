@@ -19,5 +19,9 @@ public class Inicio {
         int myedad = gato2.getEdad();
         System.out.println("myedad = " + myedad);
         System.out.println(gatito);
+        
+        
+        TiranosaurioRex dino1=new TiranosaurioRex("Rodolfo",431);
+        System.out.println(dino1);
     }
 }
