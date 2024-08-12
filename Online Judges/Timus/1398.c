@@ -1,4 +1,6 @@
 #include <stdio.h>
+
+
 int main(){
 	char BishopPosition[3];
 	char PawnPosition[3];
@@ -32,8 +34,18 @@ int main(){
 		PawnData=~((~PawnData)|0x1);
 
 	//printf("\nBishopsquarecolor: %hhi PawnSquarecolor: %hhi\n",BishopData&0x1,PawnData&0x1);
-	if(PawnPosition[1]>2)
-		printf("WHITE");
+	if(PawnPosition[1]>2){
+		if 		(PawnPosition[1]==3 && PawnPosition[0]==8 && BishopPosition[0]==7 && BishopPosition[1]==1){
+			printf("DRAW");
+		}
+		else if (PawnPosition[1]==3 && PawnPosition[0]==1 && BishopPosition[0]==2 && BishopPosition[1]==1){
+			printf("DRAW");
+		}
+		else{
+			printf("WHITE");
+		}
+		
+	}
 	else if(PawnPosition[0]==2 && BishopPosition[0]==1 && BishopPosition[1]==2){
 			printf("DRAW");
 	}
