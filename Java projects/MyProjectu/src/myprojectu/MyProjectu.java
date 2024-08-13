@@ -15,6 +15,9 @@ public class MyProjectu {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        
+        Perro pipi = new Perro();
     }
     
 }
