@@ -23,11 +23,11 @@ if %errorlevel%==0 (
 
 :: Option 1: Using 7-Zip
 :: Uncomment the next line to use 7-Zip for extraction
-"C:\Program Files\7-Zip\7z.exe" x %OUTPUT_FILE% -o%EXTRACT_DIR% -y
+:: "C:\Program Files\7-Zip\7z.exe" x %OUTPUT_FILE% -o%EXTRACT_DIR% -y
 
 :: Option 2: Using WinRAR
 :: Uncomment the next line to use WinRAR for extraction
-:: "C:\Program Files\WinRAR\WinRAR.exe" x %OUTPUT_FILE% %EXTRACT_DIR%\ -y
+"C:\Program Files\WinRAR\WinRAR.exe" x %OUTPUT_FILE% %EXTRACT_DIR%\ -y
 
 :: Check if extraction was successful
 if %errorlevel%==0 (
