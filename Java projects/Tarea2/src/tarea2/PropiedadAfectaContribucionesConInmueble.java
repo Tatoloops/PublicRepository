@@ -27,7 +27,10 @@ public class PropiedadAfectaContribucionesConInmueble extends PropiedadAfectaCon
     }
 
     public void setMt2Imueble(int mt2Imueble) {
-        this.mt2Imueble = mt2Imueble;
+        if (mt2Imueble >=120){
+            this.mt2Imueble = mt2Imueble;
+        } 
+        
     }
     
     
