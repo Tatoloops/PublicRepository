@@ -48,3 +48,4 @@ cmake_install.cmake
 
 # Ignore CMake-generated Makefile
 Makefile
+/Java projects/mi_Interface/nbproject/private/
