@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public class Menu {
     
-    Scanner input= new Scanner();
+    Scanner input= new Scanner(System.in);
     
     public void mostrarMenu1(){
         System.out.println("");
@@ -28,6 +28,6 @@ public class Menu {
         System.out.println("3. salir del sistema");
         
         
-        if ((parseint)input())
+//        if ((parseint)input())
     }
 }
