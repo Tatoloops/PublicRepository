@@ -1,19 +1,21 @@
-package myprojectu;
+package tarea2;
 
 /**
  *
- * @author tatoloops
+ * @author Tatoloops
  */
-public class MyProjectu {
+public class Tarea2 {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
         
         
-        Perro pipi = new Perro();
+        
+        
+        
+        
     }
     
 }
