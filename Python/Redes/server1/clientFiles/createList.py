@@ -74,11 +74,11 @@ for j in range(cantidadAModificar):
 
 # simbolos malos !#$(?
 
-for i in random:
-    lista[random[i]].'nombre' +=\#
-    lista[random[i]].'edad' +=!
-    lista[random[i]].'carrera'+=?
-    lista[random[i]].'semestre' +=$
+# for i in random:
+#     lista[random[i]].'nombre' +=\#
+#     lista[random[i]].'edad' +=!
+#     lista[random[i]].'carrera'+=?
+#     lista[random[i]].'semestre' +=$
 
 
 
