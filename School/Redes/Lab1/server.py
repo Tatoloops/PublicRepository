@@ -1,4 +1,5 @@
 import socket
+import time
 from server import serverLogic as sl
 
 DEFAULT_HOST = 'localhost'         # Symbolic name meaning all available interfaces
@@ -23,6 +24,7 @@ def start_server(host=DEFAULT_HOST, port=DEFAULT_PORT):
     
         response = sl.serverStepZero(1)
         print(" -   -   -sending data zero")
+        time.sleep(2)
         if response :
             connection.sendall(response.encode())
         else :
@@ -30,6 +32,7 @@ def start_server(host=DEFAULT_HOST, port=DEFAULT_PORT):
 
         # client step zero
         print(" -   -   -receiving data zero")
+        time.sleep(2)
         # data = connection.recv(1024)
 
             
@@ -43,9 +46,14 @@ def start_server(host=DEFAULT_HOST, port=DEFAULT_PORT):
 
             #send to client
             response = sl.serverStep(message)
-            connection.sendall(response.encode())
+
+            print(" -   -   -sending message to client...")
+            time.sleep(2)
+            connection.sendall(''.encode())
 
             #receive from client
+            print(" -   -   -receiving message from client...")
+            time.sleep(2)
             data = connection.recv(1024)
             if data:
                 message=data.decode()
@@ -60,7 +68,7 @@ def start_server(host=DEFAULT_HOST, port=DEFAULT_PORT):
         # response = sl.serverStepFinal()
         # for i in range(clientAmount):
         #     connection[i].sendall(response.encode())
-            connection.close()
+        connection.close()
         
 
 if __name__ == "__main__":

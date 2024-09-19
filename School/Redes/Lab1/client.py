@@ -1,4 +1,5 @@
 import socket
+import time
 from client  import ClientLogic as cl
 
 
@@ -17,6 +18,7 @@ def start_client(host=DEFAULT_HOST, port=DEFAULT_PORT):
     # - --- step zero ---
 
     # data received from server
+        time.sleep(2)
         data=clientSocket.recv(1024)
         response = ""
         
@@ -26,6 +28,7 @@ def start_client(host=DEFAULT_HOST, port=DEFAULT_PORT):
             response = cl.clientStepZero('')
 
         print(" -   -   -por enviar respuesta")
+        time.sleep(2)
         if response != '':
             clientSocket.sendall(response.encode())
         else:
@@ -34,19 +37,23 @@ def start_client(host=DEFAULT_HOST, port=DEFAULT_PORT):
     # - --- step ---
         print(" -   -   -entering while cycle")
         while(True):
-            print(" -   -   -receiving data in loop")
+            print(" -   -   -receiving data in loop...")
+            time.sleep(2)
             data = clientSocket.recv(1024)
+            print(" -   -   -data received successfully...")
             if data:
                 response = cl.clientStep(data.decode())
             else:
                 response = cl.clientStep('')
 
             # send data depending on the type
-            print(" -   -   -sending data in loop")
+            
+            time.sleep(2)
             if response == '':
+                print(" -   -   -sending data 123...")
                 clientSocket.sendall(''.encode())
             if response == 'json':
-                print("     - to be send")
+                print(" -   -   -json to be send")
                 with open('data.json', 'rb') as f:  # Open the file in binary mode
                     clientSocket.sendfile(f)  # Use sendfile to send the file over the socket
                     print("JSON file sent")

@@ -1,0 +1,6 @@
+# files from lab to ignore
+
+*.json
+__pycache__/
+*.pyc
+
