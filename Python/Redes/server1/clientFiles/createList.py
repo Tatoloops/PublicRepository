@@ -48,26 +48,26 @@ def crearListaCompleta(numElements):
 lista = crearListaCompleta(numElements)
 
 
-# encontrar index de los 15% a modificar
+def definirEntradasAleatorias(percentageToModify,amountToModify):
 
-cantidadAModificar= (15 * numElements) / 100
+    cantidadAModificar= (percentageToModify * amountToModify) / 100
 
-random = []
+    randomSelection = []
 
-for j in range(cantidadAModificar):
+    for j in range(cantidadAModificar):
 
-    num=random.randint(1,numElements)
+        num=random.randint(1,amountToModify)
 
-    check=0
-    for i in random:
-        if num==i:
-            check=1
+        check=0
+        for i in randomSelection:
+            if num==i:
+                check=1
 
-    if check==1:
-        j-=1
-    else:
-        random.append(num)
-
+        if check==1:
+            j-=1
+        else:
+            randomSelection.append(num)
+    return randomSelection
 #modificar el 15% de los datos dados:
 
 
