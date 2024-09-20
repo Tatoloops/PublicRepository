@@ -3,7 +3,7 @@ import string
 import random
 
 
-# --- Creacion de la lista (private methods)--- 
+# --- ~~ ~~ __Private methods ~~ ~~ --- 
 
 # Function to generate a random string
 def _CrearStringAleatorio(length):
@@ -89,10 +89,14 @@ def _modificarListaZero(filenameOriginal,filenameModified,percentageToModify,num
 
 
 
-# --- Interaction con el Socket (public methods) --- 
-def clientStepZero(welcomeMessage):
-    print(" -   -   -step zero")
-    print(welcomeMessage)
+
+
+
+
+# --- ~~ ~~ PUBLIC EVENTS ~~ ~~ --- 
+
+def eventCreation():
+    print(" -   -   - ~event Creation~")
 
     numElements =100
     filenameOriginal ='PersonasOriginal.json'
@@ -109,20 +113,43 @@ def clientStepZero(welcomeMessage):
     pathToJsonFile = _modificarListaZero(filenameOriginal,filenameModified,percentageToModify,numElements)
     print(" 2. lista modificada con caracteres no validos")
 
-    return ''
+    return '0'
 
-def clientStep(message=''):
-    print(" -   -   -step")
-    miLista = open('PersonasModifiedZero.json','r')
+
+def eventConnectionOpen():
+    # print(" -   -   - ~event Connection~")
+    # print(connectionMessage)
+
+    # numElements =100
+    # filenameOriginal ='PersonasOriginal.json'
+    # filenameModified ='PersonasModifiedZero.json'
+    # percentageToModify = 15
+
+
+    # # crear la lista de 100 personas
+    # pathToJsonFile = _crearListaZero(filenameOriginal,numElements)
+    # print(" 1. lista creada")
+    
+
+    # # modificar el 15% de la lista con caracteres no permitidos
+    # pathToJsonFile = _modificarListaZero(filenameOriginal,filenameModified,percentageToModify,numElements)
+    # print(" 2. lista modificada con caracteres no validos")
+
+    return '0'
+
+def eventStep(message='0'):
+    filenameToSend = 'PersonasModifiedZero.json'
+
+    miLista = open(filenameToSend,'r')
     # response =''
     if message=='':
         print("     - no response from server")
-        return
-    elif message == 'data':
+        return  '1'
+    elif message == '0':
         print("     - json file to be sent...")
         #send the data to the server for the first time
         
-        return 'json'
+        return filenameToSend
 
     else:
         #compare the data and correct invalid characters
@@ -132,11 +159,11 @@ def clientStep(message=''):
                 print(f"    - discrepancia detectada en la persona {i+1}")
                 #correct the data
 
-    return ''
+    return '0'
 
-# def clientStepFinal():
-#     return
+def eventConnectionClose():
+    return '0'
 
 
 if __name__ == "__main__":
-    clientStepZero()
+    eventConnectionOpen("testing")
