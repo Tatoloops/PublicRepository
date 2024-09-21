@@ -55,6 +55,17 @@ def _definirEntradasAleatorias(percentageToModify,amountToModify):
 
     return randomSelection
 
+def _copiarLista(filenameModified,filenameToSend):
+
+
+    with open(filenameModified, 'r') as json_file:
+        data = json.load(json_file)
+           
+
+    with open(filenameToSend, 'w') as json_file:
+        json.dump(data,json_file,indent=4)
+
+
 def _modificarListaZero(filenameOriginal,filenameModified,percentageToModify,numElements):
 
     errorCharacters = ['!','@','#','$','%','&']
@@ -85,10 +96,35 @@ def _modificarListaZero(filenameOriginal,filenameModified,percentageToModify,num
     with open(filenameModified, 'w') as json_file:
         json.dump(data,json_file,indent=4)
 
+def _corregirDatosNoValidos(diccionario):
+    errorCharacters = ['!', '@', '#', '$', '%', '&']
+    
+    for entry in diccionario:
+        fields_to_check = ['nombre', 'edad', 'carrera', 'semestre']
+        
+        for field in fields_to_check:
+            if field in entry and len(entry[field]) > 0:
+                # Remove all instances of the error characters
+                entry[field] = ''.join([char for char in entry[field] if char not in errorCharacters])
 
 
 
+def _compareAndFix(miLista, suLista):
 
+    to_remove = []
+
+    # Compare, print, and mark for removal
+    for i in miLista:
+        if i not in suLista:
+            print(i)
+            to_remove.append(i)  
+        else:
+            _corregirDatosNoValidos([i])  
+
+    # Now remove the marked items
+    for item in to_remove:
+        miLista.remove(item)
+        #miLista.pop(item)
 
 
 
@@ -101,6 +137,7 @@ def eventCreation():
     numElements =100
     filenameOriginal ='PersonasOriginal.json'
     filenameModified ='PersonasModifiedZero.json'
+    filenameToSend ='PersonasModified.json'
     percentageToModify = 15
 
 
@@ -113,57 +150,58 @@ def eventCreation():
     pathToJsonFile = _modificarListaZero(filenameOriginal,filenameModified,percentageToModify,numElements)
     print(" 2. lista modificada con caracteres no validos")
 
+    _copiarLista(filenameModified,filenameToSend)
+
     return '0'
 
 
 def eventConnectionOpen():
-    # print(" -   -   - ~event Connection~")
-    # print(connectionMessage)
-
-    # numElements =100
-    # filenameOriginal ='PersonasOriginal.json'
-    # filenameModified ='PersonasModifiedZero.json'
-    # percentageToModify = 15
-
-
-    # # crear la lista de 100 personas
-    # pathToJsonFile = _crearListaZero(filenameOriginal,numElements)
-    # print(" 1. lista creada")
-    
-
-    # # modificar el 15% de la lista con caracteres no permitidos
-    # pathToJsonFile = _modificarListaZero(filenameOriginal,filenameModified,percentageToModify,numElements)
-    # print(" 2. lista modificada con caracteres no validos")
 
     return '0'
 
 def eventStep(message='0'):
-    filenameToSend = 'PersonasModifiedZero.json'
+
+    print("message sent by server:",message)
+
+    filenameToSend ='PersonasModified.json'
+    filenameReceived = 'receivedData.json'
+
+
+    with open(filenameReceived,"w") as json_file:
+        json_file.write(message)
+    
+    with open(filenameReceived,"r") as json_file:
+        receivedMessage=json.load(json_file)
+
 
     miLista = open(filenameToSend,'r')
     # response =''
-    if message=='':
-        print("     - no response from server")
-        return  '1'
-    elif message == '0':
+    
+    # first fiel to be sent 
+    if message == '0': 
         print("     - json file to be sent...")
         #send the data to the server for the first time
         
         return filenameToSend
-
-    else:
+    else:   
+    
         #compare the data and correct invalid characters
-        for i in message:
-            if not message[i]==miLista[i]:
-                #discrepancia detectada
-                print(f"    - discrepancia detectada en la persona {i+1}")
-                #correct the data
+        #suLista = open(receivedMessage,'r')
+        suLista=receivedMessage
+        _compareAndFix(miLista,suLista)
 
-    return '0'
+        # save corrected json file
+        with open(filenameToSend, 'w') as json_file:
+            json.dump(miLista,json_file,indent=4)
+
+        return filenameToSend
+
 
 def eventConnectionClose():
     return '0'
 
 
+
+# --- ~~ ~~ TEST MAIN ~~ ~~ --- 
 if __name__ == "__main__":
     eventConnectionOpen("testing")

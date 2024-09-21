@@ -40,12 +40,14 @@ def start_client(host=DEFAULT_HOST, port=DEFAULT_PORT):
                 with open(response, 'rb') as f:  # Open the file in binary mode
                     clientSocket.sendfile(f)  # Use sendfile to send the file over the socket
                     print("JSON file sent to server")
+            elif response== "100":
+                break
             else:
                 clientSocket.sendall(response.encode())
 
             
             # <--
-            message=clientSocket.recv(1024).decode()
+            message=clientSocket.recv(20240).decode()
             
 
 

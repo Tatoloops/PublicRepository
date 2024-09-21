@@ -30,7 +30,7 @@ def start_server(host=DEFAULT_HOST, port=DEFAULT_PORT):
         while(True):
             
             # <--
-            message = connection.recv(1024).decode()
+            message = connection.recv(20240).decode()
             # - --- ~ event Step ~ ---
             response = sl.eventStep(message)
             # -->
@@ -38,6 +38,8 @@ def start_server(host=DEFAULT_HOST, port=DEFAULT_PORT):
                 with open(response, 'rb') as f:  # Open the file in binary mode
                     connection.sendfile(f)  # Use sendfile to send the file over the socket
                     print("JSON file sent to client")
+            elif response == "100":
+                break   # se ha finalizado el proceso de intercambio de informacion.
             else:
                 connection.sendall(response.encode())
 

@@ -1,5 +1,4 @@
 import json
-import string
 
 # --- ~~ ~~ __Private methods ~~ ~~ --- 
 def _AnalizarMensaje(DictionaireList):
@@ -46,18 +45,39 @@ def eventConnectionOpen(message = '0'):
 
 def eventStep(message='0'):
     
-    if isinstance(message,str) and message.endswith('.json'): # sends json in case it is sending a json file.
-        with open(message, 'rb') as f:  # Open the file in binary mode
-            h=0
 
-
-    response ='0'
-    if message=='':
-        print("no response from client")
-        return response
     
 
-    return response
+
+    filenamePurified="DiccionarioPuro.json"
+    filenameCorrupt ="DictAPurgar.json"
+    filenameReceived = "receivedData.json"
+    mensajeDeTerminoDeConection = "100"
+
+    with open(filenameReceived,"w") as json_file:
+        json_file.write(message)
+    
+    with open(filenameReceived,"r") as json_file:
+        receivedMessage=json.load(json_file)
+
+
+    # if : # sends json in case it is sending a json file.
+    # with open(message, 'r') as json_file:
+    #     data = json.load(json_file)
+
+
+    goodList,  badList = _AnalizarMensaje(receivedMessage)
+
+    with open(filenamePurified,'w') as json_file:
+        json.dump(goodList, json_file, indent=4)
+    
+    if not badList:
+        return mensajeDeTerminoDeConection
+    else:
+        with open(filenameCorrupt,'w') as json_file:
+            json.dump(badList, json_file, indent=4)
+        return filenameCorrupt
+
 
 def eventConnectionClose():
 
