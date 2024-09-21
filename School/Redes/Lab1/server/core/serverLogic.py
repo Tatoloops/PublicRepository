@@ -1,4 +1,5 @@
 import json
+import os
 
 # --- ~~ ~~ __Private methods ~~ ~~ --- 
 def _AnalizarMensaje(DictionaireList):
@@ -34,6 +35,11 @@ def _AnalizarMensaje(DictionaireList):
 
 # --- ~~ ~~ PUBLIC EVENTS ~~ ~~ --- 
 def eventCreation():
+
+    # Limpiar directorio
+    filename = "DiccionarioPuro.json"
+    if os.path.exists(filename):
+        os.remove(filename)  # Delete the file
     return '0'
 
 
@@ -45,9 +51,12 @@ def eventConnectionOpen(message = '0'):
 
 def eventStep(message='0'):
     
-
-    
-
+    if not message:
+        print("no message received")
+        return "100"
+    if isinstance(message,str) and message =="100":
+        print("exhange  finished")
+        return "100"
 
     filenamePurified="DiccionarioPuro.json"
     filenameCorrupt ="DictAPurgar.json"
@@ -68,8 +77,22 @@ def eventStep(message='0'):
 
     goodList,  badList = _AnalizarMensaje(receivedMessage)
 
-    with open(filenamePurified,'w') as json_file:
-        json.dump(goodList, json_file, indent=4)
+    if os.path.exists(filenamePurified):
+        #append to existing file
+        with open(filenamePurified,'r') as json_file:
+            existingList=json.load(json_file)
+    
+        #existingList.append(goodList)
+        for i in goodList:
+            existingList.append(i)
+
+        with open(filenamePurified,'w') as json_file:
+            json.dump(existingList, json_file, indent=4)
+    else:
+        #create new file and write to it
+
+        with open(filenamePurified,'w') as json_file:
+            json.dump(goodList, json_file, indent=4)
     
     if not badList:
         return mensajeDeTerminoDeConection

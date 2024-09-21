@@ -161,11 +161,17 @@ def eventConnectionOpen():
 
 def eventStep(message='0'):
 
-    print("message sent by server:",message)
+    if not message:
+        print("no message received")
+        return "100"
+    if isinstance(message,str) and message =="100":
+        print("exhange  finished")
+        return "100"
 
     filenameToSend ='PersonasModified.json'
     filenameReceived = 'receivedData.json'
 
+    
 
     with open(filenameReceived,"w") as json_file:
         json_file.write(message)
@@ -173,8 +179,9 @@ def eventStep(message='0'):
     with open(filenameReceived,"r") as json_file:
         receivedMessage=json.load(json_file)
 
-
-    miLista = open(filenameToSend,'r')
+    with open(filenameToSend,"r") as json_file:
+        miLista=json.load(json_file)
+    #miLista = open(filenameToSend,'r')
     # response =''
     
     # first fiel to be sent 
