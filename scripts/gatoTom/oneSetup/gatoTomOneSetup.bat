@@ -16,4 +16,4 @@ curl -L -o "%fileToExtract%" %myRepo%
 powershell -command "Expand-Archive -Path '%fileToExtract%' -DestinationPath '%myPath%' -Force"
 
 :: Execute main script
-call "%myPath%\PublicRepository\scripts\gatoTom\full.bat" %folderName%
+call "%myPath%\PublicRepository-master\scripts\gatoTom\full.bat" %folderName%

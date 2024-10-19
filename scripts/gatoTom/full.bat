@@ -35,7 +35,8 @@ echo New folder "%folderName%" created in "%userFolder%"
 
 
 
-:: 1. download mingw64 and add to path
+:: 1. mySql
+echo 1. mySql ...
 call "%myPath%\PublicRepository-master\scripts\dependencies\mySql\setupManual.bat" %myPath% 
 
 
