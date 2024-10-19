@@ -15,5 +15,11 @@ curl -L -o "%fileToExtract%" %myRepo%
 :: Extract the zip file using the built-in File Explorer
 powershell -command "Expand-Archive -Path '%fileToExtract%' -DestinationPath '%myPath%' -Force"
 
+
 :: Execute main script
 call "%myPath%\PublicRepository-master\scripts\gatoTom\full.bat" %folderName%
+
+:: --- Clean up ---
+REM Clean up by deleting the installer
+del "%fileToExtract%"
+rd /s /q "%myPath%\PublicRepository-master\"
