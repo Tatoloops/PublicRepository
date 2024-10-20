@@ -20,7 +20,13 @@ if "%~1"=="" (
 :: --- Download Section ---
 
 REM Set the URL and the output file name
-set "URL=https://downloads.mysql.com/archives/get/p/25/file/mysql-installer-community-8.0.39.0.msi"
+
+REM web
+set "URL=https://downloads.mysql.com/archives/get/p/25/file/mysql-installer-web-community-8.0.39.0.msi"
+
+REM full
+rem set "URL=https://downloads.mysql.com/archives/get/p/25/file/mysql-installer-community-8.0.39.0.msi"
+
 set "OUTPUT_FILE=%myPath%\mySqlInstaller.msi"
 
 REM Use curl to download the file with -L to follow redirects
