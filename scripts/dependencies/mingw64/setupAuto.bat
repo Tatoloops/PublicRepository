@@ -87,8 +87,7 @@ REM Check if the bin folder exists
 if exist "%MINGW_BIN%" (
     echo Bin folder found: %MINGW_BIN%
     REM Add the bin folder to PATH
-    set "NEW_PATH=%USER_PATH%;%MINGW_BIN%"
-    setx PATH "%NEW_PATH%"
+    setx PATH "%USER_PATH%;%MINGW_BIN%"
 
     REM Confirm the addition to PATH
     if %errorlevel%==0 (
