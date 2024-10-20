@@ -37,11 +37,8 @@ echo New folder "%folderName%" created in "%userFolder%"
 
 :: 1. mySql
 echo 1. mySql ...
-call "%myPath%\PublicRepository-master\scripts\dependencies\mySql\setupManual.bat" %myPath% 
-
-
-
-
+rem call "%myPath%\PublicRepository-master\scripts\dependencies\mySql\setupManual.bat" %myPath% 
+call "%myPath%\PublicRepository-master\scripts\dependencies\mySql\setupAuto.bat" %myPath% 
 
 rem :: 2. install sublime text editor
 rem call "%myPath%\gccBasics-main\setupScripts\fastSetup\sublimeInstall.bat" %myPath% 

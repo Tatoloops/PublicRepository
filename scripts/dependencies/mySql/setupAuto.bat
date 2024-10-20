@@ -44,7 +44,7 @@ call "%OUTPUT_FILE%" /VERYSILENT /NORESTART /SP- /SUPPRESSMSGBOXES
 
 :: --- Clean up ---
 
-rem REM Clean up by deleting the installer
-rem del "%OUTPUT_FILE%"
+REM Clean up by deleting the installer
+del "%OUTPUT_FILE%"
 
 echo - mySql Installed successfully!
