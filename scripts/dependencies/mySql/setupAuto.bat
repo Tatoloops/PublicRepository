@@ -48,7 +48,7 @@ call "%OUTPUT_FILE%" /VERYSILENT /NORESTART /SP- /SUPPRESSMSGBOXES
 
 
 
-:: --- Clean up ---
+:: --- Clean up Section ---
 
 REM Clean up by deleting the installer
 del "%OUTPUT_FILE%"

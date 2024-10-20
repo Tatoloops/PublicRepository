@@ -1,11 +1,10 @@
-@echo off
-
+# Path variable configurations settings
 
 :: --- get ---
 
 :: get USER PATH
 for /f "tokens=2* delims= " %%a in ('reg query "HKCU\Environment" /v PATH') do set "USER_PATH=%%b"
-:: get SYSTEM PATH
+:: get SYSTEM PATH (not tested)
 for /f "tokens=2* delims= " %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" /v PATH') do set "SYSTEM_PATH=%%b"
 
 
@@ -13,7 +12,7 @@ for /f "tokens=2* delims= " %%a in ('reg query "HKLM\SYSTEM\CurrentControlSet\Co
 
 :: set USER PATH
 setx PATH "%USER_PATH%;%MINGW_BIN%"
-:: set SYSTEM PATH
+:: set SYSTEM PATH (not tested)
 setx PATH "%SYSTEM_PATH%;%MINGW_BIN%" /m
 
 
