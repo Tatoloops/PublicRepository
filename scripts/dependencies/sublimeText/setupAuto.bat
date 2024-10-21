@@ -13,10 +13,10 @@ if "%~1"=="" (
     set "myPath=%~1"
 )
 
-
 REM Set the URL and the output file name
 set "SUBLIME_URL=https://download.sublimetext.com/sublime_text_build_4180_x64_setup.exe"
 set "SUBLIME_INSTALLER=SublimeTextInstaller.exe"
+
 
 
 :: --- Download Section ---
@@ -35,8 +35,6 @@ if %errorlevel%==0 (
 )
 
 
+
 :: --- Clean up Section ---
 del "%myPath%\%SUBLIME_INSTALLER%"
-
-echo Sublime Text has been installed.
-

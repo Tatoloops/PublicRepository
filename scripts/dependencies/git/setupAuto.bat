@@ -15,7 +15,7 @@ if "%~1"=="" (
 )
 
 REM Define URL and installer name (custom)
-set "GIT_URL=https://github.com/git-for-windows/git/releases/download/v2.46.0.windows.1/Git-2.46.0-64-bit.exe"
+set "GIT_URL=https://github.com/git-for-windows/git/releases/download/v2.47.0.windows.1/Git-2.47.0-64-bit.exe"
 set "GIT_INSTALLER=git-installer.exe"
 
 

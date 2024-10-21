@@ -38,15 +38,10 @@ echo New folder "%folderName%" created in "%userFolder%"
 :: 1. mySql
 echo # --- 1. mySql ...
 call "%myPath%\PublicRepository-master\scripts\dependencies\mySql\setupManual.bat" %myPath% 
-rem call "%myPath%\PublicRepository-master\scripts\dependencies\mySql\setupAuto.bat" %myPath% 
 
 :: 2. tomcat 10
 echo # --- 2. tomcat 10 ...
-call "%myPath%\PublicRepository-master\scripts\dependencies\mySql\setupManual.bat" %myPath% 
-rem call "%myPath%\PublicRepository-master\scripts\dependencies\mySql\setupAuto.bat" %myPath% 
-
-rem :: 3. install git
-rem call "%myPath%\gccBasics-main\setupScripts\fastSetup\gitInstall.bat" %myPath% 
+call "%myPath%\PublicRepository-master\scripts\dependencies\tomcat\setupManual.bat" %myPath% 
 
 
-rem exit
+exit
