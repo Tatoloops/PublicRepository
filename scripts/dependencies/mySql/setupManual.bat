@@ -44,7 +44,7 @@ if %errorlevel%==0 (
 
 :: --- Installation Section ---
 REM open the installer guide, to manually install it.
-call "%myPath%/PublicRepository-master/scripts/dependencies/mySql/installation.md"
+call %myPath%/PublicRepository-master/scripts/dependencies/mySql/installation.md
 
 REM Run the installer 
 call "%OUTPUT_FILE%" 

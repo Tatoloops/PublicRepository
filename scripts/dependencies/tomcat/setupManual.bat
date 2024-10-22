@@ -38,8 +38,10 @@ if %errorlevel%==0 (
 
 
 :: --- Installation Section ---
+REM open instructions (check path, if doesn't exist, download repository.)
+call %myPath%/PublicRepository-master/scripts/dependencies/tomcat/installation.md
 REM Run the installer silently (with default options)
-call "%OUTPUT_FILE%" /VERYSILENT /NORESTART /SP- /SUPPRESSMSGBOXES
+call "%OUTPUT_FILE%"
 
 :: --- Clean up ---
 
