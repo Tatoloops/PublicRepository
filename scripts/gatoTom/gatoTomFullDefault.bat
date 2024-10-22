@@ -21,7 +21,7 @@ if "%~2"=="" (
     set folderName=%~1
 )
 
-:: 1. set up development path
+:: --- set up development path ---
 
 ::		 - Get the path to the current user's profile folder
 set userFolder=%USERPROFILE%
@@ -43,5 +43,8 @@ call "%myPath%\PublicRepository-master\scripts\dependencies\mySql\setupManual.ba
 echo # --- 2. tomcat 10 ...
 call "%myPath%\PublicRepository-master\scripts\dependencies\tomcat\setupManual.bat" %myPath% 
 
+:: 3. connector 
+echo # --- 2. connector ...
+call "%myPath%\PublicRepository-master\scripts\gatoTom\connector\connectorSetup.bat" %myPath% 
 
 exit

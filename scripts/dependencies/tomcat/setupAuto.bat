@@ -17,7 +17,7 @@ if "%~1"=="" (
 )
 
 REM Set the URL and the output file name
-set "URL=https://archive.apache.org/dist/tomcat/tomcat-10/v10.1.31/bin/apache-tomcat-10.1.31.exe"
+set "URL=https://archive.apache.org/dist/tomcat/tomcat-9/v9.0.96/bin/apache-tomcat-9.0.96.exe"
 set "OUTPUT_FILE=%myPath%\tomcatInstaller.exe"
 
 
