@@ -16,13 +16,18 @@ if "%~1"=="" (
 )
 
 
+
 :: --- Download Section ---
 
 REM Set the URL and the output file name
 
-set "URL=https://archive.apache.org/dist/tomcat/tomcat-10/v10.1.31/bin/apache-tomcat-10.1.31.exe"
+REM web
+set "URL=https://downloads.mysql.com/archives/get/p/25/file/mysql-installer-web-community-8.0.39.0.msi"
 
-set "OUTPUT_FILE=%myPath%\tomcatInstaller.exe"
+REM full
+rem set "URL=https://downloads.mysql.com/archives/get/p/25/file/mysql-installer-community-8.0.39.0.msi"
+
+set "OUTPUT_FILE=%myPath%\mySqlInstaller.msi"
 
 REM Use curl to download the file with -L to follow redirects
 curl -L -o "%OUTPUT_FILE%" "%URL%"
@@ -38,10 +43,12 @@ if %errorlevel%==0 (
 
 
 :: --- Installation Section ---
-REM open instructions (check path, if doesn't exist, download repository.)
-call %myPath%/PublicRepository-master/scripts/dependencies/tomcat/installation.md
-REM Run the installer silently (with default options)
-call "%OUTPUT_FILE%"
+REM open the installer guide, to manually install it.
+call %myPath%/PublicRepository-master/scripts/dependencies/mySql_latest/installation.md
+
+REM Run the installer 
+call "%OUTPUT_FILE%" 
+
 
 :: --- Clean up ---
 

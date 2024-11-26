@@ -16,7 +16,7 @@ curl -L -o "%fileToExtract%" %myRepo%
 powershell -command "Expand-Archive -Path '%fileToExtract%' -DestinationPath '%myPath%' -Force"
 
 :: --- Execute main script ---
-call "%myPath%\PublicRepository-master\scripts\Essentials\EssentialsDefault.bat" %folderName%
+call "%myPath%\PublicRepository-master\scripts\packages\Essentials\EssentialsDefault.bat" %folderName%
 
 :: --- Clean up ---
 del "%fileToExtract%"

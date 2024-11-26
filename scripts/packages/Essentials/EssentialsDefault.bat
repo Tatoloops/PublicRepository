@@ -27,10 +27,10 @@ set myPath="%USERPROFILE%\%folderName%"
 
 :: --- Download Essentials ---
 REM 1. download mingw64 and add to path
-call "%myPath%\PublicRepository-master\scripts\dependencies\mingw64\setupAuto.bat" %myPath% 
+call "%myPath%\PublicRepository-master\scripts\dependencies\mingw64_latest\setupAuto.bat" %myPath% 
 
 rem :: 2. install sublime text editor
-call "%myPath%\PublicRepository-master\scripts\dependencies\sublimeText\setupAuto.bat" %myPath% 
+call "%myPath%\PublicRepository-master\scripts\dependencies\sublimeText_latest\setupAuto.bat" %myPath% 
 
 rem :: 3. install git
-call "%myPath%\PublicRepository-master\scripts\dependencies\git\setupAuto.bat" %myPath% 
+call "%myPath%\PublicRepository-master\scripts\dependencies\git_latest\setupAuto.bat" %myPath% 

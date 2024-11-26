@@ -37,14 +37,14 @@ echo New folder "%folderName%" created in "%userFolder%"
 
 :: 1. mySql
 echo # --- 1. mySql ...
-call "%myPath%\PublicRepository-master\scripts\dependencies\mySql\setupManual.bat" %myPath% 
+call "%myPath%\PublicRepository-master\scripts\dependencies\mySql_latest\setupManual.bat" %myPath% 
 
 :: 2. tomcat 10
 echo # --- 2. tomcat 10 ...
-call "%myPath%\PublicRepository-master\scripts\dependencies\tomcat\setupManual.bat" %myPath% 
+call "%myPath%\PublicRepository-master\scripts\dependencies\tomcat_10\setupManual.bat" %myPath% 
 
 :: 3. connector 
 echo # --- 2. connector ...
-call "%myPath%\PublicRepository-master\scripts\gatoTom\connector\connectorSetup.bat" %myPath% 
+call "%myPath%\PublicRepository-master\scripts\packages\gatoTom\connector\connectorSetup.bat" %myPath% 
 
 exit

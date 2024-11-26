@@ -1,4 +1,4 @@
-@echo off
+echo off
 
 REM Ask the user for their Git username, email, and token
 set /p "GIT_USER=Enter your Git username: "
@@ -15,4 +15,5 @@ git config --global credential.helper store
 REM Store the credentials (GitHub example)
 echo https://%GIT_USER%:%GIT_TOKEN%@github.com > "%USERPROFILE%\.git-credentials"
 
+REM print
 echo - Git token added!
