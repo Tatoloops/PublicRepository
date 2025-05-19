@@ -1,0 +1,71 @@
+myApp/
+├── src/
+│   ├── app/
+│   │   ├── core/                        # Singleton services, interceptors, guards
+│   │   │   ├── services/
+│   │   │   │   └── api.service.ts
+│   │   │   ├── guards/
+│   │   │   ├── interceptors/
+│   │   │   └── core.providers.ts        # Array of core providers
+│   │
+│   │   ├── shared/                      # Reusable components, pipes, directives
+│   │   │   ├── components/
+│   │   │   │   └── navbar/
+│   │   │   │       ├── navbar.component.ts
+│   │   │   │       └── navbar.component.html
+│   │   │   │       └── navbar.component.scss
+│   │   │   ├── directives/
+│   │   │   ├── pipes/
+│   │   │   └── shared.providers.ts      # Shared-level providers (if any)
+│   │
+│   │   ├── pages/                       # Top-level pages (standalone components)
+│   │   │   ├── home/
+│   │   │   │   ├── home.component.ts
+│   │   │   │   ├── home.component.html
+│   │   │   │   └── home.component.scss
+│   │   │   │
+│   │   │   ├── about/
+│   │   │   │   ├── about.component.ts
+│   │   │   │   ├── about.component.html
+│   │   │   │   └── about.component.scss
+│   │   │   │
+│   │   │   ├── contact/
+│   │   │   │   ├── contact.component.ts
+│   │   │   │   ├── contact.component.html
+│   │   │   │   └── contact.component.scss
+│   │   │   │
+│   │   │   └── admin/
+│   │   │       ├── dashboard.component.ts
+│   │   │       └── dashboard.component.html
+│   │
+│   │   ├── app.config.ts                 # Global route config + providers
+│   │   ├── app.component.ts              # Root standalone component
+│   │   ├── app.component.html
+│   │   └── app.component.scss
+│   │
+│   ├── assets/
+│   │   └── images/
+│   │
+│   ├── environments/
+│   │   ├── environment.ts
+│   │   └── environment.prod.ts
+│   │
+│   ├── styles/
+│   │   ├── abstracts/                    # SCSS variables, mixins, functions
+│   │   │   ├── _variables.scss
+│   │   │   └── _mixins.scss
+│   │   │
+│   │   ├── base/                         # Reset, typography, base styles
+│   │   │   └── _base.scss
+│   │   │
+│   │   ├── components/                   # SCSS for reusable components
+│   │   │   └── _navbar.scss
+│   │   │
+│   │   ├── pages/                        # Page-specific styles (if needed)
+│   │   │   └── _home.scss
+│   │   │
+│   │   └── styles.scss                   # Main SCSS import file
+│
+├── angular.json
+├── package.json
+└── tsconfig.json
