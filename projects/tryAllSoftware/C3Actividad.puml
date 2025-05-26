@@ -1,18 +1,53 @@
 @startuml CU3_MonitorearVariables
 
 ' --- estilos ---
-'!include style/dark_minimal.puml
-
+!include style/dark_minimal.puml
+'skinparam backgroundColor transparent
 
 title "CU3 - Monitorear variables en vivo"
+
 |Usuario|
 start
-:Seleccionar zona a monitorear;
+:Seleccionar zona;
 |Sistema|
-:Obtener datos de sensores (humedad, temperatura);
-:Actualizar objeto "Dashboard" en tiempo real;
+
+:Seleccionar rango de 
+ tiempo por defecto;
+
 |Usuario|
-:Visualizar gráficos y métricas;
-note right: Objeto Dashboard\n- Humedad: 75%\n- Temp: 28°C
-end
+fork
+partition seleccion de parámetros{
+    repeat
+    fork
+    :Seleccionar tipo de datos;
+    fork again
+    :Seleccionar frecuencia de actualización;
+    end fork
+    repeat while (Continuar monitoreo) is (active);
+
+}
+
+|Sistema|
+fork again
+
+partition Visualización de datos {
+    repeat
+    fork
+    :Obtener datos de sensores
+    (humedad, temperatura);
+    fork again
+    :Obtener datos meteorológicos
+    (precipitación, temperatura);
+    end fork
+    :Visualizar datos;
+    repeat while (<b>repetir</b> cada minuto);
+    detach;
+}
+|Usuario|
+end fork
+stop
+
+
+' note right: Objeto Dashboard\n- Humedad: 75%\n- Temp: 28°C
+
 @enduml
