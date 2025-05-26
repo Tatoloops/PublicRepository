@@ -25,6 +25,19 @@
                 <span >Projects</span>
             </a>
         </li>
+        <li class="nav-item">
+            <mat-button-toggle-group
+                name="themeOptions"
+                aria-label="Opciones de temas"
+                (change)="setTheme($event.value)"
+                appearance="legacy"
+                class="theme-toggle-group"
+            >
+                <mat-button-toggle value="theme-ultraviolet-default">Ultraviolet Default</mat-button-toggle>
+                <mat-button-toggle value="theme-ultraviolet-vibrant">Ultraviolet Vibrant</mat-button-toggle>
+            </mat-button-toggle-group>
+        </li>
+
     </ul>
   </nav>
   

@@ -1,0 +1,71 @@
+.homepage {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 2rem;
+  min-height: 100vh;
+  color: var(--text-primary);
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  .content {
+    max-width: 800px;
+
+    h1, h2 {
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    p {
+      margin-bottom: 2rem;
+      color: var(--text-secondary);
+    }
+
+    button {
+      mat-icon {
+        margin-left: 0.5rem;
+      }
+    }
+  }
+}
+
+.fullscreen-section {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 70vh;
+
+  &.scripts {
+    background-image: url('../../../assets/images/scripts-bg.jpg');
+  }
+
+  &.school {
+    background-image: url('../../../assets/images/school-bg.jpg');
+  }
+
+  &.projects {
+    background-image: url('../../../assets/images/projects-bg.jpg');
+  }
+}
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 1.5rem;
+  }
+}
+
+
+

@@ -1,0 +1,16 @@
+@use 'chroma-default' as chroma;
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+button.primary {
+  background-color: var(--primary-color);
+  color: var(--text-primary);
+}
+
+button.accent {
+  background-color: var(--accent-color);
+  color: var(--background-color);
+}
