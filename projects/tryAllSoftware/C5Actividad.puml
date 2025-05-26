@@ -1,0 +1,22 @@
+@startuml CU5_AnalizarDatos
+
+'!include style/dark_minimal.puml
+skinparam handwritten false
+
+title "CU5 - Analizar datos históricos"
+|Usuario|
+start
+:Seleccionar "Análisis Histórico";
+|Sistema|
+:Mostrar filtros (fechas, zonas);
+|Usuario|
+:Definir parámetros de consulta;
+|Sistema|
+:Generar reporte comparativo;
+note left: Objeto Reporte\n- Tendencia humedad\n- Consumo por día
+|Usuario|
+:Exportar reporte (PDF/CSV);
+
+end
+
+@enduml

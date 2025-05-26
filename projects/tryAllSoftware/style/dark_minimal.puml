@@ -1,0 +1,125 @@
+' ===== CONFIGURACIÓN GLOBAL =====
+skinparam backgroundColor #1E1E1E
+skinparam defaultFontName "Verdana"
+skinparam defaultFontSize 14
+skinparam defaultFontColor #ECECEC
+skinparam shadowing true
+
+' ===== TÍTULOS =====
+skinparam titleFontColor #9f8752
+skinparam titleFontSize 24
+skinparam titleFontStyle bold
+
+
+
+' ===== ACTIVIDADES / ACCIONES =====
+skinparam activity {
+  BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 10
+  FontStyle bold
+}
+
+' ===== DECISIONES =====
+skinparam diamond {
+  BackgroundColor #444444
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+
+' ===== SWIMLANES (CARRILES) =====
+skinparam partition {
+  BackgroundColor #2B2B2B
+  BorderColor #FFC857
+  FontColor #ECECEC
+  BorderThickness 2
+  RoundCorner 0
+}
+
+' ===== BARRAS DE SWIMLANE =====
+skinparam swimlane {
+  BorderColor #FFC857
+  BorderThickness 2
+}
+
+' ===== OBJETOS =====
+skinparam object {
+  BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+
+' ===== BARRAS DE SINCRONIZACIÓN (FORK/JOIN) =====
+skinparam synchronization {
+  BackgroundColor #666666
+  BorderColor #FFC857
+  LineStyle 1
+  Thickness 3
+}
+
+' ===== FLECHAS / CONEXIONES =====
+skinparam Arrow {
+  Color #FFC857
+  Thickness 2
+  FontColor #FFC857
+  Style plain
+}
+
+' ===== NOTAS =====
+skinparam note {
+  BackgroundColor #444444
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+
+' ===== SEPARADORES =====
+skinparam separator {
+  Color #666666
+  FontColor #ECECEC
+  Thickness 1
+}
+
+' ===== PARTICIPANTES (ACTORES EN ACTIVITY) =====
+skinparam participant {
+  BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+
+' ===== ELEMENTOS ADICIONALES =====
+skinparam activityDiamond {
+  BackgroundColor #444444
+  BorderColor #FFC857
+  FontColor #ECECEC
+}
+
+skinparam arrow {
+  Color #a77e24
+}
+
+' ===== ESTILO PARA LOS NODOS DE INICIO/FIN =====
+skinparam activityStart {
+  Color #7d601d
+  Style bold
+}
+
+skinparam activityEnd {
+  Color #7d601d
+  Style bold
+}
+
+skinparam activityStop{
+  Color #7d601d
+  Style bold
+}
+
+' ===== ESTILO PARA LOS BORDES DE SWIMLANES =====
+skinparam swimlaneBorder {
+  Color #4e401e
+  Thickness 2
+}

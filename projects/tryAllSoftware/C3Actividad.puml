@@ -1,0 +1,18 @@
+@startuml CU3_MonitorearVariables
+
+' --- estilos ---
+'!include style/dark_minimal.puml
+
+
+title "CU3 - Monitorear variables en vivo"
+|Usuario|
+start
+:Seleccionar zona a monitorear;
+|Sistema|
+:Obtener datos de sensores (humedad, temperatura);
+:Actualizar objeto "Dashboard" en tiempo real;
+|Usuario|
+:Visualizar gráficos y métricas;
+note right: Objeto Dashboard\n- Humedad: 75%\n- Temp: 28°C
+end
+@enduml

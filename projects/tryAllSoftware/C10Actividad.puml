@@ -1,0 +1,45 @@
+@startuml CU10_Autenticacion
+
+' --- estilos ---
+'!include style/dark_minimal.puml
+
+' --- diagrama ---
+title "CU10 - Autenticarse y gestionar sesión"
+|Usuario|
+start
+
+if (¿Ya tiene cuenta?) then (Sí)
+    if (¿Olvidó su contraseña?) then (Sí)
+        |Usuario|
+        fork
+            :Ingresar nombre de usuario;
+        fork again
+            :Ingresar contraseña;
+        end fork
+        :Seleccionar "Iniciar sesión";
+        |Sistema|
+        :Validar credenciales en BD;
+        if (¿Credenciales válidas?) then (Sí)
+            :Generar token de sesión;
+            :Redirigir a dashboard según rol;
+            end
+        else (No)
+            :Mostrar error "Credenciales inválidas";
+            end
+        endif
+        
+    else (No)
+        :Seleccionar "Olvidé mi contraseña";
+        |Sistema|
+        :Enviar enlace de recuperación al email;
+        :Mostrar mensaje de "Revisa tu email para restablecer la contraseña";
+        end
+    endif
+
+else (no)
+    |Sistema|
+    :Proceso de crear cuenta nueva;
+    end
+endif
+
+@enduml

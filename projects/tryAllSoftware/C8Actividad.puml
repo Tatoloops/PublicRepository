@@ -1,0 +1,25 @@
+@startuml CU8_ControlRemoto
+
+' --- estilos ---
+'!include style/dark_minimal.puml
+
+' --- diagrama ---
+title "CU8 - Control remoto del sistema"
+
+
+|Usuario|
+start
+:Iniciar sesión móvil/app;
+|Sistema|
+:Validar permisos;
+|Usuario|
+:Enviar comando (activar/desactivar riego);
+|Sistema|
+if (¿Requiere validación IA?) then (Sí)
+  :Evaluar impacto ecológico;
+  :Aprobar/Rechazar acción;
+else (No)
+endif
+:Ejecutar comando;
+end
+@enduml

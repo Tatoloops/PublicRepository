@@ -1,0 +1,68 @@
+' Estilo Crema para Diagramas de Actividad
+
+' ===== CONFIGURACIÓN GLOBAL =====
+skinparam backgroundColor #FAF3E0
+skinparam defaultFontName "Georgia"
+skinparam defaultFontSize 14
+skinparam defaultFontColor #3E2723
+
+' ===== TÍTULOS =====
+skinparam titleFontColor #8B4513
+skinparam titleFontSize 24
+skinparam titleFontStyle bold
+
+' ===== ACTIVIDADES / ACCIONES =====
+skinparam activity {
+  BackgroundColor #FFF8DC
+  BorderColor #8B4513
+  FontColor #3E2723
+}
+
+' ===== DECISIONES =====
+skinparam diamond {
+  BackgroundColor #F5DEB3
+  BorderColor #A0522D
+  FontColor #3E2723
+}
+
+' ===== SWIMLANES (CARRILES) =====
+skinparam partition {
+  BackgroundColor #F5E1A4
+  BorderColor #A0522D
+  FontColor #3E2723
+}
+
+' ===== OBJETOS =====
+skinparam object {
+  BackgroundColor #FFF8DC
+  BorderColor #8B4513
+  FontColor #3E2723
+}
+
+' ===== BARRAS DE SINCRONIZACIÓN (FORK/JOIN) =====
+skinparam synchronization {
+  BackgroundColor #D2B48C
+  BorderColor #A0522D
+}
+
+' ===== FLECHAS / CONEXIONES =====
+skinparam ArrowColor #8B4513
+skinparam ArrowThickness 2
+
+' ===== NOTAS =====
+skinparam note {
+  BackgroundColor #FFF8DC
+  BorderColor #A0522D
+  FontColor #3E2723
+}
+
+' ===== SEPARADORES =====
+skinparam separatorColor #A0522D
+skinparam separatorFontColor #3E2723
+
+' ===== PARTICIPANTES (ACTORES EN ACTIVITY) =====
+skinparam participant {
+  BackgroundColor #FFF8DC
+  BorderColor #8B4513
+  FontColor #3E2723
+}

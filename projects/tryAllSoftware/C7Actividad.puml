@@ -1,0 +1,18 @@
+@startuml CU7_Sugerencias
+
+'!include style/dark_minimal.puml
+
+title "CU7 - Visualizar sugerencias"
+
+
+|Usuario|
+start
+:Acceder a "Sugerencias";
+|Sistema|
+:Analizar datos históricos y actuales;
+:Generar objeto "Sugerencia";
+note right: Objeto Sugerencia\n- Reducir riego un 15%\n- Cambio horario
+|Usuario|
+:Visualizar recomendaciones;
+end
+@enduml
