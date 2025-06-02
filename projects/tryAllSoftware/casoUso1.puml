@@ -7,45 +7,54 @@ left to right direction
 
 actor "Admin" as Admin
 actor "Usuario" as Usuario
-actor "Servidor Central" as Servidor 
+
 
 rectangle "Sistema de Riego Inteligente" {
+    usecase "CU10: Autenticarse y gestionar sesión" as CU10
     usecase "CU1: Configurar zonas de cultivo" as CU1
     usecase "CU2: Programar riego" as CU2
+
     usecase "CU3: Monitorear variables en vivo" as CU3
     usecase "CU5: Analizar datos históricos" as CU5
+
     usecase "CU7: Visualizar sugerencias" as CU7
     usecase "CU8: Control remoto del sistema" as CU8
-    usecase "CU10: Autenticarse y gestionar sesión" as CU10
-    
-    usecase "CU9: Generar informes de cumplimiento" as CU9
-
+   
     usecase "CU4: Emitir alertas inteligentes" as CU4
     usecase "CU6: Ajustar riego automáticamente" as CU6
-    
+
+    usecase "CU9: Generar informes de cumplimiento" as CU9
 }
 
 ' Relaciones actores - casos
-Admin --> CU1
-Admin --> CU2
-Usuario --> CU2
-Usuario --> CU3
-Usuario --> CU5
-Usuario --> CU7
+' Usuario --> CU1
+' Admin --> CU2
+' Usuario --> CU2
+' Usuario --> CU3
+' Usuario --> CU5
+' Usuario --> CU7
 Usuario --> CU8
 Usuario --> CU10
-Admin --> CU10
+' Admin --> CU10
+CU8 --> CU1
+CU8 --> CU2
+CU8 --> CU3
+CU8 --> CU5
+CU8 --> CU7
+CU8 --> CU9
 
-Servidor --> CU9
 
 ' Relaciones entre casos de uso
-CU1 .right.> CU2 : <<include>>
-CU2 ..> CU4 : <<extend>>
-CU2 ..> CU6 : <<include>>
-CU2 ..> CU7 : <<include>>
-CU3 ..> CU4 : <<extend>>
-CU4 .right.> CU8 : <<include>>
-CU5 ..> CU7 : <<include>>
-CU6 ..> CU4 : <<include>>
+
+' includes
+Admin ..> Usuario #green : <<include>> 
+CU6 ..> CU2 #green : <<include>>
+
+CU9 ..> CU5 #green : <<include>>
+CU7 ..> CU5 #green : <<include>>
+CU4 ..> CU5 #green : <<include>>
+' extends
+CU7 ..> CU3 #yellow : <<extend>>
+
 
 @enduml
