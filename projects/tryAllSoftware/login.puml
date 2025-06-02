@@ -1,0 +1,52 @@
+@startuml
+skinparam backgroundColor #2E3A59
+skinparam defaultFontName "Verdana"
+skinparam defaultFontSize 14
+skinparam defaultFontColor #FAF3E0
+skinparam shadowing true
+
+skinparam rectangle {
+  BackgroundColor #394867
+  BorderColor #27AE60
+  FontColor #FAF3E0
+  RoundCorner 15
+}
+
+skinparam frame {
+  BackgroundColor #394867
+  BorderColor #3498DB
+  FontColor #FAF3E0
+  RoundCorner 20
+}
+
+skinparam note {
+  BackgroundColor #394867
+  BorderColor #F1C40F
+  FontColor #FAF3E0
+}
+
+title Pantalla de Login — Sistema de Riego Inteligente
+
+frame "Login" {
+
+  rectangle "Logo de la App\n(icono y nombre)" as Logo
+  rectangle "Formulario de Inicio de Sesión" {
+    rectangle "Campo: Usuario" as UserField
+    rectangle "Campo: Contraseña" as PassField
+    rectangle "Botón: Iniciar Sesión" as LoginBtn
+    rectangle "Enlace: ¿Olvidó su contraseña?" as ForgotLink
+  }
+
+  rectangle "Pie de Página" as Footer
+
+  note right of LoginBtn
+    Botón verde brillante
+    con hover en verde más oscuro
+  end note
+
+  note bottom of Footer
+    © 2025 Sistema de Riego Inteligente
+  end note
+}
+
+@enduml

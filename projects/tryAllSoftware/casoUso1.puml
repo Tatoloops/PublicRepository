@@ -1,7 +1,7 @@
 @startuml
 
-'si archivo no existe, coment our this line
-!include style/puml-theme-toy.puml
+'si archivo no existe, coment out this line
+!include style/dark_minimal.puml
 
 left to right direction
 
@@ -39,12 +39,12 @@ Admin --> CU10
 Servidor --> CU9
 
 ' Relaciones entre casos de uso
-CU1 ..> CU2 : <<include>>
+CU1 .right.> CU2 : <<include>>
 CU2 ..> CU4 : <<extend>>
 CU2 ..> CU6 : <<include>>
 CU2 ..> CU7 : <<include>>
 CU3 ..> CU4 : <<extend>>
-CU4 ..> CU8 : <<include>>
+CU4 .right.> CU8 : <<include>>
 CU5 ..> CU7 : <<include>>
 CU6 ..> CU4 : <<include>>
 

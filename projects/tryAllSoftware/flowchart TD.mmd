@@ -1,0 +1,8 @@
+flowchart TD
+    A[Usuario] --> B[Frontend]
+    B -->|API REST| C[Microservicios]
+    C --> D[(PostgreSQL)]
+    E[Sensores] -->|MQTT| C
+    C --> F[Motor IA]
+    F -->|Decisiones| G[Actuadores]
+    C --> H[Servidor Reportes]

@@ -3,7 +3,7 @@ skinparam backgroundColor #1E1E1E
 skinparam defaultFontName "Verdana"
 skinparam defaultFontSize 14
 skinparam defaultFontColor #ECECEC
-skinparam shadowing true
+skinparam shadowing false
 
 ' ===== TÍTULOS =====
 skinparam titleFontColor #9f8752
@@ -15,6 +15,15 @@ skinparam titleFontStyle bold
 ' ===== ACTIVIDADES / ACCIONES =====
 skinparam activity {
   BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 10
+  FontStyle bold
+}
+
+' ===== RECTANGLE =====
+skinparam rectangle {
+  BackgroundColor #222222
   BorderColor #FFC857
   FontColor #ECECEC
   RoundCorner 10
@@ -122,4 +131,130 @@ skinparam activityStop{
 skinparam swimlaneBorder {
   Color #4e401e
   Thickness 2
+}
+
+' ===== DATABASE =====
+skinparam database {
+  BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+
+' ===== FILE =====
+skinparam file {
+  BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+
+' ===== COMPONENT =====
+skinparam component {
+  BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+
+' ===== NODE =====
+skinparam node {
+  BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+
+' ===== ACTOR =====
+skinparam actor {
+  BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+' ===== CLOUD =====
+skinparam cloud {
+  BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+' ===== PACKAGE =====
+skinparam package {
+  BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+' ===== LEGEND =====
+skinparam legend {
+  BackgroundColor #444444
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+  FontSize 12
+}
+' ===== LEGEND TITLE =====
+skinparam legendTitle {
+  FontColor #FFC857
+  FontSize 16
+  FontStyle bold
+}
+' ===== LEGEND ITEM =====
+skinparam legendItem {
+  FontColor #ECECEC
+  FontSize 12
+}
+' ===== LEGEND SEPARATOR =====
+skinparam legendSeparator {
+  Color #666666
+  Thickness 1
+}
+' ===== LEGEND ARROW =====
+skinparam legendArrow {
+  Color #FFC857
+  Thickness 2
+}
+' ===== LEGEND ICON =====
+skinparam legendIcon {
+  BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+' ===== LEGEND TEXT =====
+skinparam legendText {
+  FontColor #ECECEC
+  FontSize 12
+}
+' ===== LEGEND BACKGROUND =====
+skinparam legendBackground {
+  BackgroundColor #444444
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+}
+' ===== LEGEND BORDER =====
+skinparam legendBorder {
+  Color #FFC857
+  Thickness 2
+}
+' ===== LEGEND TITLE FONT =====
+skinparam legendTitleFont {
+  FontColor #FFC857
+  FontSize 16
+  FontStyle bold
+}
+' ===== LEGEND ITEM FONT =====
+skinparam legendItemFont {
+  FontColor #ECECEC
+  FontSize 12
+}
+
+skinparam usecase {
+  BackgroundColor #333333
+  BorderColor #FFC857
+  FontColor #ECECEC
+  RoundCorner 5
+  FontStyle bold
 }
