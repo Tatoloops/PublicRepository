@@ -60,7 +60,7 @@ database PostgreSQL {
   [Datos del sistema\n(sensores + estructurados)]
 }
 
-file "Servidor Reportes" {
+file "Reportes" {
   [PDFs]
 }
 
@@ -72,7 +72,7 @@ Usuario --> [Autenticación] : Inicia sesión
 Sensores -> [Microservicios] : Envía métricas
 [Interfaz Web/Móvil] -> [Microservicios] : Envía datos
 [Motor IA] -up-> [Microservicios] : Sugerencias
-[Microservicios] -down-> "Servidor Reportes" : Genera PDFs
+[Microservicios] -down-> "Reportes" : Genera PDFs
 [Microservicios] --> [PostgreSQL] : Guarda datos
 
 [PostgreSQL] --> [Motor IA] : Datos para análisis

@@ -27,15 +27,10 @@ rectangle "Sistema de Riego Inteligente" {
 }
 
 ' Relaciones actores - casos
-' Usuario --> CU1
-' Admin --> CU2
-' Usuario --> CU2
-' Usuario --> CU3
-' Usuario --> CU5
-' Usuario --> CU7
+
 Usuario --> CU8
 Usuario --> CU10
-' Admin --> CU10
+
 CU8 --> CU1
 CU8 --> CU2
 CU8 --> CU3
@@ -53,6 +48,7 @@ CU6 ..> CU2 #green : <<include>>
 CU9 ..> CU5 #green : <<include>>
 CU7 ..> CU5 #green : <<include>>
 CU4 ..> CU5 #green : <<include>>
+
 ' extends
 CU7 ..> CU3 #yellow : <<extend>>
 
