@@ -1,0 +1,276 @@
+' ===== PALETA DE COLORES =====
+
+!$primary          = "#FFC857"
+' 15° clockwise
+!$primary_analogous15 = "#FFB857"  
+' 30° clockwise
+!$primary_analogous30 = "#FFA857"  
+
+
+!$primary_dark     = "#E0A124"
+!$primary_light    = "#FFD98C"
+
+!$bg_dark          = "#1B1B1B"
+!$bg_medium        = "#232323"
+!$bg_light         = "#2E2E2E"
+!$bg_lighter       = "#3A3A3A"
+
+!$text_primary     = "#ECECEC"
+!$text_secondary   = "#BBBBBB"
+
+
+!$border_radius = 5
+!$border_thickness = 2
+
+!$font_main = "Verdana"
+!$font_title_size = 24
+!$font_large = 16
+!$font_medium = 14
+!$font_small = 12
+
+skinparam Shadowing false
+skinparam Handwritten false
+
+<style>
+
+' ================================================
+' ================ GLOBAL CONFIG ================
+' ================================================
+root {
+  BackgroundColor $bg_dark
+  LineColor $primary
+  FontName $font_main
+  FontSize $font_medium
+  FontColor $text_primary
+}
+
+' ================================================
+' ============== SHARED ELEMENTS ================
+' ================================================
+rectangle {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle bold
+}
+
+activity {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle bold
+}
+
+object {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle bold
+}
+
+component {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle bold
+}
+
+node {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle bold
+}
+
+actor {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle bold
+}
+
+cloud {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle bold
+}
+
+package {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle bold
+}
+
+database {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle bold
+}
+
+file {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle bold
+}
+
+usecase {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle bold
+}
+
+participant {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner 15
+  FontStyle bold
+}
+
+diamond {
+  BackgroundColor $bg_lighter
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+}
+
+activityDiamond {
+  BackgroundColor $bg_lighter
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+}
+
+partition {
+  BackgroundColor $bg_light
+  LineColor $primary
+  FontColor $text_primary
+  LineThickness $border_thickness
+}
+
+swimlane {
+  BackgroundColor $bg_light
+  LineColor $primary
+  FontColor $text_primary
+  LineThickness $border_thickness
+}
+
+synchronization {
+  BackgroundColor $bg_lighter
+  LineColor $primary
+  LineStyle 1
+  LineThickness 3
+}
+
+arrow {
+  LineColor $primary
+  LineThickness $border_thickness
+  FontColor $primary
+  LineStyle plain
+}
+
+note {
+  BackgroundColor $bg_lighter
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+}
+' ===== TITLE =====
+title {
+  LineColor $primary
+  FontColor $primary_light
+  FontSize $font_title_size
+  FontStyle bold
+}
+
+' ===== LEGEND =====
+legend {
+  BackgroundColor $bg_lighter
+  LineColor $primary
+  RoundCorner $border_radius
+}
+
+legendTitle {
+  LineColor $primary
+  FontColor $primary
+  FontSize $font_large
+  FontStyle bold
+}
+
+legendText {
+  LineColor $primary
+  FontColor $text_primary
+  FontSize $font_small
+}
+
+' ================================================
+' ============= USE CASE DIAGRAM STYLES ==========
+' ================================================
+
+.arrowBase {
+  LineColor $primary
+  LineThickness 2
+  FontColor $primary
+}
+
+.arrowInclude {
+  LineColor $primary_analogous15
+  LineThickness 2
+  LineStyle dashed
+  FontColor $primary_analogous15
+  FontStyle italic
+}
+
+.arrowExtend {
+  LineColor $primary_analogous30
+  LineThickness 2
+  LineStyle dashed
+  FontColor $primary_analogous30
+  FontStyle italic
+}
+
+
+' ================================================
+' =========== ACTIVITY DIAGRAM STYLES ============
+' ================================================
+activityStart {
+  BackgroundColor $primary_dark
+  LineColor $primary
+  FontStyle bold
+}
+
+activityEnd {
+  BackgroundColor $primary_dark
+  LineColor $primary
+  FontStyle bold
+}
+
+activityStop {
+  BackgroundColor $primary_dark
+  LineColor $primary
+  FontStyle bold
+}
+
+
+
+' ================================================
+' ============== SEQUENCE DIAGRAM STYLES =========
+' ================================================
+
+</style>

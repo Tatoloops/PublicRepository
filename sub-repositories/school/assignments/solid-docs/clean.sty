@@ -1,0 +1,273 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{array}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2,
+    literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+             {ñ}{{\~n}}1
+}
+
+\lstset{style=mystyle}
+
+\title{Patrón Clean Architecture}
+\author{Tu Nombre}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Clean Architecture es un patrón de diseño propuesto por Robert C. Martin (Uncle Bob) que busca crear sistemas más mantenibles, escalables y testables. Este documento explica los principios fundamentales, las capas que componen esta arquitectura y su implementación práctica con ejemplos de código.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introducción}
+Clean Architecture es un enfoque arquitectónico que:
+
+\begin{itemize}
+    \item Separa el sistema en capas con responsabilidades bien definidas
+    \item Hace que el negocio sea independiente de frameworks, UI y bases de datos
+    \item Facilita el testing y mantenimiento
+    \item Permite postergar decisiones técnicas
+\end{itemize}
+
+\section{Principios Fundamentales}
+
+\begin{tcolorbox}[title=Principios clave]
+\begin{itemize}
+    \item \textbf{Independencia del framework}: El negocio no depende de librerías externas
+    \item \textbf{Testable}: La lógica de negocio puede probarse sin UI, DB o servicios externos
+    \item \textbf{Independiente de la UI}: La interfaz puede cambiar sin afectar el negocio
+    \item \textbf{Independiente de la base de datos}: Puedes cambiar de SQL a NoSQL sin problemas
+    \item \textbf{Independiente de agentes externos}: La lógica no sabe nada sobre interfaces externas
+\end{itemize}
+\end{tcolorbox}
+
+\section{Diagrama de Capas}
+
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.8\textwidth]{clean-architecture-layers.png}
+\caption{Capas de Clean Architecture}
+\label{fig:capas}
+\end{figure}
+
+Las capas principales son:
+
+\subsection{Entidades (Entities)}
+\begin{itemize}
+    \item Contienen las reglas de negocio fundamentales
+    \item Objetos de dominio con métodos que implementan lógica crítica
+    \item Ejemplo: Cliente, Producto, Factura
+\end{itemize}
+
+\subsection{Casos de Uso (Use Cases)}
+\begin{itemize}
+    \item Contienen las reglas de negocio específicas de la aplicación
+    \item Orquestan el flujo de datos hacia y desde las entidades
+    \item Ejemplo: CrearUsuario, ProcesarPago, GenerarReporte
+\end{itemize}
+
+\subsection{Controladores y Presentadores}
+\begin{itemize}
+    \item Convierten datos entre formatos convenientes para capas adyacentes
+    \item Presenters: Formatean datos para la UI
+    \item Controllers: Manejan las interacciones del usuario
+\end{itemize}
+
+\subsection{Frameworks y Drivers}
+\begin{itemize}
+    \item Capa más externa con detalles de implementación
+    \item Bases de datos, frameworks web, UI, dispositivos externos
+    \item Todo lo que cambia frecuentemente va aquí
+\end{itemize}
+
+\section{Regla de Dependencia}
+
+\begin{tcolorbox}[title=Regla Fundamental]
+Las dependencias solo pueden apuntar hacia adentro. El código en un círculo interno no puede saber nada sobre el código en un círculo externo.
+\end{tcolorbox}
+
+\begin{figure}[H]
+\centering
+% \includegraphics[width=0.5\textwidth]{dependency-rule.png}
+\caption{Regla de dependencia en Clean Architecture}
+\label{fig:dependencia}
+\end{figure}
+
+\section{Ejemplo de Implementación}
+
+\subsection{Estructura de Directorios}
+
+\begin{verbatim}[language=bash,caption=Estructura de proyecto]
+src/
+- core/               # Capa interna
+-  - entities/       # Entidades de negocio
+-  - usecases/       # Casos de uso
++── adapters/           # Capa intermedia
+│   +── controllers/    # Controladores
+│   +── presenters/     # Presentadores
++── infrastructure/     # Capa externa
+    +── persistence/    # Acceso a datos
+    +── web/           # Framework web
+\end{verbatim}
+
+\subsection{Ejemplo de Entidad}
+
+\begin{lstlisting}[language=Java,caption=Entidad Usuario]
+package core.entities;
+
+public class Usuario {
+    private final String id;
+    private String nombre;
+    private String email;
+    
+    public Usuario(String id, String nombre, String email) {
+        this.id = id;
+        this.nombre = nombre;
+        this.email = email;
+    }
+    
+    // Getters y setters omitidos por brevedad
+    
+    public boolean esEmailValido() {
+        return email != null && email.contains("@");
+    }
+}
+\end{lstlisting}
+
+\subsection{Ejemplo de Caso de Uso}
+
+\begin{lstlisting}[language=Java,caption=Caso de uso CrearUsuario]
+package core.usecases;
+
+import core.entities.Usuario;
+import core.interfaces.UsuarioRepository;
+
+public class CrearUsuario {
+    private final UsuarioRepository repository;
+    
+    public CrearUsuario(UsuarioRepository repository) {
+        this.repository = repository;
+    }
+    
+    public Usuario ejecutar(String nombre, String email) {
+        Usuario usuario = new Usuario(
+            UUID.randomUUID().toString(), 
+            nombre, 
+            email
+        );
+        
+        if (!usuario.esEmailValido()) {
+            throw new IllegalArgumentException("Email invalido");
+        }
+        
+        return repository.guardar(usuario);
+    }
+}
+\end{lstlisting}
+
+\subsection{Interfaz del Repositorio}
+
+\begin{lstlisting}[language=Java,caption=Interfaz del repositorio]
+package core.interfaces;
+
+import core.entities.Usuario;
+
+public interface UsuarioRepository {
+    Usuario guardar(Usuario usuario);
+    Usuario obtenerPorId(String id);
+    boolean existeEmail(String email);
+}
+\end{lstlisting}
+
+\subsection{Implementación concreta del repositorio}
+
+\begin{lstlisting}[language=Java,caption=Implementación con JPA]
+package infrastructure.persistence;
+
+import core.interfaces.UsuarioRepository;
+import core.entities.Usuario;
+
+public class UsuarioRepositoryJPA implements UsuarioRepository {
+    private final EntityManager em;
+    
+    public UsuarioRepositoryJPA(EntityManager em) {
+        this.em = em;
+    }
+    
+    @Override
+    public Usuario guardar(Usuario usuario) {
+        em.persist(usuario);
+        return usuario;
+    }
+    
+    // Resto de implementaciones...
+}
+\end{lstlisting}
+
+\section{Ventajas de Clean Architecture}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|p{8cm}|}
+\hline
+\textbf{Ventaja} & \textbf{Descripción} \\ \hline
+Independencia & El negocio no depende de tecnologías específicas \\ \hline
+Testabilidad & Facilita pruebas unitarias sin infraestructura \\ \hline
+Mantenibilidad & Cambios en una capa no afectan otras \\ \hline
+Escalabilidad & Nuevas features se añaden con mínimo impacto \\ \hline
+Postergar decisiones & Puedes decidir sobre tecnologías más tarde \\ \hline
+\end{tabular}
+\caption{Ventajas de Clean Architecture}
+\label{tab:ventajas}
+\end{table}
+
+\section{Conclusión}
+
+Clean Architecture ofrece un enfoque sistemático para diseñar aplicaciones empresariales complejas que:
+
+\begin{itemize}
+    \item Protegen las reglas de negocio de cambios tecnológicos
+    \item Facilitan el testing y mantenimiento
+    \item Permiten evolucionar el sistema con menor riesgo
+    \item Mejoran la colaboración entre equipos
+\end{itemize}
+
+Si bien requiere más esfuerzo inicial, el retorno de inversión en mantenibilidad y flexibilidad justifica ampliamente su adopción en proyectos medianos y grandes.
+
+\end{document}

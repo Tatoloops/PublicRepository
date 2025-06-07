@@ -1,0 +1,410 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[spanish]{babel}
+% \usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{listings}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{lipsum}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\title{Principios SOLID de Diseño Orientado a Objetos}
+\author{Tomás Castillo Ávila}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Los principios SOLID son cinco directrices fundamentales para el diseño de software orientado a objetos que promueven código mantenible, escalable y fácil de entender. Este documento explica cada principio con ejemplos prácticos en código, mostrando cómo aplicarlos y qué beneficios aportan al desarrollo de software.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introducción}
+Los principios SOLID fueron introducidos por Robert C. Martin (conocido como Uncle Bob) y representan las mejores prácticas para diseñar software orientado a objetos. El acrónimo SOLID representa cinco principios:
+
+\begin{itemize}
+    \item \textbf{S} - Principio de responsabilidad única (Single Responsibility Principle)
+    \item \textbf{O} - Principio abierto/cerrado (Open/Closed Principle)
+    \item \textbf{L} - Principio de sustitución de Liskov (Liskov Substitution Principle)
+    \item \textbf{I} - Principio de segregación de interfaces (Interface Segregation Principle)
+    \item \textbf{D} - Principio de inversión de dependencias (Dependency Inversion Principle)
+\end{itemize}
+
+\section{Principio de Responsabilidad Única (SRP)}
+
+\begin{tcolorbox}[title=Definición]
+Una clase debe tener una sola razón para cambiar, lo que significa que debe tener una sola responsabilidad.
+\end{tcolorbox}
+
+\subsection{Ejemplo Violando el SRP}
+
+\begin{lstlisting}[language=Java,caption=Ejemplo que viola el SRP]
+public class Empleado {
+    private String nombre;
+    private String puesto;
+    
+    // Constructor, getters y setters...
+    
+    public void guardarEmpleado(Empleado empleado) {
+        // Logica para guardar en base de datos
+    }
+    
+    public void generarReporte(Empleado empleado) {
+        // Logica para generar reporte
+    }
+}
+\end{lstlisting}
+
+Este ejemplo viola el SRP porque la clase \texttt{Empleado} tiene tres responsabilidades:
+\begin{itemize}
+    \item Representar los datos de un empleado
+    \item Manejar la persistencia (guardar en BD)
+    \item Generar reportes
+\end{itemize}
+
+\subsection{Ejemplo Aplicando el SRP}
+
+\begin{lstlisting}[language=Java,caption=Ejemplo aplicando el SRP]
+public class Empleado {
+    private String nombre;
+    private String puesto;
+    
+    // Constructor, getters y setters...
+}
+
+public class EmpleadoRepository {
+    public void guardar(Empleado empleado) {
+        // Logica para guardar en base de datos
+    }
+}
+
+public class ReporteGenerator {
+    public void generarReporte(Empleado empleado) {
+        // Logica para generar reporte
+    }
+}
+\end{lstlisting}
+
+Ahora cada clase tiene una sola responsabilidad:
+\begin{itemize}
+    \item \texttt{Empleado}: Representa los datos
+    \item \texttt{EmpleadoRepository}: Maneja la persistencia
+    \item \texttt{ReporteGenerator}: Genera reportes
+\end{itemize}
+
+\section{Principio Abierto/Cerrado (OCP)}
+
+\begin{tcolorbox}[title=Definición]
+Las entidades de software (clases, módulos, funciones, etc.) deben estar abiertas para extensión pero cerradas para modificación.
+\end{tcolorbox}
+
+\subsection{Ejemplo Violando el OCP}
+
+\begin{lstlisting}[language=Java,caption=Ejemplo que viola el OCP]
+public class CalculadoraArea {
+    public double calcularArea(Object forma) {
+        if (forma instanceof Circulo) {
+            Circulo c = (Circulo) forma;
+            return Math.PI * c.getRadio() * c.getRadio();
+        } else if (forma instanceof Cuadrado) {
+            Cuadrado s = (Cuadrado) forma;
+            return s.getLado() * s.getLado();
+        }
+        throw new RuntimeException("Forma no soportada");
+    }
+}
+\end{lstlisting}
+
+Este diseño viola el OCP porque cada vez que necesitemos agregar una nueva forma, tendremos que modificar la clase \texttt{CalculadoraArea}.
+
+\subsection{Ejemplo Aplicando el OCP}
+
+\begin{lstlisting}[language=Java,caption=Ejemplo aplicando el OCP]
+public interface Forma {
+    double calcularArea();
+}
+
+public class Circulo implements Forma {
+    private double radio;
+    
+    public Circulo(double radio) { this.radio = radio; }
+    
+    @Override
+    public double calcularArea() {
+        return Math.PI * radio * radio;
+    }
+}
+
+public class Cuadrado implements Forma {
+    private double lado;
+    
+    public Cuadrado(double lado) { this.lado = lado; }
+    
+    @Override
+    public double calcularArea() {
+        return lado * lado;
+    }
+}
+
+public class CalculadoraArea {
+    public double calcularArea(Forma forma) {
+        return forma.calcularArea();
+    }
+}
+\end{lstlisting}
+
+Ahora podemos agregar nuevas formas sin modificar la clase \texttt{CalculadoraArea}, simplemente implementando la interfaz \texttt{Forma}.
+
+\section{Principio de Sustitución de Liskov (LSP)}
+
+\begin{tcolorbox}[title=Definición]
+Los objetos de un programa deberían ser reemplazables por instancias de sus subtipos sin alterar el correcto funcionamiento del programa.
+\end{tcolorbox}
+
+\subsection{Ejemplo Violando el LSP}
+
+\begin{lstlisting}[language=Java,caption=Ejemplo que viola el LSP]
+class Rectangulo {
+    protected int ancho, alto;
+    
+    public void setAncho(int ancho) { this.ancho = ancho; }
+    public void setAlto(int alto) { this.alto = alto; }
+    public int getArea() { return ancho * alto; }
+}
+
+class Cuadrado extends Rectangulo {
+    @Override
+    public void setAncho(int ancho) {
+        super.setAncho(ancho);
+        super.setAlto(ancho);
+    }
+    
+    @Override
+    public void setAlto(int alto) {
+        super.setAlto(alto);
+        super.setAncho(alto);
+    }
+}
+
+public class Test {
+    static void probarRectangulo(Rectangulo r) {
+        r.setAncho(5);
+        r.setAlto(4);
+        if (r.getArea() != 20) {
+            throw new RuntimeException("Area incorrecta!");
+        }
+    }
+    
+    public static void main(String[] args) {
+        probarRectangulo(new Rectangulo()); // Funciona
+        probarRectangulo(new Cuadrado());   // Lanza excepcion!
+    }
+}
+\end{lstlisting}
+
+El problema es que \texttt{Cuadrado} no puede sustituir a \texttt{Rectangulo} sin alterar el comportamiento esperado.
+
+\subsection{Ejemplo Aplicando el LSP}
+
+\begin{lstlisting}[language=Java,caption=Ejemplo aplicando el LSP]
+abstract class Figura {
+    public abstract int getArea();
+}
+
+class Rectangulo extends Figura {
+    private int ancho, alto;
+    
+    public void setAncho(int ancho) { this.ancho = ancho; }
+    public void setAlto(int alto) { this.alto = alto; }
+    @Override
+    public int getArea() { return ancho * alto; }
+}
+
+class Cuadrado extends Figura {
+    private int lado;
+    
+    public void setLado(int lado) { this.lado = lado; }
+    @Override
+    public int getArea() { return lado * lado; }
+}
+
+public class Test {
+    static void probarFigura(Figura f) {
+        // Ahora no podemos asumir que todas las figuras tienen ancho y alto
+        // El comportamiento es predecible para todas las subclases
+    }
+}
+\end{lstlisting}
+
+Ahora \texttt{Rectangulo} y \texttt{Cuadrado} son subtipos de \texttt{Figura} pero no están relacionados entre sí, evitando la violación del LSP.
+
+\section{Principio de Segregacion de Interfaces (ISP)}
+
+\begin{tcolorbox}[title=Definición]
+Los clientes no deben verse obligados a depender de interfaces que no usan.
+\end{tcolorbox}
+
+\subsection{Ejemplo Violando el ISP}
+
+\begin{lstlisting}[language=Java,caption=Ejemplo que viola el ISP]
+interface Trabajador {
+    void trabajar();
+    void comer();
+    void asistirReuniones();
+}
+
+class Programador implements Trabajador {
+    public void trabajar() { /* codificar */ }
+    public void comer() { /* comer */ }
+    public void asistirReuniones() { /* sin implementacion util */ }
+}
+
+class Gerente implements Trabajador {
+    public void trabajar() { /* gestionar */ }
+    public void comer() { /* comer */ }
+    public void asistirReuniones() { /* organizar reuniones */ }
+}
+\end{lstlisting}
+
+El problema es que \texttt{Programador} está obligado a implementar \texttt{asistirReuniones()} aunque no sea relevante para su rol.
+
+\subsection{Ejemplo Aplicando el ISP}
+
+\begin{lstlisting}[language=Java,caption=Ejemplo aplicando el ISP]
+interface Trabajador {
+    void trabajar();
+    void comer();
+}
+
+interface ReunionParticipante {
+    void asistirReuniones();
+}
+
+class Programador implements Trabajador {
+    public void trabajar() { /* codificar */ }
+    public void comer() { /* comer */ }
+}
+
+class Gerente implements Trabajador, ReunionParticipante {
+    public void trabajar() { /* gestionar */ }
+    public void comer() { /* comer */ }
+    public void asistirReuniones() { /* organizar reuniones */ }
+}
+\end{lstlisting}
+
+Ahora cada clase solo implementa las interfaces que necesita.
+
+\section{Principio de Inversión de Dependencias (DIP)}
+
+\begin{tcolorbox}[title=Definición]
+Los módulos de alto nivel no deben depender de módulos de bajo nivel. Ambos deben depender de abstracciones.
+\end{tcolorbox}
+
+\subsection{Ejemplo Violando el DIP}
+
+\begin{lstlisting}[language=Java,caption=Ejemplo que viola el DIP]
+class ServicioNotificacion {
+    private EmailService emailService;
+    
+    public ServicioNotificacion() {
+        this.emailService = new EmailService();
+    }
+    
+    public void notificar(String mensaje) {
+        emailService.enviarEmail(mensaje);
+    }
+}
+
+class EmailService {
+    public void enviarEmail(String mensaje) {
+        // Logica para enviar email
+    }
+}
+\end{lstlisting}
+
+El problema es que \texttt{ServicioNotificacion} depende directamente de \texttt{EmailService}, una implementación concreta.
+
+\subsection{Ejemplo Aplicando el DIP}
+
+\begin{lstlisting}[language=Java,caption=Ejemplo aplicando el DIP]
+interface Mensajero {
+    void enviarMensaje(String mensaje);
+}
+
+class EmailService implements Mensajero {
+    @Override
+    public void enviarMensaje(String mensaje) {
+        // Logica para enviar email
+    }
+}
+
+class SMSService implements Mensajero {
+    @Override
+    public void enviarMensaje(String mensaje) {
+        // Logica para enviar SMS
+    }
+}
+
+class ServicioNotificacion {
+    private Mensajero mensajero;
+    
+    public ServicioNotificacion(Mensajero mensajero) {
+        this.mensajero = mensajero;
+    }
+    
+    public void notificar(String mensaje) {
+        mensajero.enviarMensaje(mensaje);
+    }
+}
+\end{lstlisting}
+
+Ahora \texttt{ServicioNotificacion} depende de la abstracción \texttt{Mensajero}, permitiendo cambiar fácilmente el servicio de mensajería.
+
+\section{Conclusión}
+Los principios SOLID son fundamentales para desarrollar software mantenible, escalable y de calidad. Aplicarlos correctamente:
+
+\begin{itemize}
+    \item Reduce el acoplamiento entre componentes
+    \item Aumenta la cohesión de las clases
+    \item Facilita la extensión del sistema
+    \item Mejora la legibilidad y mantenibilidad
+    \item Permite un diseño más robusto y flexible
+\end{itemize}
+
+Si bien al principio pueden parecer complejos, con la práctica se convierten en guías naturales para el diseño de software orientado a objetos.
+
+\end{document}

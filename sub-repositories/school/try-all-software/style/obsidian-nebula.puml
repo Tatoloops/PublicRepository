@@ -1,0 +1,157 @@
+' ===== PALETTE: OBSIDIAN NEBULA =====
+
+' Primary emerald (rich green)
+!$primary = "#2ECC71"
+
+' Secondary amethyst (regal purple)
+!$secondary = "#9B59B6"
+
+' Celestial variants
+!$primary_light = "#58D68D"
+!$primary_dark = "#1E8449"
+!$secondary_light = "#BB8FCE"
+!$secondary_dark = "#7D3C98"
+
+' Cosmic accents
+!$accent_gold = "#F1C40F"
+!$accent_sapphire = "#3498DB"
+
+' Deep space backgrounds
+!$bg_dark = "#0C0C12"
+!$bg_medium = "#161622"
+!$bg_light = "#212133"
+!$bg_lighter = "#2C2C45"
+
+' Stellar text
+!$text_primary = "#EAEDF7"
+!$text_secondary = "#BDC3D6"
+!$text_highlight = "#FFFFFF"
+
+' UI Parameters
+!$border_radius = 5
+!$border_thickness = 2
+!$font_main = "'IBM Plex Sans', sans-serif"
+!$font_title_size = 24
+!$font_large = 16
+!$font_medium = 14
+!$font_small = 12
+
+' ===== ARROW CONFIGURATION =====
+!$arrow_thickness = 1.4
+!$arrow_head_size = 5
+!$arrow_font_size = $font_small
+
+skinparam Shadowing false
+skinparam Handwritten false
+
+<style>
+
+' ================ GLOBAL CONFIG ================
+root {
+  BackgroundColor $bg_dark
+  LineColor $primary
+  FontName $font_main
+  FontSize $font_medium
+  FontColor $text_primary
+}
+
+' ============== SHARED ELEMENTS ================
+rectangle, activity, object, component, node, actor, cloud, package, database, file, usecase {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  BorderThickness $border_thickness
+}
+arrow {
+  LineColor $primary_light
+  LineThickness $arrow_thickness
+  FontColor $text_highlight
+  FontSize $arrow_font_size
+  LineStyle plain
+  BorderThickness $arrow_thickness
+}
+participant {
+  BackgroundColor $bg_light
+  LineColor $accent_gold
+  FontColor $text_highlight
+  RoundCorner 12
+  FontStyle bold
+}
+
+diamond, activityDiamond {
+  BackgroundColor $bg_light
+  LineColor $accent_sapphire
+  FontColor $text_highlight
+  RoundCorner $border_radius
+}
+
+partition, swimlane {
+  BackgroundColor $bg_light
+  LineColor $secondary_dark
+  FontColor $text_primary
+  LineThickness $border_thickness
+}
+
+
+note {
+  BackgroundColor $bg_lighter
+  LineColor $secondary
+  FontColor $text_primary
+  RoundCorner $border_radius
+}
+
+' ============== SPECIAL ELEMENTS ===============
+title {
+'   LineColor $accent_gold
+  FontColor $primary_light
+  FontSize $font_title_size
+  FontStyle bold
+  Margin 15
+}
+
+legend {
+  BackgroundColor $bg_light
+  LineColor $secondary
+  RoundCorner $border_radius
+}
+
+legendTitle {
+  FontColor $accent_sapphire
+  FontSize $font_large
+  FontStyle bold
+}
+
+' ============= DIAGRAM-SPECIFIC STYLES =========
+
+.arrowInclude {
+  LineColor $accent_gold
+  LineStyle dashed
+}
+
+.arrowExtend {
+  LineColor $accent_sapphire
+  LineStyle dotted
+}
+
+activityStart, activityEnd, activityStop {
+  BackgroundColor $secondary_dark
+  LineColor $accent_gold
+  FontColor $text_highlight
+  FontStyle bold
+}
+
+
+</style>
+
+' ============ COSMIC EFFECTS ===========
+' skinparam Arrow {
+'   FontStyle {
+'     highlight bold
+'     critical bold,italic
+'   }
+'   FontColor {
+'     highlight $accent_gold
+'     critical $accent_sapphire
+'   }
+' }

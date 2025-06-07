@@ -1,0 +1,18 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{2}{section.1}%
+\contentsline {section}{\numberline {2}Principio de Responsabilidad Única (SRP)}{2}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Ejemplo Violando el SRP}{2}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Ejemplo Aplicando el SRP}{3}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Principio Abierto/Cerrado (OCP)}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Ejemplo Violando el OCP}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Ejemplo Aplicando el OCP}{4}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Principio de Sustitución de Liskov (LSP)}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Ejemplo Violando el LSP}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Ejemplo Aplicando el LSP}{6}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Principio de Segregacion de Interfaces (ISP)}{7}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Ejemplo Violando el ISP}{7}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Ejemplo Aplicando el ISP}{8}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Principio de Inversión de Dependencias (DIP)}{8}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Ejemplo Violando el DIP}{8}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Ejemplo Aplicando el DIP}{9}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Conclusión}{10}{section.7}%

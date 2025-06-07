@@ -1,0 +1,17 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
+\contentsline {section}{\numberline {2}Principios Fundamentales}{2}{section.2}%
+\contentsline {section}{\numberline {3}Diagrama de Capas}{2}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Entidades (Entities)}{2}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Casos de Uso (Use Cases)}{2}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Controladores y Presentadores}{3}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Frameworks y Drivers}{3}{subsection.3.4}%
+\contentsline {section}{\numberline {4}Regla de Dependencia}{3}{section.4}%
+\contentsline {section}{\numberline {5}Ejemplo de Implementación}{3}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Estructura de Directorios}{3}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Ejemplo de Entidad}{4}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Ejemplo de Caso de Uso}{4}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Interfaz del Repositorio}{5}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Implementación concreta del repositorio}{5}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Ventajas de Clean Architecture}{6}{section.6}%
+\contentsline {section}{\numberline {7}Conclusión}{6}{section.7}%

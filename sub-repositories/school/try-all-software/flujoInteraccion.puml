@@ -1,0 +1,81 @@
+
+@startuml ArquitecturaSistemaRiego_Completo
+
+
+!include style/dark_minimal.puml
+skinparam handwritten false
+skinparam Shadowing false
+skinparam FileFontSize 12
+skinparam {
+'   backgroundColor #121212
+  defaultFontColor #FFFFFF
+'   arrowColor #4CAF50
+  actor {
+    BackgroundColor #3E2723
+    BorderColor #FFD700
+    FontColor #FFFFFF
+  }
+  rectangle {
+    BackgroundColor #1E1E1E
+    BorderColor #4CAF50
+    FontColor #FFFFFF
+    RoundCorner 10
+  }
+  database {
+    BackgroundColor #2C3E50
+    BorderColor #3498DB
+    FontColor #ECF0F1
+  }
+  file {
+    BackgroundColor #34495E
+    BorderColor #BDC3C7
+    FontColor #ECF0F1
+  }
+  node {
+    BackgroundColor #8D6E63
+    BorderColor #FFD700
+    FontColor #FFFFFF
+  }
+
+}
+
+title "Flujo de Interacción del Sistema" 
+
+actor Usuario
+rectangle Frontend {
+  top to bottom direction
+  [Interfaz Web/Móvil]
+  [Autenticación]
+}
+
+
+rectangle Backend {
+    top to bottom direction
+    [Motor IA]
+    [Microservicios]
+}
+
+
+database PostgreSQL {
+  [Datos del sistema\n(sensores + estructurados)]
+}
+
+file "Esportación de \nReportes" as "Reportes"{
+
+}
+
+node "Sensores IoT" as Sensores
+node "Actuadores de Riego" as Actuadores
+
+Usuario --> [Autenticación] : Inicia sesión
+[Autenticación] --> [Interfaz Web/Móvil] : Acceso según rol
+Sensores -> [Microservicios] : Envía métricas
+[Interfaz Web/Móvil] -> [Microservicios] : Envía datos
+[Motor IA] -up-> [Microservicios] : Sugerencias
+[Microservicios] -down-> "Reportes"
+[Microservicios] --> [PostgreSQL] : Guarda datos
+
+[PostgreSQL] --> [Motor IA] : Datos para análisis
+[Microservicios] -left-> Actuadores : Ajuste automático 
+
+@enduml

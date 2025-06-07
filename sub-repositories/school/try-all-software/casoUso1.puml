@@ -1,0 +1,59 @@
+@startuml
+
+'si archivo no existe, coment out this line
+!include style/dark_minimal.puml
+
+left to right direction
+
+actor "Admin" as Admin
+actor "Usuario" as Usuario
+
+
+rectangle "Sistema de Riego Inteligente" {
+    usecase "CU10: Autenticarse y\ngestionar sesión" as CU10
+    usecase "CU1: Configurar zonas\nde cultivo" as CU1
+    usecase "CU2: Programar riego" as CU2
+
+    usecase "CU3: Monitorear\nvariables\nen vivo" as CU3
+    usecase "CU5: Analizar\ndatos históricos" as CU5
+
+    usecase "CU7: Visualizar\nsugerencias" as CU7
+    usecase "CU8: Control remoto\ndel sistema" as CU8
+   
+    usecase "CU4: Emitir\nalertas inteligentes" as CU4
+    usecase "CU6: Ajustar riego\nautomáticamente" as CU6
+
+    usecase "CU9: Generar informes de\n cumplimiento" as CU9
+
+    ' usecase "Crear y modificar\n roles" as  CU11
+}
+
+' Relaciones actores - casos
+
+Usuario --> CU8 <<arrowBase>>
+Usuario --> CU10 <<arrowBase>>
+' Admin --> CU11 <<arrowBase>>
+
+CU8 --> CU1 <<arrowBase>>
+CU8 --> CU2 <<arrowBase>>
+CU8 --> CU3 <<arrowBase>>
+CU8 --> CU5 <<arrowBase>>
+CU8 --> CU7 <<arrowBase>>
+CU8 --> CU9 <<arrowBase>>
+
+
+' Relaciones entre casos de uso
+
+' includes
+Admin .left.> Usuario <<arrowInclude>> : "<<include>>"
+CU6 ..> CU2  <<arrowInclude>> : "<<include>>"
+
+CU9 ..> CU5 <<arrowInclude>>  : "<<include>>"
+CU7 ..> CU5 <<arrowInclude>>  : "<<include>>"
+CU4 ..> CU5 <<arrowInclude>>  : "<<include>>"
+
+' extends
+CU7 ..> CU3  <<arrowExtend>> : "<<extends>>"
+
+
+@enduml

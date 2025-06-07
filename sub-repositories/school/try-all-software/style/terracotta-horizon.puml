@@ -1,0 +1,307 @@
+' ===== PALETA DE COLORES =====
+
+' Warm terracotta
+!$primary          = "#C77B5B" 
+ ' Cool sky blue 
+!$secondary        = "#5BA7C7" 
+
+' Analogous colors (15° and 30° variations)
+' Golden brown
+!$primary_analogous15 = "#C7935B"  
+' Mustard
+!$primary_analogous30 = "#C7AB5B"  
+' Aquamarine
+!$secondary_analogous15 = "#5BC7A7" 
+' Emerald green
+!$secondary_analogous30 = "#5BC787"  
+
+' Complementary variations
+!$primary_light    = "#E4A98B"
+!$primary_lighter  = "#F8D5C5"
+!$primary_dark     = "#9C5A3D"
+!$primary_darker   = "#6E3F2A"
+
+!$secondary_light  = "#8EC9E0"
+!$secondary_lighter = "#C2E4F1"
+!$secondary_dark   = "#3A86A0"
+!$secondary_darker = "#1F5C73"
+
+' Neutral backgrounds with warm/cool balance
+' Dark slate with blue undertone
+!$bg_dark          = "#1A1D1F"  
+' Medium dark
+!$bg_medium        = "#2A2E32"  
+' Light slate
+!$bg_light         = "#3C4248"  
+' Lighter slate
+!$bg_lighter       = "#4E565E"  
+
+' Text colors with warm/cool contrast
+' Cool white
+!$text_primary     = "#F0F4F8"  
+' Cool gray
+!$text_secondary   = "#D1D9E0"  
+' Warm cream for highlights
+!$text_highlight   = "#FFE8D9"  
+
+' Accent colors
+' Bright coral
+!$accent_warm      = "#FF9E6B"  
+' Bright azure
+!$accent_cool      = "#6BD4FF"  
+' Cool gray
+!$accent_neutral   = "#A8B2BD"  
+
+!$border_radius = 6
+!$border_thickness = 2
+
+!$font_main = "Segoe UI, Helvetica, sans-serif"
+!$font_title_size = 26
+!$font_large = 18
+!$font_medium = 14
+!$font_small = 11
+
+' ===== ARROW CONFIGURATION =====
+!$arrow_thickness = 1.6
+!$arrow_head_size = 5
+!$arrow_font_size = $font_small
+
+skinparam Shadowing false
+skinparam Handwritten false
+
+skinparam actorStyle awesome
+<style>
+
+' ================================================
+' ================ GLOBAL CONFIG ================
+' ================================================
+root {
+  BackgroundColor $bg_dark
+  LineColor $secondary
+  FontName $font_main
+  FontSize $font_medium
+  FontColor $text_primary
+}
+sequence {
+  MessageAlignment reverseDirection
+  ResponseMessageBelowArrow true
+}
+
+' ================================================
+' ============== SHARED ELEMENTS ================
+' ================================================
+rectangle {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle normal
+}
+
+activity{
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle normal
+}
+object{
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle normal
+}
+component{
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle normal
+}
+node{
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle normal
+}
+actor{
+  Style awesome
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle normal
+}
+cloud{
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle normal
+}
+package{
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle normal
+}
+database{
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle normal
+}
+file{
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle normal
+}
+usecase {
+  BackgroundColor $bg_medium
+  LineColor $primary
+  FontColor $text_primary
+  RoundCorner $border_radius
+  FontStyle normal
+}
+
+participant {
+  BackgroundColor $bg_medium
+  LineColor $secondary
+  FontColor $text_highlight
+  RoundCorner 15
+  FontStyle bold
+}
+
+diamond {
+  BackgroundColor $bg_lighter
+  LineColor $primary_analogous15
+  FontColor $text_highlight
+  RoundCorner $border_radius
+}
+activityDiamond {
+  BackgroundColor $bg_lighter
+  LineColor $primary_analogous15
+  FontColor $text_highlight
+  RoundCorner $border_radius
+}
+
+partition {
+  BackgroundColor $bg_light
+  LineColor $secondary_dark
+  FontColor $text_primary
+  LineThickness $border_thickness
+}
+
+swimlane {
+  BackgroundColor $bg_light
+  LineColor $secondary_dark
+  FontColor $text_primary
+  LineThickness $border_thickness
+}
+
+synchronization {
+  BackgroundColor $secondary_darker
+  LineColor $secondary
+  LineStyle 1
+  LineThickness 3
+}
+
+arrow {
+  LineColor $secondary_light
+  LineThickness $arrow_thickness
+  FontColor $text_highlight
+  LineStyle plain
+}
+
+note {
+  BackgroundColor $bg_lighter
+  LineColor $primary_light
+  FontColor $text_primary
+  RoundCorner $border_radius
+}
+
+' ===== TITLE =====
+title {
+  LineColor $secondary
+  FontColor $accent_warm
+  FontSize $font_title_size
+  FontStyle bold
+  Margin 10
+}
+
+' ===== LEGEND =====
+legend {
+  BackgroundColor $bg_lighter
+  LineColor $primary_light
+  RoundCorner $border_radius
+}
+
+legendTitle {
+  LineColor $secondary
+  FontColor $secondary_light
+  FontSize $font_large
+  FontStyle bold
+}
+
+legendText {
+  LineColor none
+  FontColor $text_secondary
+  FontSize $font_small
+}
+
+' ================================================
+' ============= USE CASE DIAGRAM STYLES ==========
+' ================================================
+
+.arrowBase {
+  LineColor $primary
+  LineThickness 1.5
+  FontColor $primary
+}
+
+.arrowInclude {
+  LineColor $secondary_analogous15
+  LineThickness 1.5
+  LineStyle dashed
+  FontColor $secondary_analogous15
+}
+
+.arrowExtend {
+  LineColor $primary_analogous30
+  LineThickness 1.5
+  LineStyle dashed
+  FontColor $primary_analogous30
+}
+
+' ================================================
+' =========== ACTIVITY DIAGRAM STYLES ============
+' ================================================
+activityStart{
+  BackgroundColor $secondary_dark
+  LineColor $secondary
+  FontStyle bold
+  FontColor $text_highlight
+}
+activityEnd {
+  BackgroundColor $secondary_dark
+  LineColor $secondary
+  FontStyle bold
+  FontColor $text_highlight
+}
+activityStop {
+  BackgroundColor $secondary_dark
+  LineColor $secondary
+  FontStyle bold
+  FontColor $text_highlight
+}
+
+' ================================================
+' ============== SEQUENCE DIAGRAM STYLES =========
+' ================================================
+</style>
