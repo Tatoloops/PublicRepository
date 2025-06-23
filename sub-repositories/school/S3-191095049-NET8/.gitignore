@@ -1,0 +1,44 @@
+# Build output
+bin/
+obj/
+
+# local only files
+local-scripts/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio folder
+.vs/
+
+# Rider IDE folder
+.idea/
+
+# ASP.NET temporary files
+**/App_Data/
+
+# Publish directory
+publish/
+
+# Local environment config (optional)
+appsettings.Development.json
+
+# HTTP request files (optional)
+*.http
+
+# User secrets (if used)
+secrets.json
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Database files (if used for local dev only)
+*.db
+*.sqlite
