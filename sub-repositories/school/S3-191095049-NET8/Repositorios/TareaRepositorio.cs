@@ -1,6 +1,7 @@
 namespace S3_191095049_NET8.Repositorios;
 
 using Npgsql;
+using NpgsqlTypes; // Required for NpgsqlDbType
 using System.Data;
 using S3_191095049_NET8.Modelos;
 using S3_191095049_NET8.Repositorios.Interfaces;
@@ -64,14 +65,35 @@ public class TareaRepositorio : ITareaRepositorio{
         using var conexion = new NpgsqlConnection(_connectionString);
         await conexion.OpenAsync();
 
-        // Usamos la función almacenada InsertarTarea
-        using var comando = new NpgsqlCommand("SELECT InsertarTarea(@titulo, @descripcion, @fecha, @usuarioId)", conexion);
-        comando.Parameters.AddWithValue("@titulo", tarea.Titulo);
-        comando.Parameters.AddWithValue("@descripcion", tarea.Descripcion ?? (object)DBNull.Value);
-        comando.Parameters.AddWithValue("@fecha", tarea.FechaVencimiento);
-        comando.Parameters.AddWithValue("@usuarioId", tarea.UsuarioId);
-
+        // Insertar con la función almacenada (sin Completada)
+        using var comando = new NpgsqlCommand(
+            @"SELECT InsertarTarea(@Titulo, 
+            @Descripcion, 
+            @FechaVencimiento, 
+            @Completada, 
+            @UsuarioId)", conexion);
+        comando.Parameters.AddWithValue("@Titulo", NpgsqlDbType.Text, tarea.Titulo);
+        comando.Parameters.AddWithValue("@Descripcion", NpgsqlDbType.Text, tarea.Descripcion ?? (object)DBNull.Value);
+        comando.Parameters.AddWithValue("@FechaVencimiento", NpgsqlDbType.Date, tarea.FechaVencimiento.Date); // Solo la fecha
+        comando.Parameters.AddWithValue("@Completada", tarea.Completada);
+        comando.Parameters.AddWithValue("@UsuarioId", NpgsqlDbType.Integer, tarea.UsuarioId);
         await comando.ExecuteNonQueryAsync();
+
+        // // Si está completada, actualizamos su estado
+        // if (tarea.Completada)
+        // {
+        //     using var updateCommand = new NpgsqlCommand(@"
+        //         UPDATE Tareas 
+        //         SET Completada = @completada
+        //         WHERE Titulo = @titulo AND UsuarioId = @usuarioId
+        //         ORDER BY Id DESC LIMIT 1", conexion);
+            
+        //     updateCommand.Parameters.AddWithValue("@completada", tarea.Completada);
+        //     updateCommand.Parameters.AddWithValue("@titulo", NpgsqlDbType.Text, tarea.Titulo);
+        //     updateCommand.Parameters.AddWithValue("@usuarioId", NpgsqlDbType.Integer, tarea.UsuarioId);
+
+        //     await updateCommand.ExecuteNonQueryAsync();
+        // }
     }
 
     public async Task ActualizarTarea(Tarea tarea) {

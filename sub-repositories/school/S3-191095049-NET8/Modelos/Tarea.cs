@@ -1,6 +1,12 @@
 namespace S3_191095049_NET8.Modelos;
 
-public class Tarea {
+// using System;
+// using System.ComponentModel; // For [DefaultValue], [Description]
+// using System.ComponentModel.DataAnnotations; // For [Required]
+// using System.Text.Json.Serialization; // For [JsonPropertyName]
+using NpgsqlTypes; // For NpgsqlDbType
+public class Tarea
+{
     public int Id { get; set; }
     public string Titulo { get; set; } = null!;
     public string? Descripcion { get; set; }
