@@ -1,19 +1,27 @@
 namespace S3_191095049_NET8.Repositorios;
 
+// importar las librerías necesarias
 using Npgsql;
-using NpgsqlTypes; // Required for NpgsqlDbType
-using System.Data;
+using NpgsqlTypes; // requerido for NpgsqlDbType -> para compatibilidad postgresql
+// using System.Data;
+
+// importar los modelos y las interfaces
 using S3_191095049_NET8.Modelos;
 using S3_191095049_NET8.Repositorios.Interfaces;
 
+// repositorio para manejar las operaciones de la entidad Tarea
+public class TareaRepositorio : ITareaRepositorio {
 
-public class TareaRepositorio : ITareaRepositorio{
+    //cadena de conexión a la base de datos PostgreSQL
     private readonly string _connectionString;
 
-    public TareaRepositorio(IConfiguration configuration) {
+
+    // constructor que recibe la configuración para obtener la cadena de conexión
+    public TareaRepositorio(IConfiguration configuration){
         _connectionString = configuration.GetConnectionString("PostgresConnection")!;
     }
 
+    // metodo para listar todas las tareas de un usuario
     public async Task<IEnumerable<Tarea>> ListarTareasPorUsuario(int usuarioId) {
         var tareas = new List<Tarea>();
 
@@ -37,11 +45,14 @@ public class TareaRepositorio : ITareaRepositorio{
 
         return tareas;
     }
-
+    
+    
+    // metodo para obtener una tarea por su id y el id del usuario
     public async Task<Tarea?> ObtenerTareaPorId(int id, int usuarioId) {
         using var conexion = new NpgsqlConnection(_connectionString);
         await conexion.OpenAsync();
 
+        // usar un comando parametrizado para evitar inyecciones SQL
         using var comando = new NpgsqlCommand("SELECT * FROM Tareas WHERE Id = @id AND UsuarioId = @usuarioId", conexion);
         comando.Parameters.AddWithValue("@id", id);
         comando.Parameters.AddWithValue("@usuarioId", usuarioId);
@@ -61,6 +72,8 @@ public class TareaRepositorio : ITareaRepositorio{
         return null;
     }
 
+
+    // mtodo para crear una nueva tarea
     public async Task CrearTarea(Tarea tarea) {
         using var conexion = new NpgsqlConnection(_connectionString);
         await conexion.OpenAsync();
@@ -70,24 +83,24 @@ public class TareaRepositorio : ITareaRepositorio{
             @"SELECT InsertarTarea(@Titulo, 
             @Descripcion, 
             @FechaVencimiento, 
-            @Completada, 
+            0, -- Completada por defecto como false
             @UsuarioId)", conexion);
         comando.Parameters.AddWithValue("@Titulo", NpgsqlDbType.Text, tarea.Titulo);
         comando.Parameters.AddWithValue("@Descripcion", NpgsqlDbType.Text, tarea.Descripcion ?? (object)DBNull.Value);
         comando.Parameters.AddWithValue("@FechaVencimiento", NpgsqlDbType.Date, tarea.FechaVencimiento.Date); // Solo la fecha
-        comando.Parameters.AddWithValue("@Completada", tarea.Completada);
+        // comando.Parameters.AddWithValue("@Completada", tarea.Completada); // tarea no completada por defecto
         comando.Parameters.AddWithValue("@UsuarioId", NpgsqlDbType.Integer, tarea.UsuarioId);
         await comando.ExecuteNonQueryAsync();
 
-        // // Si está completada, actualizamos su estado
-        // if (tarea.Completada)
-        // {
+        // Si está completada, actualizamos su estado
+        // if (tarea.Completada) {
+        // 
         //     using var updateCommand = new NpgsqlCommand(@"
         //         UPDATE Tareas 
         //         SET Completada = @completada
         //         WHERE Titulo = @titulo AND UsuarioId = @usuarioId
         //         ORDER BY Id DESC LIMIT 1", conexion);
-            
+
         //     updateCommand.Parameters.AddWithValue("@completada", tarea.Completada);
         //     updateCommand.Parameters.AddWithValue("@titulo", NpgsqlDbType.Text, tarea.Titulo);
         //     updateCommand.Parameters.AddWithValue("@usuarioId", NpgsqlDbType.Integer, tarea.UsuarioId);
@@ -96,7 +109,12 @@ public class TareaRepositorio : ITareaRepositorio{
         // }
     }
 
+
+
+
+    // metodo para actualizar una tarea
     public async Task ActualizarTarea(Tarea tarea) {
+
         using var conexion = new NpgsqlConnection(_connectionString);
         await conexion.OpenAsync();
 
@@ -118,10 +136,14 @@ public class TareaRepositorio : ITareaRepositorio{
         await comando.ExecuteNonQueryAsync();
     }
 
+
+    // metodo para eliminar una tarea por su id y el id del usuario
     public async Task EliminarTarea(int id, int usuarioId) {
+
         using var conexion = new NpgsqlConnection(_connectionString);
         await conexion.OpenAsync();
 
+        // usar un comando parametrizado para evitar inyecciones sql
         using var comando = new NpgsqlCommand("DELETE FROM Tareas WHERE Id = @id AND UsuarioId = @usuarioId", conexion);
         comando.Parameters.AddWithValue("@id", id);
         comando.Parameters.AddWithValue("@usuarioId", usuarioId);

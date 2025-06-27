@@ -6,14 +6,19 @@ namespace S3_191095049_NET8.Controladores;
 
 [ApiController]
 [Route("api/usuarios")]
+
+// controlador para manejar las operaciones de usuario
 public class UsuariosController : ControllerBase {
     private readonly IUsuarioServicio _usuarioServicio;
 
+    // constructor que recibe el servicio de usuario
     public UsuariosController(IUsuarioServicio usuarioServicio) {
         _usuarioServicio = usuarioServicio;
     }
 
+
     [HttpPost("registro")]
+    // registrar un nuevo usuario
     public async Task<IActionResult> Registrar([FromBody] UsuarioRegistroDto dto) {
         var error = await _usuarioServicio.Registrar(dto);
         if (error != null)
@@ -23,6 +28,7 @@ public class UsuariosController : ControllerBase {
     }
 
     [HttpPost("login")]
+    // iniciar sesión de un usuario
     public async Task<IActionResult> Login([FromBody] UsuarioLoginDto dto) {
         var token = await _usuarioServicio.Login(dto);
         if (token == null)

@@ -1,9 +1,15 @@
 # Solemne 3  
     Tomas Castillo A  
 
+
+## Requisitos técnicos
+    - dotnet 8  
+    - PostgreSQL 16.9  
+  
+
 ## Reseña básica del proyecto
 ### descripción breve de la finalidad 
-Este proyecto corresponde a una API desarrollada en .NET 8 que permite administrar tareas personales de distintos usuarios. La finalidad principal es gestionar tareas básicas como crearlas, editarlas, eliminarlas y obtener un listado de las tareas asignadas a cada usuario. Además, se implementa un sistema de autenticación con JWT para proteger los recursos y asegurar que solo los usuarios autorizados puedan acceder a sus propias tareas. La base de datos utilizada es PostgreSQL y el acceso a datos se realiza manualmente con ADO.NET a través de la librería Npgsql.  
+Este proyecto permite administrar tareas personales de distintos usuarios. La finalidad principal es gestionar tareas básicas como crearlas, editarlas, eliminarlas y obtener un listado de las tareas asignadas a cada usuario. Además, se implementa un sistema de autenticación con JWT para proteger los recursos y asegurar que solo los usuarios autorizados puedan acceder a sus propias tareas.
 
 ### funcionalidad principal de la API.
 La API permite que un usuario pueda registrarse y luego iniciar sesión para recibir un token de autenticación. Con este token, el usuario puede acceder a los distintos endpoints que le permiten crear nuevas tareas, consultar sus tareas pendientes, actualizarlas o eliminarlas según corresponda. Cada tarea se guarda en la base de datos con su título, descripción, fecha de vencimiento y estado de completada. Además, se implementa control de acceso mediante roles y se asegura que los datos estén protegidos mediante contraseñas encriptadas y tokens válidos para cada sesión.  
@@ -57,11 +63,7 @@ Ingresar "Bearer token123129..."
 <img src="docs/login/Authorize2.png"/>   
 
 
-## Requisitos técnicos
-    - dotnet 8
-    - PostgreSQL 16.9
-### herramientas utilizadas
-    - swagger
+
 
 ## Base de datos  
     usuario: postgres  

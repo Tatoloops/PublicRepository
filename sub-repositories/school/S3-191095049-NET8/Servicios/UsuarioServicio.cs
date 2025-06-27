@@ -10,22 +10,32 @@ using System.Text;
 
 namespace S3_191095049_NET8.Servicios;
 
+// servicio para manejar las operaciones de la entidad Usuario
 public class UsuarioServicio : IUsuarioServicio {
+
+
     private readonly IUsuarioRepositorio _usuarioRepositorio;
     private readonly IConfiguration _configuration;
     private readonly PasswordHasher<Usuario> _passwordHasher;
 
-    public UsuarioServicio(IUsuarioRepositorio usuarioRepositorio, IConfiguration configuration){
+
+    // constructor que recibe el repositorio de usuarios y la configuración
+    public UsuarioServicio(IUsuarioRepositorio usuarioRepositorio, IConfiguration configuration) {
         _usuarioRepositorio = usuarioRepositorio;
         _configuration = configuration;
         _passwordHasher = new PasswordHasher<Usuario>();
     }
 
-    public async Task<string?> Registrar(UsuarioRegistroDto dto){
+
+    // registrar un nuevo usuario
+    public async Task<string?> Registrar(UsuarioRegistroDto dto)
+    {
+        // validar 
         var existe = await _usuarioRepositorio.ObtenerPorCorreo(dto.CorreoElectronico);
         if (existe != null) return "El correo ya está registrado";
 
-        var usuario = new Usuario{
+
+        var usuario = new Usuario {
             Nombre = dto.Nombre,
             CorreoElectronico = dto.CorreoElectronico
         };
@@ -36,14 +46,16 @@ public class UsuarioServicio : IUsuarioServicio {
         return null;
     }
 
-    public async Task<string?> Login(UsuarioLoginDto dto){
+    // iniciar sesión de un usuario
+    public async Task<string?> Login(UsuarioLoginDto dto)
+    {
         var usuario = await _usuarioRepositorio.ObtenerPorCorreo(dto.CorreoElectronico);
         if (usuario == null) return null;
 
         var resultado = _passwordHasher.VerifyHashedPassword(usuario, usuario.ContrasenaHash, dto.Contrasena);
         if (resultado == PasswordVerificationResult.Failed) return null;
 
-        // Crear token JWT
+        // crear token JWT
         var claims = new[]{
             new Claim(JwtRegisteredClaimNames.Sub, usuario.Id.ToString()),
             new Claim(JwtRegisteredClaimNames.Email, usuario.CorreoElectronico),
@@ -61,6 +73,7 @@ public class UsuarioServicio : IUsuarioServicio {
             signingCredentials: creds
         );
 
+        // retornar el token como string
         return new JwtSecurityTokenHandler().WriteToken(token);
     }
 }
