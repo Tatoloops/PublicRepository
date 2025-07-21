@@ -1,0 +1,73 @@
+.documentos-container {
+  display: flex;
+  height: calc(100vh - 64px); // asumiendo navbar de 64px
+//   background-color: #1f2937;
+}
+
+.sidebar {
+  width: 280px;
+  background: #1f2937;
+  color: #e5e7eb;
+  padding: 1rem;
+  overflow-y: auto;
+
+  h2 {
+    margin-top: 0;
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .document {
+    cursor: pointer;
+    margin-left: 8px;
+    &:hover {
+      color: #ffc107;
+    }
+  }
+
+  .folder {
+    display: flex;
+    align-items: center;
+
+    .folder-name {
+      cursor: pointer;
+      margin-left: 8px;
+      &:hover {
+        color: #ffc107;
+      }
+    }
+  }
+
+  .children {
+    margin-left: 16px;
+  }
+}
+
+.viewer {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  background: #2d3e4e;
+
+  h2 {
+    color: #e6e2e2;
+  }
+
+  .document-view {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 4rem;
+
+    .document-icon {
+      font-size: 80px;
+      color: #3f51b5;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.4rem;
+      color: #333;
+    }
+  }
+}

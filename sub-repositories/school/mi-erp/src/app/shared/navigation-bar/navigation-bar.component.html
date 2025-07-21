@@ -1,0 +1,38 @@
+
+<nav class="navbar">
+    <ul class="nav-list">
+
+
+        <li class="nav-item">
+            <a (click)="navigateToHome()">  <!-- Usamos (click) para manejar la navegación mediante RouterLink -->
+                <mat-icon>home</mat-icon>  <!-- Icono de inicio de Angular Material -->
+                <span class="label">Home</span>  <!-- Etiqueta de texto -->
+            </a>
+        </li>
+        <li class="nav-item">
+            <a (click)="navigateToContent()">  <!-- Usamos (click) para manejar la navegación -->
+                <mat-icon>apps</mat-icon>  <!-- Icono de página de contacto de Angular Material -->
+                <span class="label">Aplicaciones</span>  <!-- Etiqueta de texto -->
+            </a>
+        </li>
+        <li class="nav-item">
+            <a (click)="navigateToContent()">  <!-- Usamos (click) para manejar la navegación -->
+                <mat-icon>domain</mat-icon>  <!-- Icono de página de contacto de Angular Material -->
+                <span class="label">Servicios</span>  <!-- Etiqueta de texto -->
+            </a>
+        </li>
+        <li class="nav-item">
+            <a (click)="navigateToContent()">  <!-- Usamos (click) para manejar la navegación -->
+                <mat-icon>contact_support</mat-icon>  <!-- Icono de página de contacto de Angular Material -->
+                <span class="label">Ayuda</span>  <!-- Etiqueta de texto -->
+            </a>
+        </li>
+
+        <li class="nav-item">
+            
+            <button mat-raised-button color="warn" (click)="logout()">
+                <mat-icon>logout</mat-icon> 
+            </button>  <!-- Botón para cerrar sesión -->
+        </li>
+    </ul>
+  </nav>

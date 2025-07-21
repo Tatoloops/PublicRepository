@@ -1,0 +1,89 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.dashboard-container {
+  padding: 3rem;
+  background: #f0f2f5;
+  min-height: 100vh;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2.4rem;
+    color: #333;
+  }
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+  height: 250px;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+  }
+
+  .card-icon {
+    mat-icon {
+      font-size: 64px;
+    }
+  }
+
+  .card-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 1rem 0;
+    color: #333;
+  }
+
+  .card-actions {
+    button {
+      width: 120px;
+    }
+  }
+}
+
+/* Responsive extra */
+@media (max-width: 600px) {
+  .dashboard-container {
+    padding: 1.5rem;
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+  }
+
+  .card {
+    height: 220px;
+
+    .card-icon mat-icon {
+      font-size: 48px;
+    }
+
+    .card-title {
+      font-size: 1.2rem;
+    }
+
+    .card-actions button {
+      width: 100px;
+    }
+  }
+}

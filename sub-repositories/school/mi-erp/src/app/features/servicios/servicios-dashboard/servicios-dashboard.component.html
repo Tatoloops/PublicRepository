@@ -1,0 +1,21 @@
+<div class="servicios-container">
+  <h1>Mis Servicios</h1>
+
+  <div *ngFor="let categoria of categorias" class="categoria-section">
+    <h2>{{ categoria.categoria }}</h2>
+
+    <div class="servicios-grid">
+      <mat-card class="servicio-card" *ngFor="let servicio of categoria.servicios">
+        <div class="servicio-icon">
+          <mat-icon>{{ servicio.icon }}</mat-icon>
+        </div>
+        <div class="servicio-title">
+          {{ servicio.title }}
+        </div>
+        <div class="servicio-actions">
+          <button mat-stroked-button color="primary">Solicitar</button>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -29,12 +29,12 @@ build/
 target/
 CMakeFiles/
 bin/
+obj/
 out/
 Wip/
 wip/
 Legacy/
 
-/Java projects/MyProjectu/build/
 
 /build*
 /.vscode
@@ -49,3 +49,6 @@ cmake_install.cmake
 # Ignore CMake-generated Makefile
 Makefile
 /Java projects/mi_Interface/nbproject/private/
+
+# ignore local scripts
+local-scripts/
