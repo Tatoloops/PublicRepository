@@ -4,7 +4,7 @@ using solution_namespace;
 
 namespace main{
 
-public class Program(){
+public class Program{
     static void Main(string[] args){
         string myString = "hellooo    worldoooooo leeetcode";
 
