@@ -52,3 +52,8 @@ Makefile
 
 # ignore local scripts
 local-scripts/
+local-data/
+
+# virtual environments
+venv/
+.venv
