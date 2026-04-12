@@ -1,0 +1,81 @@
+@startuml
+title Attack on Titan - Mystery to Reveal Mapping
+
+left to right direction
+
+' =========================
+' MYSTERIES (WHAT WE SEE FIRST)
+' =========================
+
+package "MYSTERIES (Early Story)" {
+
+[Why do Titans eat humans?] as M1
+[Where do Titans come from?] as M2
+[What is inside the Walls?] as M3
+[What is the Basement?] as M4
+[Why can Eren transform?] as M5
+[Who are the enemies?] as M6
+[Why are there intelligent Titans?] as M7
+[What is outside the Walls?] as M8
+[Why is history missing?] as M9
+[Why do some Titans act differently?] as M10
+
+}
+
+' =========================
+' REVEALS (TRUTH)
+' =========================
+
+package "REVEALS (Truth Uncovered)" {
+
+[Humans are turned into Titans] as R1
+[Paths + Ymir origin] as R2
+[Walls contain Colossal Titans] as R3
+[Basement reveals outside world] as R4
+[Eren holds Attack + Founding Titan] as R5
+[Enemies are Marley / Humans] as R6
+[Warriors are infiltrators] as R7
+[Human civilization exists globally] as R8
+[Memories were erased by the King] as R9
+[Titans obey hidden rules / commands] as R10
+
+}
+
+' =========================
+' CONNECTIONS
+' =========================
+
+M1 --> R1
+M2 --> R2
+M3 --> R3
+M4 --> R4
+M5 --> R5
+M6 --> R6
+M6 --> R7
+M7 --> R7
+M8 --> R8
+M9 --> R9
+M10 --> R10
+
+' =========================
+' DEEPER CONNECTIONS (RECONTEXTUALIZATION)
+' =========================
+
+R1 --> R6 : "Victims = enemies"
+R5 --> R2 : "Eren connected to origin"
+R4 --> R6 : "Truth about world conflict"
+R9 --> R3 : "Walls exist due to memory control"
+R2 --> R10 : "All Titans linked through Paths"
+
+' =========================
+' FINAL CONVERGENCE
+' =========================
+
+[Final Truth:\nCycle of hatred\nFreedom vs control\nEren's choice] as Final
+
+R2 --> Final
+R6 --> Final
+R9 --> Final
+R5 --> Final
+
+@enduml

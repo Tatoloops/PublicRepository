@@ -1,0 +1,79 @@
+@startuml
+title Echoes of the Hollow Crown - Ideology Clash System
+
+' =========================
+' CORE IDEOLOGIES
+' =========================
+
+package "Core Ideologies" {
+
+[Truth at any cost\n(Kael's path)] as I1
+[Security through Ignorance\n(Anchor Wardens)] as I2
+[Freedom through Forgetting\n(Veil Rememberers)] as I3
+[Rebirth through Reunion\n(Shard Cult)] as I4
+[Peace through Hollowing\n(Hollow Order)] as I5
+
+}
+
+' =========================
+' DIRECT CONFLICTS
+' =========================
+
+I1 -[#red]-> I2 : "Truth vs Safety"
+I1 -[#red]-> I3 : "Remembering vs Erasing"
+I1 -[#red]-> I4 : "Individual truth vs Collective ascension"
+I1 -[#red]-> I5 : "Life with pain vs Emptiness"
+
+I2 -[#red]-> I3 : "Memory as duty vs Memory as curse"
+I2 -[#red]-> I5 : "Controlled ignorance vs Forced emptiness"
+
+I3 -[#red]-> I4 : "Gentle forgetting vs Violent rebirth"
+I3 -[#red]-> I5 : "Voluntary erasure vs Forced Hollowing"
+
+I4 -[#red]-> I5 : "Ascension for all vs Sacrifice of many"
+
+' =========================
+' FACTION & CHARACTER ASSOCIATIONS
+' =========================
+
+[Anchor Wardens] as Wardens
+[Veil Rememberers] as Rememberers
+[Shard Cult] as Cult
+[Hollow Order] as HollowOrder
+[Kael Voss] as Kael
+
+Wardens --> I2
+Rememberers --> I3
+Cult --> I4
+HollowOrder --> I5
+Kael --> I1 : "Evolving path"
+
+' =========================
+' IDEOLOGY EVOLUTION
+' =========================
+
+[Old Mira (Early)] as MiraE
+[Old Mira (Later)] as MiraL
+
+MiraE --> I2 : "Protect the village"
+MiraL --> I5 : "Better Hollow than another Cataclysm"
+
+[Kael (Chapter 1)] as KaelEarly
+[Kael (Final)] as KaelFinal
+
+KaelEarly --> I2 : "Believes in the tithe"
+KaelFinal --> I1 : "Seeks painful truth"
+
+' =========================
+' FINAL CONVERGENCE
+' =========================
+
+[Final Question:\nCan truth be embraced without repeating Veyra's hubris?\nIs any "peace" worth the cost of identity?] as Final
+
+I1 --> Final
+I2 --> Final
+I3 --> Final
+I4 --> Final
+I5 --> Final
+
+@enduml

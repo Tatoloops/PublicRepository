@@ -1,0 +1,53 @@
+@startuml
+title Echoes of the Hollow Crown - Tutorial: How to Use Resonance
+
+left to right direction
+
+' =========================
+' STEP-BY-STEP TUTORIAL
+' =========================
+
+[Step 1\nAwaken Your Core] as Step1
+[Step 2\nFind a Target with History] as Step2
+[Step 3\nFocus & Synchronize] as Step3
+[Step 4\nManifest the Power] as Step4
+[Step 5\nPay the Tithe & Rest] as Step5
+
+Step1 --> Step2 : "Trauma or training"
+Step2 --> Step3 : "Choose wisely"
+Step3 --> Step4 : "Breathe with the echo"
+Step4 --> Step5 : "Use with purpose"
+
+' =========================
+' PRACTICAL EXAMPLE (Stone Style)
+' =========================
+
+[Example: Family Ancestral Hammer] as Example
+
+Step1 --> Example : "Meditate at grandfather's grave"
+Step2 --> Example : "The hammer remembers 400 years of stonework"
+Step3 --> Example : "Feel your Core vibrate with its history"
+Step4 --> Example : "Arms become unbreakable stone"
+Step5 --> Example : "You forget your grandfather's lullaby forever"
+
+' =========================
+' WARNINGS (What Can Go Wrong)
+' =========================
+
+[Do NOT choose new objects] as Warn1
+[Do NOT force a second Primary] as Warn2
+[Do NOT overuse] as Warn3
+
+Warn1 -[#red]> [Zero power] : "Waste"
+Warn2 -[#red]> [Hollowing] : "You become a Husk"
+Warn3 -[#red]> [Massive memory loss] : "You lose yourself"
+
+' =========================
+' ADVANCED (Echo Shard)
+' =========================
+
+[Echo Shard (Forbidden)] as Shard
+Shard -[#blue]> Step4 : "Temporary perfect power - no memory cost"
+Shard -[#red]> [Risk of new Cataclysm] : "DANGER"
+
+@enduml

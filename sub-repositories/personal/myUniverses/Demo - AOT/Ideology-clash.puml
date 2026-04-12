@@ -1,0 +1,80 @@
+@startuml
+title Attack on Titan - Ideology Clash System
+
+' =========================
+' IDEOLOGIES (CORE BELIEFS)
+' =========================
+
+package "Core Ideologies" {
+
+[Freedom at any cost\n(Eren)] as I1
+[Peace through sacrifice\n(Zeke)] as I2
+[Hope & understanding\n(Armin)] as I3
+[Duty & survival\n(Reiner)] as I4
+[Control through fear\n(Marley)] as I5
+[Peace through ignorance\n(King Fritz)] as I6
+
+}
+
+' =========================
+' CONFLICTS (DIRECT OPPOSITIONS)
+' =========================
+
+I1 -[#red]-> I2 : "Freedom vs Mercy"
+I1 -[#red]-> I6 : "Freedom vs Ignorance"
+I1 -[#red]-> I5 : "Freedom vs Control"
+
+I2 -[#red]-> I3 : "Sterilization vs Hope"
+I3 -[#red]-> I1 : "Understanding vs Destruction"
+
+I4 -[#red]-> I1 : "Duty vs Rebellion"
+
+I5 -[#red]-> I6 : "Different forms of control"
+
+' =========================
+' CHARACTER ASSOCIATIONS
+' =========================
+
+[ Eren Yeager ] as Eren
+[ Zeke Yeager ] as Zeke
+[ Armin Arlert ] as Armin
+[ Reiner Braun ] as Reiner
+[ Marley Government ] as Marley
+[ King Fritz ] as Fritz
+
+Eren --> I1
+Zeke --> I2
+Armin --> I3
+Reiner --> I4
+Marley --> I5
+Fritz --> I6
+
+' =========================
+' IDEOLOGY EVOLUTION
+' =========================
+
+[Eren (Child)] as EC
+[Eren (Final)] as EF
+
+EC --> I3 : "Dream of freedom"
+EF --> I1 : "Radical freedom"
+
+[Reiner (Warrior)] as RW
+[Reiner (Broken)] as RB
+
+RW --> I4
+RB --> I3 : "Regret / empathy shift"
+
+' =========================
+' FINAL CONVERGENCE
+' =========================
+
+[Final Conflict:\nCan freedom exist without destruction?\nIs peace possible without sacrifice?] as Final
+
+I1 --> Final
+I2 --> Final
+I3 --> Final
+I5 --> Final
+I6 --> Final
+
+@enduml

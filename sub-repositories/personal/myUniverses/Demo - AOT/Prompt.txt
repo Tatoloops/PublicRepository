@@ -1,0 +1,345 @@
+# Ideology clash diagram:
+@startuml
+title Attack on Titan - Ideology Clash System
+
+' =========================
+' IDEOLOGIES (CORE BELIEFS)
+' =========================
+
+package "Core Ideologies" {
+
+[Freedom at any cost\n(Eren)] as I1
+[Peace through sacrifice\n(Zeke)] as I2
+[Hope & understanding\n(Armin)] as I3
+[Duty & survival\n(Reiner)] as I4
+[Control through fear\n(Marley)] as I5
+[Peace through ignorance\n(King Fritz)] as I6
+
+}
+
+' =========================
+' CONFLICTS (DIRECT OPPOSITIONS)
+' =========================
+
+I1 -[#red]-> I2 : "Freedom vs Mercy"
+I1 -[#red]-> I6 : "Freedom vs Ignorance"
+I1 -[#red]-> I5 : "Freedom vs Control"
+
+I2 -[#red]-> I3 : "Sterilization vs Hope"
+I3 -[#red]-> I1 : "Understanding vs Destruction"
+
+I4 -[#red]-> I1 : "Duty vs Rebellion"
+
+I5 -[#red]-> I6 : "Different forms of control"
+
+' =========================
+' CHARACTER ASSOCIATIONS
+' =========================
+
+[ Eren Yeager ] as Eren
+[ Zeke Yeager ] as Zeke
+[ Armin Arlert ] as Armin
+[ Reiner Braun ] as Reiner
+[ Marley Government ] as Marley
+[ King Fritz ] as Fritz
+
+Eren --> I1
+Zeke --> I2
+Armin --> I3
+Reiner --> I4
+Marley --> I5
+Fritz --> I6
+
+' =========================
+' IDEOLOGY EVOLUTION
+' =========================
+
+[Eren (Child)] as EC
+[Eren (Final)] as EF
+
+EC --> I3 : "Dream of freedom"
+EF --> I1 : "Radical freedom"
+
+[Reiner (Warrior)] as RW
+[Reiner (Broken)] as RB
+
+RW --> I4
+RB --> I3 : "Regret / empathy shift"
+
+' =========================
+' FINAL CONVERGENCE
+' =========================
+
+[Final Conflict:\nCan freedom exist without destruction?\nIs peace possible without sacrifice?] as Final
+
+I1 --> Final
+I2 --> Final
+I3 --> Final
+I5 --> Final
+I6 --> Final
+
+@enduml
+
+# Knowledge-layer diagram:
+@startuml
+title Attack on Titan - Knowledge Layer System
+
+' =========================
+' LAYERS
+' =========================
+
+package "Layer 0: Ignorance (Inside the Walls)" {
+  [Population\n(Civilians)] as Civilians
+}
+
+package "Layer 1: Partial Awareness" {
+  [Survey Corps\n(Hange, Armin)] as Scouts
+}
+
+package "Layer 2: Controlled Truth" {
+  [Military Police\nInterior Government] as MP
+}
+
+package "Layer 3: Royal Truth" {
+  [Reiss Family\nTrue Royal Blood] as Royal
+}
+
+package "Layer 4: External World" {
+  [Marley Government] as Marley
+  [Warriors\n(Reiner, Annie, Bertholdt)] as Warriors
+}
+
+package "Layer 5: Absolute Truth (Paths)" {
+  [Ymir Fritz\nOrigin of Titans] as Ymir
+  [Paths Dimension\nTimeless Network] as Paths
+}
+
+' =========================
+' KNOWLEDGE FLOW
+' =========================
+
+Civilians --> Scouts : "Suspicions / discoveries"
+Scouts --> MP : "Conflict / investigation"
+MP --> Royal : "Serve hidden truth"
+Warriors --> Marley : "Report back"
+Royal --> Paths : "Access via Founding Titan"
+
+' =========================
+' CHARACTER ASCENT (KEY)
+' =========================
+
+[Eren Yeager] as Eren
+[Grisha Yeager] as Grisha
+[Historia Reiss] as Historia
+
+Eren --> Civilians : "Starts here"
+Eren --> Scouts : "Joins Survey Corps"
+Eren --> Royal : "Discovers truth"
+Eren --> Marley : "Learns outside world"
+Eren --> Paths : "Full access"
+
+Grisha --> Marley : "Raised in Marley"
+Grisha --> Royal : "Steals Founding Titan"
+Grisha --> Eren : "Transfers knowledge"
+
+Historia --> Royal : "True lineage"
+Historia --> Scouts : "Rejects system"
+
+' =========================
+' INFORMATION BARRIERS
+' =========================
+
+MP -[#red,dashed]-> Civilians : "Suppress truth"
+Royal -[#red,dashed]-> MP : "Control narrative"
+Marley -[#red,dashed]-> Warriors : "Propaganda"
+
+' =========================
+' HIDDEN TRUTH FLOW
+' =========================
+
+Ymir --> Paths
+Paths --> Royal
+Paths --> Eren
+
+@enduml
+
+#Reveal-mapping diagram:
+@startuml
+title Attack on Titan - Mystery to Reveal Mapping
+
+left to right direction
+
+' =========================
+' MYSTERIES (WHAT WE SEE FIRST)
+' =========================
+
+package "MYSTERIES (Early Story)" {
+
+[Why do Titans eat humans?] as M1
+[Where do Titans come from?] as M2
+[What is inside the Walls?] as M3
+[What is the Basement?] as M4
+[Why can Eren transform?] as M5
+[Who are the enemies?] as M6
+[Why are there intelligent Titans?] as M7
+[What is outside the Walls?] as M8
+[Why is history missing?] as M9
+[Why do some Titans act differently?] as M10
+
+}
+
+' =========================
+' REVEALS (TRUTH)
+' =========================
+
+package "REVEALS (Truth Uncovered)" {
+
+[Humans are turned into Titans] as R1
+[Paths + Ymir origin] as R2
+[Walls contain Colossal Titans] as R3
+[Basement reveals outside world] as R4
+[Eren holds Attack + Founding Titan] as R5
+[Enemies are Marley / Humans] as R6
+[Warriors are infiltrators] as R7
+[Human civilization exists globally] as R8
+[Memories were erased by the King] as R9
+[Titans obey hidden rules / commands] as R10
+
+}
+
+' =========================
+' CONNECTIONS
+' =========================
+
+M1 --> R1
+M2 --> R2
+M3 --> R3
+M4 --> R4
+M5 --> R5
+M6 --> R6
+M6 --> R7
+M7 --> R7
+M8 --> R8
+M9 --> R9
+M10 --> R10
+
+' =========================
+' DEEPER CONNECTIONS (RECONTEXTUALIZATION)
+' =========================
+
+R1 --> R6 : "Victims = enemies"
+R5 --> R2 : "Eren connected to origin"
+R4 --> R6 : "Truth about world conflict"
+R9 --> R3 : "Walls exist due to memory control"
+R2 --> R10 : "All Titans linked through Paths"
+
+' =========================
+' FINAL CONVERGENCE
+' =========================
+
+[Final Truth:\nCycle of hatred\nFreedom vs control\nEren's choice] as Final
+
+R2 --> Final
+R6 --> Final
+R9 --> Final
+R5 --> Final
+
+@enduml
+
+
+@startuml
+title Attack on Titan - Timeline Puzzle (Truth vs Reveal)
+
+' =========================
+' TRUE HISTORY (LEFT SIDE)
+' =========================
+
+package "TRUE HISTORY (Chronological Order)" {
+
+[~2000 Years Ago\nYmir Fritz gains Titan power] as Ymir
+
+[Ymir's power splits into 9 Titans] as NineTitans
+
+[Eldian Empire dominates world] as EldianEmpire
+
+[Marley rebels and wins\nGreat Titan War] as MarleyVictory
+
+[King Fritz retreats to Paradis\nCreates the Walls\n(Vow Renouncing War)] as Walls
+
+[Memory manipulation of Eldians] as MemoryWipe
+
+[Marley uses Titans as weapons] as MarleyControl
+
+[Warriors sent to Paradis\n(Reiner, Bertholdt, Annie)] as WarriorsMission
+
+[Fall of Wall Maria\nStory begins] as Start
+}
+
+Ymir --> NineTitans 
+NineTitans --> EldianEmpire 
+EldianEmpire --> MarleyVictory 
+MarleyVictory --> Walls 
+Walls --> MemoryWipe 
+MemoryWipe --> MarleyControl
+MarleyControl --> WarriorsMission 
+WarriorsMission --> Start
+
+
+' =========================
+' STORY REVEAL ORDER (RIGHT SIDE)
+' =========================
+
+package "STORY (What Audience Learns)" {
+
+[Humanity vs Titans\n(Survival Horror)] as Phase1
+
+[Annie = Titan\nEnemy is human] as Phase2
+
+[Reiner/Bertholdt Reveal] as Phase3
+
+[Basement Reveal\n(Outside World Exists)] as Phase4
+
+[Marley Perspective Introduced] as Phase5
+
+[Eldian History Revealed] as Phase6
+
+[Paths / Ymir Truth] as Phase7
+
+[Eren's True Plan\n(The Rumbling)] as Phase8
+}
+
+Phase1 --> Phase2
+Phase2 --> Phase3 
+Phase3 --> Phase4
+Phase4 --> Phase5 
+Phase5 --> Phase6 
+Phase6 --> Phase7 
+Phase7 --> Phase8
+
+
+' =========================
+' CONNECTIONS (REVEAL LINKS)
+' =========================
+
+' What each reveal actually connects to in the past
+
+Phase1 .right.> Walls : "Hidden Truth"
+Phase2 .right.> WarriorsMission : "Enemy origin"
+Phase3 .right.> MarleyControl : "Warrior program"
+Phase4 .right.> MarleyVictory : "World history"
+Phase5 .right.> MarleyControl
+Phase6 .right.> EldianEmpire
+Phase7 .right.> Ymir
+Phase8 .right.> Ymir
+
+
+' =========================
+' EREN TIME LOOP (CRITICAL)
+' =========================
+
+[Future Eren influences the past\n(Paths)] as ErenLoop
+
+ErenLoop --> Ymir : "Origin manipulation"
+ErenLoop --> Start : "Guides events"
+
+@enduml

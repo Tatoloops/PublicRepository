@@ -1,0 +1,81 @@
+@startuml
+title Attack on Titan - Knowledge Layer System
+
+' =========================
+' LAYERS
+' =========================
+
+package "Layer 0: Ignorance (Inside the Walls)" {
+  [Population\n(Civilians)] as Civilians
+}
+
+package "Layer 1: Partial Awareness" {
+  [Survey Corps\n(Hange, Armin)] as Scouts
+}
+
+package "Layer 2: Controlled Truth" {
+  [Military Police\nInterior Government] as MP
+}
+
+package "Layer 3: Royal Truth" {
+  [Reiss Family\nTrue Royal Blood] as Royal
+}
+
+package "Layer 4: External World" {
+  [Marley Government] as Marley
+  [Warriors\n(Reiner, Annie, Bertholdt)] as Warriors
+}
+
+package "Layer 5: Absolute Truth (Paths)" {
+  [Ymir Fritz\nOrigin of Titans] as Ymir
+  [Paths Dimension\nTimeless Network] as Paths
+}
+
+' =========================
+' KNOWLEDGE FLOW
+' =========================
+
+Civilians --> Scouts : "Suspicions / discoveries"
+Scouts --> MP : "Conflict / investigation"
+MP --> Royal : "Serve hidden truth"
+Warriors --> Marley : "Report back"
+Royal --> Paths : "Access via Founding Titan"
+
+' =========================
+' CHARACTER ASCENT (KEY)
+' =========================
+
+[Eren Yeager] as Eren
+[Grisha Yeager] as Grisha
+[Historia Reiss] as Historia
+
+Eren --> Civilians : "Starts here"
+Eren --> Scouts : "Joins Survey Corps"
+Eren --> Royal : "Discovers truth"
+Eren --> Marley : "Learns outside world"
+Eren --> Paths : "Full access"
+
+Grisha --> Marley : "Raised in Marley"
+Grisha --> Royal : "Steals Founding Titan"
+Grisha --> Eren : "Transfers knowledge"
+
+Historia --> Royal : "True lineage"
+Historia --> Scouts : "Rejects system"
+
+' =========================
+' INFORMATION BARRIERS
+' =========================
+
+MP -[#red,dashed]-> Civilians : "Suppress truth"
+Royal -[#red,dashed]-> MP : "Control narrative"
+Marley -[#red,dashed]-> Warriors : "Propaganda"
+
+' =========================
+' HIDDEN TRUTH FLOW
+' =========================
+
+Ymir --> Paths
+Paths --> Royal
+Paths --> Eren
+
+@enduml

@@ -1,0 +1,81 @@
+@startuml
+title Echoes of the Hollow Crown - Knowledge Layer System
+
+' =========================
+' LAYERS (FROM IGNORANCE TO TRUTH)
+' =========================
+
+package "Layer 0: Village Ignorance" {
+  [Last Anchor Villagers\n(Kael at start)] as Villagers
+}
+
+package "Layer 1: Official Doctrine" {
+  [Anchor Wardens\n(Old Mira & elders)] as Wardens
+}
+
+package "Layer 2: Controlled Anomalies" {
+  [Rift Scouts & Archivists] as Scouts
+}
+
+package "Layer 3: Cross-Realm Awareness" {
+  [Veil Rememberers] as Rememberers
+  [Shard Cult initiates] as CultLow
+}
+
+package "Layer 4: Dangerous Truth" {
+  [Hollow Order] as Hollow
+  [Shard Cult leaders] as CultHigh
+}
+
+package "Layer 5: Absolute Truth (The Broken World)" {
+  [Queen Veyra's Echo\n+ Seven Echo Shards] as Veyra
+  [The World's Soul / Cataclysm Origin] as WorldSoul
+}
+
+' =========================
+' KNOWLEDGE FLOW
+' =========================
+
+Villagers -up-> Wardens : "Obey the tithe"
+Wardens --> Scouts : "Suppress anomalies"
+Scouts --> Rememberers : "First contact"
+Rememberers --> CultLow : "Shared forbidden knowledge"
+CultLow --> Hollow : "Radical experiments"
+Hollow --> CultHigh : "Forced Hollowing technique"
+
+' =========================
+' CHARACTER ASCENT
+' =========================
+
+[Kael Voss] as Kael
+
+Kael --> Villagers : "Starts here"
+Kael --> Wardens : "Questions the law"
+Kael --> Rememberers : "Crosses the Rift"
+Kael --> CultLow : "Learns about Shards"
+Kael --> Hollow : "Faces forced Hollowing"
+Kael --> Veyra : "Bloodline connection"
+Kael --> WorldSoul : "Full puzzle"
+
+[Old Mira] as Mira
+
+Mira --> Wardens : "Enforcer"
+Mira --> Hollow : "Secret informant (later reveal)"
+
+' =========================
+' INFORMATION BARRIERS
+' =========================
+
+Wardens -[#red,dashed]-> Villagers : "Burn records / enforce One Primary"
+Hollow -[#red,dashed]-> Everyone : "Hide forced Hollowing"
+Veyra -[#red,dashed]-> WorldSoul : "Final whisper scattered"
+
+' =========================
+' HIDDEN TRUTH FLOW
+' =========================
+
+WorldSoul --> Veyra : "Cataclysm's echo"  
+Veyra --> "Echo Shards" : "Shards created from her echo"
+"Echo Shards" --> Kael : "Grave in Chapter 1"
+
+@enduml

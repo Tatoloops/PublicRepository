@@ -1,0 +1,62 @@
+@startuml
+title Echoes of the Hollow Crown - Resonance Limits & Mechanics
+
+' =========================
+' CORE MECHANICS
+' =========================
+
+package "Resonance Core" {
+  [Every living soul has one] as Core
+  Core --> [Awakens via trauma or training] : "Step 1"
+}
+
+package "The Act of Resonance" {
+  [Choose target with HISTORY] as Target
+  [Synchronize Core] as Sync
+  [Power flows back] as Power
+  [Manifest ability based on target's nature] as Manifest
+  Target --> Sync
+  Sync --> Power
+  Power --> Manifest
+}
+
+' =========================
+' HARD LIMITS (RED = UNBREAKABLE)
+' =========================
+
+[Rule 1\nHistorical Weight Only] as R1
+[Rule 2\nMemory Tithe] as R2
+[Rule 3\nOne Primary Resonance] as R3
+[Rule 4\nHollowing Risk] as R4
+[Rule 5\nEcho Shards Exception] as R5
+
+R1 -[#red]> [New / artificial objects = 0 power] : "NO"
+R1 -[#green]> [Ancient relics, bloodlines, ruins = full power] : "YES"
+
+R2 -[#red]> [Every major use erases YOUR personal memory] : "Cost"
+R2 -[#green]> [Minor use = tiny memory loss] : "Cheap"
+
+R3 -[#red]> [Second Primary = Hollowing risk] : "DANGER"
+R3 -[#green]> [Experiments OK but weak] : "Safe"
+
+R4 -[#red]> [Core shatters = Husk (emotionless)] : "End"
+
+R5 -[#blue]> [Echo Shards can break ANY rule temporarily] : "ONLY EXCEPTION"
+
+' =========================
+' POWER SCALE
+' =========================
+
+[Low History Target] as Low
+[High History Target] as High
+
+Low --> [Weak effect, small memory cost] : "Example: new knife"
+High --> [God-like effect, massive memory cost] : "Example: Veyra's grave"
+
+' =========================
+' FINAL RISK WARNING
+' =========================
+
+[Attempting to bypass rules without Shard = Cataclysm risk] as Warning
+
+@enduml

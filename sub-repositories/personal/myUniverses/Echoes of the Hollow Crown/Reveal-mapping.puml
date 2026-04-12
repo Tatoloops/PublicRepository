@@ -1,0 +1,72 @@
+@startuml
+title Echoes of the Hollow Crown - Mystery to Reveal Mapping
+
+left to right direction
+
+' =========================
+' EARLY MYSTERIES (What we see in Chapters 1-4)
+' =========================
+
+package "MYSTERIES (Early Story)" {
+
+[Why does the grave whisper Kael's name?] as M1
+[Why does Resonance always take memories?] as M2
+[What is really beyond the Rift?] as M3
+[Why do some people Hollow suddenly?] as M4
+[Is the "One Primary" rule absolute?] as M5
+[Why is Kael's bloodline "cursed"?] as M6
+[What are the strange new Resonances?] as M7
+
+}
+
+' =========================
+' REVEALS (Truth Uncovered)
+' =========================
+
+package "REVEALS (Layered Truth)" {
+
+[Grave contains Echo Shard fragment] as R1
+[Memory cost = world's broken soul] as R2
+[Three Realms exist; Stone lied for 800 years] as R3
+[Forced Hollowing technique exists] as R4
+[Multiple Resonances possible in Veil] as R5
+[Kael descends from Veyra's guard] as R6
+[Echo Shards can bypass rules temporarily] as R7
+
+}
+
+' =========================
+' DIRECT CONNECTIONS
+' =========================
+
+M1 --> R1
+M2 --> R2
+M3 --> R3
+M4 --> R4
+M5 --> R5
+M6 --> R6
+M7 --> R7
+
+' =========================
+' DEEPER RECONTEXTUALIZATION
+' =========================
+
+R1 --> R6 : "Warning from bloodline"
+R2 --> R4 : "Forced Hollowing accelerates the cost"
+R3 --> R5 : "Veil's philosophy based on different survival"
+R6 --> R7 : "Bloodline can safely touch Shards"
+R2 --> R3 : "Ignorance was protecting the broken world"
+
+' =========================
+' FINAL CONVERGENCE
+' =========================
+
+[Final Truth:\nVeyra's Cataclysm broke the world\nEvery faction's "solution" risks repeating it\nKael must choose what to remember and what to forget] as Final
+
+R2 --> Final
+R3 --> Final
+R4 --> Final
+R6 --> Final
+R7 --> Final
+
+@enduml

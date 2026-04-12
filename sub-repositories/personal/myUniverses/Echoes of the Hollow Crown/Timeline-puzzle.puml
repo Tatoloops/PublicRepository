@@ -1,0 +1,83 @@
+@startuml
+title Echoes of the Hollow Crown - Timeline Puzzle (Truth vs Reveal Order)
+
+' =========================
+' TRUE HISTORY (Chronological - What Actually Happened)
+' =========================
+
+package "TRUE HISTORY (800 Years)" {
+
+[~800 Years Ago\nQueen Veyra uses Crown\nCataclysm splits world] as Cataclysm
+
+[Seven Echo Shards scatter] as ShardsScatter
+
+[Realm of Stone forms Anchor Wardens\n"One Primary + Tithe" doctrine] as StoneDoctrine
+
+[Realm of Veil forms Rememberers\nForgetting = mercy] as VeilDoctrine
+
+[Shattered Middle forms Shard Cult] as CultBirth
+
+[First forced Hollowing experiments (secret)] as ForcedHollowEarly
+
+[Hollow Order founded\n"Peace through emptiness"] as HollowOrderBirth
+
+[Rift begins widening again] as RiftAwakens
+
+[Story Present\nKael at mother's grave] as Present
+}
+
+Cataclysm --> ShardsScatter
+ShardsScatter --> StoneDoctrine
+StoneDoctrine --> VeilDoctrine
+VeilDoctrine --> CultBirth
+CultBirth --> ForcedHollowEarly
+ForcedHollowEarly --> HollowOrderBirth
+HollowOrderBirth --> RiftAwakens
+RiftAwakens --> Present
+
+' =========================
+' STORY REVEAL ORDER (What Audience Learns)
+' =========================
+
+package "STORY REVEAL ORDER" {
+
+[Layer 1: Safe village life\nResonance tithe is holy] as Phase1
+
+[Layer 2: Rules are breaking\nFirst anomalies & dying traveler] as Phase2
+
+[Layer 3: We are not alone\nCross Rift + Veil philosophy] as Phase3
+
+[Layer 4: Bloodline & Shards\nForced Hollowing revealed] as Phase4
+
+[Layer 5: Full Cataclysm truth\nVeyra's echo + seven Shards] as Phase5
+
+[Final: Impossible choice\nReunite or destroy?] as Phase6
+}
+
+Phase1 --> Phase2
+Phase2 --> Phase3
+Phase3 --> Phase4
+Phase4 --> Phase5
+Phase5 --> Phase6
+
+' =========================
+' CONNECTION LINKS (How Reveals Map Back to True History)
+' =========================
+
+Phase1 .right.> StoneDoctrine : "Official lie"
+Phase2 .right.> RiftAwakens : "Anomalies explained"
+Phase3 .right.> VeilDoctrine : "Other survival method"
+Phase4 .right.> ForcedHollowEarly : "Dark technique"
+Phase5 .right.> Cataclysm : "Origin of everything"
+Phase6 .right.> ShardsScatter : "Final puzzle piece"
+
+' =========================
+' KEY ECHO (Veyra's Influence)
+' =========================
+
+[Veyra's Final Whisper\n"Remember everything... and choose to forget"] as Whisper
+
+Whisper --> Cataclysm
+Whisper --> Present : "Echo in the grave (Chapter 1)"
+
+@enduml
