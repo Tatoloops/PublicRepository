@@ -1,0 +1,15 @@
+@startuml titulo
+
+database MongoDB
+
+file CSV
+
+rectangle PowerBI
+
+CSV --> MongoDB
+
+MongoDB --> PowerBI
+
+
+
+@enduml
