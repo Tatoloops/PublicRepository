@@ -1,0 +1,7 @@
+{
+    "action": "find",
+    "filter": {
+        "Year": 2024,
+        "Order_Status": "Delivered"
+    }
+}

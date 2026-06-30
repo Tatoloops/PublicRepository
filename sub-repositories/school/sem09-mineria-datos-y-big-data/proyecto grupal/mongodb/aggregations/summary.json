@@ -1,0 +1,19 @@
+{
+    "action": "aggregate",
+    "pipeline": [
+        {
+            "$group": {
+                "_id": null,
+                "Total_Revenue": { "$sum": "$Revenue" },
+                "Total_Profit": { "$sum": "$Profit" },
+                "Average_Ticket": { "$avg": "$Revenue" },
+                "Total_Orders": { "$sum": 1 }
+            }
+        },
+        {
+            "$project": {
+                "_id": 0
+            }
+        }
+    ]
+}

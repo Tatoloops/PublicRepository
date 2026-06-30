@@ -1,0 +1,26 @@
+@startuml
+title CRUD Operation Flow
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam roundcorner 15
+
+actor User
+
+rectangle "JSON Template" as JSON
+
+component mongo_engine.py
+
+database MongoDB
+
+' rectangle Result
+
+User --> mongo_engine.py
+User --> JSON
+JSON --> mongo_engine.py
+mongo_engine.py <-> MongoDB
+' MongoDB --> mongo_engine.py
+' mongo_engine.py --> Result
+' Result --> User
+
+@enduml

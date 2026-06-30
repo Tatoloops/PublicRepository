@@ -1,0 +1,21 @@
+{
+    "action": "aggregate",
+    "pipeline": [
+        {
+            "$group": {
+                "_id": {
+                    "Year": "$Year",
+                    "Month": "$Month"
+                },
+                "Monthly_Revenue": { "$sum": "$Revenue" },
+                "Monthly_Profit": { "$sum": "$Profit" }
+            }
+        },
+        {
+            "$sort": {
+                "_id.Year": 1,
+                "_id.Month": 1
+            }
+        }
+    ]
+}

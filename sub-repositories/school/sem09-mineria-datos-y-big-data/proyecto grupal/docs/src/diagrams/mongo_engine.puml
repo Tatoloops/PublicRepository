@@ -1,0 +1,22 @@
+@startuml
+
+title Mongo Engine Execution Flow
+
+actor User
+
+participant "mongo_engine.py" as Engine
+participant "JSON Configuration" as JSON
+database MongoDB
+
+User -> Engine : Execute\npython mongo_engine.py config.json
+
+Engine -> JSON : Read configuration
+JSON --> Engine : action + parameters
+
+Engine -> MongoDB : Execute operation\n(find / insert / update / delete / aggregate)
+
+MongoDB --> Engine : Results
+
+Engine -> User : Print formatted output
+
+@enduml

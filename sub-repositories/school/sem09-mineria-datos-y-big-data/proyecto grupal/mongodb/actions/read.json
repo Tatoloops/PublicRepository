@@ -1,0 +1,23 @@
+{
+    "action": "READ",
+
+    "filter": {
+
+        "Country": "Chile"
+
+    },
+
+    "projection": {
+
+        "_id": 0,
+
+        "Order_ID": 1,
+        "Country": 1,
+        "Revenue": 1,
+        "Category": 1,
+        "Order_Status": 1
+
+    },
+
+    "limit": 20
+}

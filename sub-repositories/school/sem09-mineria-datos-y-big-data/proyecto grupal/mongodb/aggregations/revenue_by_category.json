@@ -1,0 +1,17 @@
+{
+    "action": "aggregate",
+    "pipeline": [
+        {
+            "$group": {
+                "_id": "$Category",
+                "Total_Revenue": { "$sum": "$Revenue" },
+                "Total_Quantity": { "$sum": "$Quantity" }
+            }
+        },
+        {
+            "$sort": {
+                "Total_Revenue": -1
+            }
+        }
+    ]
+}

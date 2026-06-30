@@ -1,0 +1,25 @@
+@startuml
+title Dashboard Generation
+
+skinparam monochrome true
+skinparam shadowing false
+
+database MongoDB
+
+' component Aggregations
+
+component export_dashboard.py
+
+folder CSV
+
+rectangle "Power BI"
+
+rectangle Dashboard
+
+
+MongoDB --> export_dashboard.py
+export_dashboard.py --> CSV
+CSV --> "Power BI"
+"Power BI" --> Dashboard
+
+@enduml

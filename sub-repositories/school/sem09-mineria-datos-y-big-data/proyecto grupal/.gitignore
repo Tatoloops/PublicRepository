@@ -1,0 +1,6 @@
+.venv/
+venv/
+local/
+local-temp/
+__pycache__.py
+out/

@@ -1,0 +1,18 @@
+{
+    "action": "UPDATE",
+
+    "filter": {
+
+        "Order_ID": "ORD-CUSTOM-00001"
+
+    },
+
+    "update": {
+
+        "Order_Status": "Delivered",
+
+        "Shipping_Method": "Express"
+
+    }
+}
+

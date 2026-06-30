@@ -1,0 +1,10 @@
+{
+    "action": "find",
+    "filter": {
+        "Country": "Chile"
+    },
+    "sort": {
+        "Order_Date": -1
+    },
+    "limit": 10
+}

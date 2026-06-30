@@ -1,0 +1,23 @@
+@startuml
+title Query Execution
+
+skinparam monochrome true
+skinparam shadowing false
+
+actor User
+
+rectangle QueryJSON
+
+component mongo_engine.py
+
+database MongoDB
+
+rectangle "Query Results"
+
+User --> mongo_engine.py
+User --> QueryJSON
+QueryJSON --> mongo_engine.py
+mongo_engine.py --> MongoDB
+MongoDB --> "Query Results"
+
+@enduml

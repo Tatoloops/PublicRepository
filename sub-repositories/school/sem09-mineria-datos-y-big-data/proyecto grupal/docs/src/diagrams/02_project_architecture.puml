@@ -1,0 +1,29 @@
+@startuml
+title Project Architecture
+
+skinparam monochrome true
+skinparam shadowing false
+skinparam roundcorner 15
+
+package "Python Scripts" {
+
+component clean_dataset.py
+component mongo_engine.py
+component export_dashboard.py
+
+}
+
+database MongoDB
+
+folder "Dashboard CSV"
+
+rectangle "Power BI"
+
+clean_dataset.py --> MongoDB
+mongo_engine.py --> MongoDB
+mongo_engine.py --> "Dashboard CSV"
+export_dashboard.py --> "Dashboard CSV"
+
+"Dashboard CSV" --> "Power BI"
+
+@enduml

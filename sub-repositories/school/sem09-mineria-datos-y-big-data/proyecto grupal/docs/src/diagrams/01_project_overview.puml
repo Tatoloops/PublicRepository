@@ -1,0 +1,23 @@
+@startuml
+title Project Pipeline
+
+skinparam shadowing false
+skinparam roundcorner 15
+skinparam monochrome true
+
+rectangle "Raw Dataset\n(CSV)" as RAW
+rectangle "Clean Dataset\n(clean_dataset.py)" as CLEAN
+database "MongoDB\n(ecommerce.orders)" as DB
+rectangle "Queries /\nCRUD /\nAggregations" as ENGINE
+rectangle "Export CSV\n(export_dashboard.py)" as EXPORT
+rectangle "Power BI\nDashboard" as BI
+rectangle "Decision Making" as DECISION
+
+RAW --> CLEAN
+CLEAN --> DB
+DB --> ENGINE
+ENGINE --> EXPORT
+EXPORT --> BI
+BI --> DECISION
+
+@enduml

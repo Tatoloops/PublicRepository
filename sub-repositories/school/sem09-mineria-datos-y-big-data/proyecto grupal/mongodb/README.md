@@ -1,68 +1,43 @@
-# MongoDB Scripts
+# Motor de Consultas y Operaciones para MongoDB (E-commerce Data)
 
-Database: `ecommerce`  
-Collection: `orders`
+Este proyecto proporciona un motor de ejecución basado en Python para interactuar con una base de datos MongoDB (específicamente para un conjunto de datos de E-commerce) de manera flexible y sencilla.
 
-All scripts run with:
-```bash
-mongosh --file mongodb/<script>.js
-```
+El objetivo principal es **separar la lógica de las consultas (qué queremos hacer) de la ejecución técnica (cómo lo hace Python)**. Esto permite definir todas las operaciones CRUD, consultas complejas y análisis empresariales (KPIs) en archivos de configuración JSON fáciles de leer y editar, sin necesidad de modificar ni una sola línea de código Python.
 
 ---
 
-## Script index
+## Cómo Funciona
 
-| File | Purpose |
-|---|---|
-| `00_check_connection.js` | Verify mongosh can reach the server |
-| `00_create_database.js` | Create the database and collection |
-| `00_drop_database.js` | Drop the database (destructive) |
-| `00_show_database.js` | Show current databases and collections |
-| `import.sh` | Drop → create → import the CSV dataset |
-| `02_crud.js` | CRUD demonstration with a test document |
-| `03_queries.js` | Five required academic queries |
-| `04_manage.js` | **Interactive CRUD** — edit and run your own operations |
-| `05_aggregations.js` | Summary metrics (KPIs) used by the dashboard |
+El funcionamiento del motor se puede resumir en cuatro pasos simples:
 
----
+1.  **Define tu "Pedido" (el JSON):** Crea un archivo JSON que describe exactamente qué operación quieres realizar. Piensa en esto como elegir un plato del menú de un restaurante. Especificas la "acción" (FIND, INSERT, UPDATE, DELETE, AGGREGATE) y proporcionas los detalles necesarios (filtros, documentos, etc.).
+2.  **Realiza el "Pedido" (Ejecuta el Comando):** Usas la terminal para decirle al "Chef" (el script `mongo_engine.py`) qué "Pedido" (el archivo JSON) quieres que cocine.
+3.  **El Chef Prepara el Plato:** El script lee tu archivo JSON, se conecta a la "Despensa" (la base de datos MongoDB) y ejecuta la operación exacta que solicitaste usando un ayudante técnico (PyMongo).
+4.  **Sirve el Plato (Ver los Resultados):** El Chef te presenta los resultados directamente en tu pantalla, formateados para que sean fáciles de leer, o confirma que la operación se completó con éxito.
 
-## Quick start
+## Estructura del Proyecto
 
-```bash
-# 1. Load the dataset
-source mongodb/import.sh
+El proyecto está organizado de forma modular para gestionar las diferentes operaciones:
 
-# 2. Run the CRUD demonstration (for the report)
-mongosh --file mongodb/02_crud.js
-
-# 3. Run the required queries
-mongosh --file mongodb/03_queries.js
-
-# 4. Run the KPI aggregations
-mongosh --file mongodb/05_aggregations.js
-```
-
----
-
-## Using 04_manage.js
-
-Open the file and change two things:
-
-**1. Set the action**
-```javascript
-const ACTION = "INSERT";   // INSERT | READ | UPDATE | DELETE
-```
-
-**2. Fill in the data for that action**
-
-- `INSERT` → edit `INSERT_DOCUMENT`
-- `READ`   → edit `READ_FILTER` (and optionally `READ_LIMIT`)
-- `UPDATE` → edit `UPDATE_FILTER` and `UPDATE_FIELDS`
-- `DELETE` → edit `DELETE_FILTER`
-
-Then run:
-```bash
-mongosh --file mongodb/04_manage.js
-```
-
-The script prints a before/after view for UPDATE and DELETE so you can take a screenshot for the evidence folder.
+```text
+mongodb/
+│
+├── mongo_engine.py          ← EL MOTOR (CLI principal): Ejecuta cualquier operación definida en JSON.
+│
+├── actions/                  ← PLANTILLAS CRUD (Crea, Lee, Actualiza, Borra):
+│   ├── insert.json          ← Añadir nuevos pedidos.
+│   ├── read.json            ← Buscar pedidos básicos.
+│   ├── update.json          ← Modificar pedidos existentes (ej: cambiar estado).
+│   └── delete.json          ← Eliminar pedidos (ej: cancelados).
+│
+├── queries/                  ← CONSULTAS ESPECÍFICAS (Búsquedas Complejas):
+│   ├── q1_country.json      ← Buscar pedidos por país.
+│   ├── q2_category.json     ← Buscar pedidos por categoría.
+│   ├── q3_high_revenue.json ← Buscar pedidos con altos ingresos.
+│   └── q4_delivered_2024.json ← Buscar pedidos entregados en 2024.
+│
+└── aggregations/             ← ANÁLISIS DE DATOS (KPIs y Agregados):
+    ├── summary.json         ← Resumen global de ingresos y beneficios.
+    ├── revenue_by_category.json ← Ingresos totales por categoría de producto.
+    ├── monthly_revenue.json  ← Tendencia mensual de ingresos.
+    └── profit_margin.json   ← Margen de beneficio por categoría.

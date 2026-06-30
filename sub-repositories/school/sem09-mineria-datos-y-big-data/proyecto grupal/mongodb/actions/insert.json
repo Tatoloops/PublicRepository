@@ -1,0 +1,30 @@
+{
+    "action": "INSERT",
+
+    "document": {
+
+        "Order_ID": "ORD-CUSTOM-00001",
+        "Order_Date": "2026-06-29",
+
+        "Year": 2026,
+        "Month": 6,
+
+        "Region": "South America",
+        "Country": "Chile",
+
+        "Category": "Electronics",
+
+        "Product_Name": "Mechanical Keyboard",
+
+        "Unit_Price": 120,
+        "Quantity": 2,
+
+        "Revenue": 240,
+        "Profit": 80,
+
+        "Payment_Method": "Credit Card",
+        "Shipping_Method": "Express",
+
+        "Order_Status": "Processing"
+    }
+}

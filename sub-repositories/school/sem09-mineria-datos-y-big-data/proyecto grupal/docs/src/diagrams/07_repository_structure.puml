@@ -1,0 +1,18 @@
+@startmindmap
+* Project
+** data
+*** raw
+*** processed
+** scripts
+*** clean_dataset.py
+*** profile_dataset.py
+** mongodb
+*** actions
+*** queries
+*** aggregations
+*** mongo_engine.py
+** dashboard
+*** export_dashboard.py
+** report
+** docs
+@endmindmap

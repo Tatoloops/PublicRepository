@@ -1,0 +1,29 @@
+@startuml
+title MongoDB Document Model
+
+skinparam monochrome true
+skinparam shadowing false
+
+
+package "data/processed/" as Document {
+    class "ecommerce_sales_dataset.csv" as cleancsv {
+        Order_ID : string
+        Order_Date : date
+        Year : int
+        Month : int
+        Region : string
+        Country : string
+        Category : string
+        Product_Name : string
+        Unit_Price : float
+        Quantity : int
+        Revenue : float
+        Profit : float
+        Payment_Method : string
+        Shipping_Method : string
+        Order_Status : string
+    }
+}
+
+@enduml
+

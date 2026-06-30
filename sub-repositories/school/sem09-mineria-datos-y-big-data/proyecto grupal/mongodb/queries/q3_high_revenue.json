@@ -1,0 +1,10 @@
+{
+    "action": "find",
+    "filter": {
+        "Revenue": { "$gt": 500 }
+    },
+    "sort": {
+        "Revenue": -1
+    },
+    "limit": 20
+}

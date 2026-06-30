@@ -1,0 +1,28 @@
+@startuml
+title Data Lifecycle
+
+skinparam monochrome true
+skinparam shadowing false
+
+rectangle "Raw CSV"
+
+rectangle "Cleaning"
+
+rectangle "Processed CSV"
+
+database MongoDB
+
+rectangle Analysis
+
+rectangle Dashboard
+
+rectangle Decisions
+
+"Raw CSV" --> Cleaning
+Cleaning --> "Processed CSV"
+"Processed CSV" --> MongoDB
+MongoDB --> Analysis
+Analysis --> Dashboard
+Dashboard --> Decisions
+
+@enduml

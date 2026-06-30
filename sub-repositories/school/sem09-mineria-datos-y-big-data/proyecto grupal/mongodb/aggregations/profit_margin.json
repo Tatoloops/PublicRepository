@@ -1,0 +1,32 @@
+{
+    "action": "aggregate",
+    "pipeline": [
+        {
+            "$match": {
+                "Revenue": { "$gt": 0 }
+            }
+        },
+        {
+            "$group": {
+                "_id": "$Category",
+                "Total_Revenue": { "$sum": "$Revenue" },
+                "Total_Profit": { "$sum": "$Profit" }
+            }
+        },
+        {
+            "$addFields": {
+                "Profit_Margin_Percent": {
+                    "$multiply": [
+                        { "$divide": ["$Total_Profit", "$Total_Revenue"] },
+                        100
+                    ]
+                }
+            }
+        },
+        {
+            "$sort": {
+                "Profit_Margin_Percent": -1
+            }
+        }
+    ]
+}
