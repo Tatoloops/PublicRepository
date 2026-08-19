@@ -1,0 +1,22 @@
+debe de generar un control de acceso considerando lo siguiente:
+1. quien lo solicita
+2. esta autorizado?
+3. que puede hacer?
+4. como se registra?
+5. como se revoca?
+
+usuarios:
+1. alumno
+2. docente
+3. administrativo
+
+contexto:
+la educacional utiliza una plataforma web integrada en la cual cada usuario tiene sucesion respectiva, y trabaja sobre el enfoque de minimo privilegio.
+es decir solo los permisos que requiera.
+En el caso de los usuario-alumno solo pueden leer y subir archivos.
+en el caso de los docentes. pueden leer, configurar, modificar, subir archivos, 
+en el caso de los usuario administrativos. pueden crear, ver, modificar, analizar, subir y bajar archivos.
+
+
+mecanismos de tipo de cifrado en bases de datos.
+cifrado en transito y cifrado en reposo.
